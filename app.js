@@ -48,4 +48,4 @@ app.use("/api/patient", patientRoutes);
 //app.use("/api/clinician", clinicianRoutes);
 
 /* litsen on port process.env.PORT || 5000 */
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 8081);
