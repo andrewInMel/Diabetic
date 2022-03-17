@@ -43,6 +43,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* routes */
+app.get("/", (req, res) => {
+  res.sendFile(`${__dirname}/sprint_1/index.html`);
+});
+app.get("/about", (req, res) => {
+  res.sendFile(`${__dirname}/sprint_1/about.html`);
+});
+app.get("/login", (req, res) => {
+  res.sendFile(`${__dirname}/sprint_1/login.html`);
+});
 app.use("/auth", authRoutes);
 app.use("/api/patient", patientRoutes);
 //app.use("/api/clinician", clinicianRoutes);
