@@ -3,6 +3,9 @@ const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 /* routes */
+const authRoutes = require("./routes/authRoutes.js");
+const patientRoutes = require("./routes/patientRoutes.js");
+//const clinicianRoutes = require("./routes/clinicianRoutes.js");
 
 /* enviroment variable, access by process.env.Variable_Name */
 require("dotenv").config();
@@ -40,6 +43,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* routes */
+app.use("/auth", authRoutes);
+app.use("/api/patient", patientRoutes);
+//app.use("/api/clinician", clinicianRoutes);
 
 /* litsen on port process.env.PORT || 5000 */
 app.listen(process.env.PORT || 5000);

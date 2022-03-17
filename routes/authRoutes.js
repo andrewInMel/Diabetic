@@ -2,10 +2,19 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 
-/* sign in */
-router.post("/login", passport.authenticate("local"), (req, res) => {
+/* patient sign in */
+router.post("/login/patient", passport.authenticate("patient"), (req, res) => {
   res.send("Authtication succeed");
 });
+
+/* clinician sign in */
+router.post(
+  "/login/clinician",
+  passport.authenticate("clinician"),
+  (req, res) => {
+    res.send("Authtication succeed");
+  }
+);
 
 /* log out */
 router.get("/logout", (req, res) => {
