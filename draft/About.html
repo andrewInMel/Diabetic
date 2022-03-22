@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./about.css" />
+
+    <title>About Diabate</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h2>App Name Here</h2>
+      </div>
+      <div>
+        <a href="#">Login</a>
+      </div>
+    </header>
+    <nav>
+      <div class="nav-container">
+        <p class="nav-item">Cause</p>
+        <p class="nav-item">Damage</p>
+        <p class="nav-item">Treatment</p>
+      </div>
+    </nav>
+    <section>
+      <div class="section-container">
+        <div class="text">
+          <p id="cause">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+            voluptates hic rem qui quibusdam. Laboriosam modi maxime nam,
+            dolores nihil animi officia eos. Eligendi consectetur ipsam dicta
+            vero rerum id!
+          </p>
+          <p id="damage">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+            quod, incidunt ad voluptas, quae, aperiam ipsum natus ipsa soluta
+            repellendus pariatur totam tempore magni fuga reprehenderit dolores
+            atque id vitae minus molestias explicabo. Blanditiis ullam error
+            soluta iusto molestiae commodi sit cupiditate aut repellat
+            perspiciatis nesciunt magni earum culpa veniam, velit natus, animi
+            eligendi. Architecto omnis fugit voluptas, numquam illo, possimus
+            provident porro quibusdam laboriosam reprehenderit exercitationem
+            ratione nemo asperiores laudantium praesentium laborum sequi iure
+            quia commodi expedita. Hic cum, expedita consequatur accusantium
+            sapiente consequuntur non eius provident voluptatibus, rem dolorem
+            id repellendus! Aperiam laboriosam doloribus fuga aut omnis iste
+            fugiat? Sed quibusdam recusandae, possimus asperiores neque mollitia
+            amet minima nostrum magni quos sapiente laboriosam, consectetur
+            fugit distinctio dolorem magnam maiores esse labore. Accusantium
+            eligendi quis, dignissimos autem voluptates earum eveniet
+            exercitationem debitis odio officia unde soluta amet totam
+            cupiditate nostrum velit maxime ipsam itaque doloribus tempore!
+            Maiores qui nisi dolores, quis ut recusandae maxime exercitationem
+            quam alias ipsam consequuntur voluptatibus repellendus aperiam
+            laudantium. Officiis suscipit in architecto numquam nostrum odit a
+            tempore optio temporibus non. Atque aperiam nisi totam voluptatum
+            itaque dolorum? At mollitia vero labore placeat deleniti pariatur
+            hic facilis quod accusantium eaque illum, soluta dignissimos
+            possimus a?
+          </p>
+          <p id="treatment">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Consequatur in ipsam, labore eum esse non totam doloremque
+            repudiandae. Placeat praesentium nemo tenetur libero, quas
+            perspiciatis velit, fugiat vero in at laboriosam nisi aspernatur
+            quisquam suscipit vel. Rerum, dignissimos, quidem, provident
+            voluptas labore nulla doloremque totam corrupti quas blanditiis
+            natus assumenda!
+          </p>
+        </div>
+        <div class="my-iframe">
+          <iframe
+            src="https://www.youtube.com/embed/XfyGv-xwjlI"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    <footer><h3>The footer of the webpage.</h3></footer>
+
+    <script>
+      const causeElement = document.getElementById("cause");
+      const damageElement = document.getElementById("damage");
+      const treatElement = document.getElementById("treatment");
+      document
+        .getElementsByClassName("nav-item")[0]
+        .addEventListener("click", function () {
+          causeElement.style.display = "block";
+          damageElement.style.display = "none";
+          treatElement.style.display = "none";
+        });
+      document
+        .getElementsByClassName("nav-item")[1]
+        .addEventListener("click", function () {
+          causeElement.style.display = "none";
+          damageElement.style.display = "block";
+          treatElement.style.display = "none";
+        });
+      document
+        .getElementsByClassName("nav-item")[2]
+        .addEventListener("click", function () {
+          causeElement.style.display = "none";
+          damageElement.style.display = "none";
+          treatElement.style.display = "block";
+        });
+    </script>
+  </body>
+</html>
