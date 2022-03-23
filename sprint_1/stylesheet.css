@@ -2,9 +2,9 @@
     --text-btn: 80px;
     --text-heading: 50px;
     --text-body: 30px;
-    --font-family-body: 'PT Sans', italic;
-    --font-family-heading: 'PT Sans', italic, bold;
-    --font-family-btn: 'Comfortaa', bold; 
+    --font-family-body: 'PT Sans';
+    --font-family-heading: 'PT Sans';
+    --font-family-btn: 'Comfortaa'; 
     --color-text: #446275;
     --color-background: #D7E9F5;
 }
@@ -22,21 +22,24 @@ body { /* page layout - desktop version */
 
 /* assign regions of the page to the grid */
 header {grid-area: header;}
-.btn {grid-area: left-header;}
+.btn-home {grid-area: left-header;}
 .col1 {grid-area: col1;}
 .col2 {grid-area: col2;}
 
-.btn {
+.btn-home {
     border: none;
     background-color: inherit;
     padding: 14px 28px;
     font-size: var(--text-btn);
+    font-family: var(--font-family-btn);
+    font-style: bold;
     cursor: pointer;
 }
 
 header {
     font-size: var(--text-heading);
     font-family: var(--font-family-heading);
+    font-style: italic;
     background-color: var(--color-background);
     color: var(--color-text);
     text-align: center;
@@ -45,5 +48,6 @@ header {
 main {
     font-size: var(--text-body);
     font-family: var(--font-family-body);
+    font-style: italic;
     color: var(--color-text);
 }
