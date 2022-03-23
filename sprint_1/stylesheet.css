@@ -1,6 +1,16 @@
+* {
+    margin: 10;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
 :root {
     --text-btn: 80px;
     --text-heading: 50px;
+    --text-subheading: 40px;
     --text-body: 30px;
     --font-family-body: 'PT Sans';
     --font-family-heading: 'PT Sans';
@@ -11,20 +21,21 @@
 
 body { /* page layout - desktop version */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 9fr;
-    grid-gap: 1rem;
-
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    grid-gap: 3rem;
     grid-template-areas: 
-        "left-header header header right-header"
-        "col1 col1 col2 col2";
+        "header header"
+        "col1 col2";
     }
 
 /* assign regions of the page to the grid */
 header {grid-area: header;}
-.btn-home {grid-area: left-header;}
+
 .col1 {grid-area: col1;}
 .col2 {grid-area: col2;}
+
+
 
 .btn-home {
     border: none;
@@ -32,11 +43,15 @@ header {grid-area: header;}
     padding: 14px 28px;
     font-size: var(--text-btn);
     font-family: var(--font-family-btn);
-    font-style: bold;
+    color: var(--color-text);
+    font-weight: bold;
     cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-header {
+header h1{
     font-size: var(--text-heading);
     font-family: var(--font-family-heading);
     font-style: italic;
@@ -45,9 +60,13 @@ header {
     text-align: center;
 }
 
-main {
+.col1, .col2 {
     font-size: var(--text-body);
     font-family: var(--font-family-body);
     font-style: italic;
     color: var(--color-text);
+}
+
+h2{
+    font-size: var(--text-subheading);
 }
