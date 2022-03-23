@@ -1,0 +1,49 @@
+:root {
+    --text-btn: 80px;
+    --text-heading: 50px;
+    --text-body: 30px;
+    --font-family-body: 'PT Sans', italic;
+    --font-family-heading: 'PT Sans', italic, bold;
+    --font-family-btn: 'Comfortaa', bold; 
+    --color-text: #446275;
+    --color-background: #D7E9F5;
+}
+
+body { /* page layout - desktop version */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 9fr;
+    grid-gap: 1rem;
+
+    grid-template-areas: 
+        "left-header header header right-header"
+        "col1 col1 col2 col2";
+    }
+
+/* assign regions of the page to the grid */
+header {grid-area: header;}
+.btn {grid-area: left-header;}
+.col1 {grid-area: col1;}
+.col2 {grid-area: col2;}
+
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: var(--text-btn);
+    cursor: pointer;
+}
+
+header {
+    font-size: var(--text-heading);
+    font-family: var(--font-family-heading);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    text-align: center;
+}
+
+main {
+    font-size: var(--text-body);
+    font-family: var(--font-family-body);
+    color: var(--color-text);
+}
