@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
 * {
-    margin: 10;
+    margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
@@ -8,7 +10,7 @@
     background: transparent;
 }
 :root {
-    --text-btn: 80px;
+    --text-btn: 50px;
     --text-heading: 50px;
     --text-subheading: 40px;
     --text-body: 30px;
@@ -22,8 +24,8 @@
 body { /* page layout - desktop version */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.2fr 1fr;
-    grid-gap: 3rem;
+    grid-template-rows: 0.15fr 1fr;
+    grid-gap: 2rem;
     grid-template-areas: 
         "header header"
         "col1 col2";
@@ -47,7 +49,7 @@ header {grid-area: header;}
     font-weight: bold;
     cursor: pointer;
     position: absolute;
-    top: 0;
+    top: 15px;
     left: 0;
 }
 
@@ -58,6 +60,7 @@ header h1{
     background-color: var(--color-background);
     color: var(--color-text);
     text-align: center;
+    margin-top: 15px;
 }
 
 .col1, .col2 {
@@ -69,4 +72,13 @@ header h1{
 
 h2{
     font-size: var(--text-subheading);
+    margin-top: 20px;
+}
+
+header{
+    height: 100px;
+    background-color: var(--color-background);
+}
+.col1 {
+    margin-left: 20px;
 }
