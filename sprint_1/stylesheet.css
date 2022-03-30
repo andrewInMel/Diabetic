@@ -37,6 +37,13 @@ header {grid-area: header;}
 .col1 {grid-area: col1;}
 .col2 {grid-area: col2;}
 
+/* responsive screen */
+@media screen and (max-width: 640px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 
 .btn-home {
