@@ -7,6 +7,14 @@ const commentSchema = new mongoose.Schema({
     type: String,
     require: [true],
   },
+  patient: {
+    type: String,
+    require: [true],
+  },
+  about: {
+    type: String,
+    require: [true],
+  },
   comment: String,
 });
 

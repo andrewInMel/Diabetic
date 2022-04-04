@@ -14,10 +14,6 @@ const patientSchema = new mongoose.Schema({
   lastName: String,
   clinician: String,
   healthData: [String],
-  phoneNumber: String,
-  address: String,
-  birthday: String,
-  imageSrc: String,
   supportMsg: String,
   dataSet: [String],
   email: {
