@@ -21,6 +21,7 @@ router.post("/register", (req, res) => {
         const newPatient = new Patient({
           firstName: req.body.firstName,
           lastName: req.body.lastName,
+          //clinician: "",
           type: "patient",
           email: email,
           hash: hash,

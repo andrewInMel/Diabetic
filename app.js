@@ -54,11 +54,8 @@ app.use(passport.session());
 
 /* routes */
 app.use("/auth", authRoutes);
-app.use("/api/patient", patientRoutes);
-app.use("/api/clinician", clinicianRoutes);
-app.get("/", (req, res) => {
-  res.render("dashboard");
-});
+app.use("/patient", patientRoutes);
+app.use("/clinician", clinicianRoutes);
 
 /* litsen on port process.env.PORT || 5000 */
 app.listen(process.env.PORT || 8080);

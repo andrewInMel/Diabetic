@@ -11,15 +11,18 @@ const patientSchema = new mongoose.Schema({
     type: String,
     require: [true],
   },
-  lastName: String,
-  clinician: String,
-  healthData: [String],
-  supportMsg: String,
-  dataSet: [String],
+  clinician: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Clinician",
+    require: [true],
+  },
   email: {
     type: String,
     require: [true],
   },
+  dataSet: [String],
+  supportMsg: String,
+  lastName: String,
   hash: String,
   salt: String,
 });

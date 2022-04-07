@@ -1,14 +1,21 @@
+const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 const db = require("../config/databaseConfig");
 
 /* user schema */
 const commentSchema = new mongoose.Schema({
-  clinician: {
+  date: {
     type: String,
     require: [true],
   },
+  clinician: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Clinician",
+    require: [true],
+  },
   patient: {
-    type: String,
+    type: mongoose.Schema.ObjectId,
+    ref: "Patient",
     require: [true],
   },
   about: {

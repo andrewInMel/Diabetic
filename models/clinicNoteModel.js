@@ -3,7 +3,7 @@ const db = require("../config/databaseConfig");
 
 /* user schema */
 const clinicNoteSchema = new mongoose.Schema({
-  patient: String,
+  patient: { type: mongoose.Schema.ObjectId, ref: "Paitent" },
   dateTime: String,
   note: String,
 });
