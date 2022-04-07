@@ -6,8 +6,12 @@ const Health = require("../models/healthModel.js");
 const Comment = require("../models/commentModel.js");
 
 /* patient login */
-router.get("/", (req, res) => {
-  if (req.user) {
+router.get("/", async (req, res) => {
+  if (req.user && req.user.type === "patient") {
+    /* patient data */
+    const patient = req.user;
+    /* health records */
+    const allRecords = await Health.find({ patient: patient._id });
     res.render("dashboard");
   } else {
     res.render("login");
