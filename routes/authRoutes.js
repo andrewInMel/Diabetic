@@ -4,7 +4,7 @@ const passport = require("passport");
 
 /* patient sign in */
 router.post("/login/patient", passport.authenticate("patient"), (req, res) => {
-  res.redirect("/patient/dashboard");
+  res.render("dashboard");
 });
 
 /* clinician sign in */

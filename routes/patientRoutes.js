@@ -26,24 +26,36 @@ router.post("/health/bgl", patientAuth, async (req, res) => {
     patient: patientId,
     date: date,
   }).exec();
-
+  /* create new health record */
   if (!healthDoc) {
-    const newComment = new Comment({
-      clinician: req.user.clinician,
-      patient: patientId,
-      about: "bgl",
-      comment: req.body.bglComment,
-    });
-    const savedComment = await newComment.save();
-    console.log(savedComment);
-    const newDoc = new Health({
-      date: date,
-      patient: patientId,
-      bgl: { figure: req.body.bgl, time: time, commentId: savedComment._id },
-    });
-    const temp = await newDoc.save();
-    console.log(temp);
-    res.send("created");
+    /* create comment */
+    if (req.body.bglComment) {
+      console.log("i am at bglComment");
+      const newComment = new Comment({
+        clinician: req.user.clinician,
+        patient: patientId,
+        about: "bgl",
+        comment: req.body.bglComment,
+      });
+      const savedComment = await newComment.save();
+      const newDoc = new Health({
+        date: date,
+        patient: patientId,
+        bgl: { figure: req.body.bgl, time: time, commentId: savedComment._id },
+      });
+      await newDoc.save();
+      res.send("new health record created");
+      /* no comment entered */
+    } else {
+      console.log("i am at bgl");
+      const newDoc = new Health({
+        date: date,
+        patient: patientId,
+        bgl: { figure: req.body.bgl, time: time },
+      });
+      await newDoc.save();
+      res.send("new health record created");
+    }
   }
 });
 
