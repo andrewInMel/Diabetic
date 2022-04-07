@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Today-dd Month,yyyy</h1>
+            <button type="button"><img src="src/patient-msg-logo.png"></button>
+        </header>
+
+        <main>
+            <h1>Add Inputs</h1>
+            <h2>Today <a href="/past.html">Past</a></h2>
+            <div class="add-insulin-dosage-container">
+                <div class="insulin-dose-container">
+                    <h3>Insulin doses</h3>
+                    <input type="number" name="insulin-doses" min="0" step="0.01">
+                    <h3>Units</h3>
+                </div>
+                <div class="insulin-dose-time-container">
+                    <p class="insulin-dose-time">hh:mm am</p>
+                    <button type="button" class="insulin-dose-enter-btn">Edit</button>
+                </div>
+                <div class="insulin-dose-notes-container">
+                    <input type="text" name="insulin-dose-notes" placeholder="Add notes...">
+                </div>
+            </div>
+            <div class="add-weight-container">
+                <div class="weight-container">
+                    <h3>Weight</h3>
+                    <input type="number" name="weight" min="0" step="0.01">
+                    <h3>Kg</h3>
+                </div>
+                <div class="weight-time-container">
+                    <p class="weight-time">hh:mm am</p>
+                    <button type="button" class="weight-enter-btn">Edit</button>
+                </div>
+                <div class="weight-notes-container">
+                    <input type="text" name="weight-notes" placeholder="Add notes...">
+                </div>
+            </div>
+            <div class="add-blood-glucose-container">
+                <div class="blood-glucose-container">
+                    <h3>Blood Glucose Level</h3>
+                    <input type="number" name="blood-glucose-level" min="0" step="0.01">
+                    <h3>nmol/L</h3>
+                </div>
+                <div class="blood-glucose-time-container">
+                    <p class="blood-glucose-time">hh:mm am</p>
+                    <button type="button" class="blood-glucose-enter-btn">Edit</button>
+                </div>
+                <div class="blood-glucose-notes-container">
+                    <input type="text" name="blood-glucose-notes" placeholder="Add notes...">
+                </div>
+            </div>
+            <div class="add-exercise-container">
+                <div class="exercise-container">
+                    <h3>Exercise</h3>
+                    <input type="number" name="exercise" min="0" step="0.01">
+                    <h3>Steps</h3>
+                </div>
+                <div class="exercise-time-container">
+                    <p class="exercise-time">hh:mm am</p>
+                    <button type="button" class="exercise-enter-btn">Edit</button>
+                </div>
+                <div class="exercise-notes-container">
+                    <input type="text" name="exercise-notes" placeholder="Add notes...">
+                </div>
+            </div>
+        </main>
+
+        <nav>
+            <button type="button"><img src="src/patient-dashboard.png"></button>
+            <button type="button"><img src="src/patient-calendar.png"></button>
+            <button type="button"><img src="src/patient-new-data.png"></button>
+            <button type="button"><img src="src/patient-progress.png"></button>
+            <button type="button"><img src="src/patient-personal-profile.png"></button>
+        </nav>
+    </body>
+</html>
