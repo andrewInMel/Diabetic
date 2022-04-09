@@ -1,0 +1,66 @@
+<header>
+  <h1>Welcome back, {{patient}}!</h1>
+  <button type="button"><img src="/image/icon/patient-msg-logo.png" /></button>
+</header>
+
+<main>
+  <h1>Dashboard</h1>
+  <h3>Today <a href="/past.html">Past</a></h3>
+  <div class="engagement-rate-container">
+    <h3>Your Today's</h3>
+    <p class="engagement-rate">N/A%</p>
+    <h3>Engagement Rate</h3>
+  </div>
+  <div class="insulin-dose-container">
+    <h3>Insulin doses</h3>
+    {{#if healthRd.insulin}}
+      <h3 class="insulin-doses">{{healthRd.insulin.figure}}</h3>
+    {{else}}
+      <h3 class="insulin-doses">N/A</h3>
+    {{/if}}
+    <h3>Doses</h3>
+  </div>
+  <br />
+  <div class="weight-container">
+    <h3>Weight</h3>
+    {{#if healthRd.weight}}
+      <h3 class="weight">{{healthRd.weight.figure}}</h3>
+    {{else}}
+      <h3 class="weight">N/A</h3>
+    {{/if}}
+    <h3>Kg</h3>
+  </div>
+  <br />
+  <div class="blood-glucose-container">
+    <h3>BGL</h3>
+    {{#if healthRd.bgl}}
+      <h3 class="blood-glucose-level">{{healthRd.bgl.figure}}</h3>
+    {{else}}
+      <h3 class="blood-glucose-level">N/A</h3>
+    {{/if}}
+    <h3>nmol/L</h3>
+  </div>
+  <br />
+  <div class="exercise-container">
+    <h3>Exercise</h3>
+    {{#if healthRd.exercise}}
+      <h3 class="exercise">{{healthRd.exercise.figure}}</h3>
+    {{else}}
+      <h3 class="exercise">N/A</h3>
+    {{/if}}
+    <h3>Steps</h3>
+  </div>
+  <div class="requirement-container">
+    <p>* Required</p>
+  </div>
+</main>
+
+<nav>
+  <button type="button"><img src="/image/icon/patient-dashboard.png" /></button>
+  <button type="button"><img src="/image/icon/patient-calendar.png" /></button>
+  <button type="button"><img src="/image/icon/patient-new-data.png" /></button>
+  <button type="button"><img src="/image/icon/patient-progress.png" /></button>
+  <button type="button"><img
+      src="/image/icon/patient-personal-profile.png"
+    /></button>
+</nav>

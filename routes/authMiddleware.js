@@ -1,16 +1,17 @@
-/* verify if a cookie contains a valid user */
+/*clinician verification middleware */
 module.exports.clinicianAuth = (req, res, next) => {
   if (req.isAuthenticated() && req.user.type === "clinician") {
     next();
   } else {
-    res.status(401).json("Authentication failed");
+    res.render("clinicianLogin");
   }
 };
 
+/*patient verification middleware */
 module.exports.patientAuth = (req, res, next) => {
   if (req.isAuthenticated() && req.user.type === "patient") {
     next();
   } else {
-    res.status(401).json("Authentication failed");
+    res.render("patientLogin");
   }
 };

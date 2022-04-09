@@ -5,20 +5,22 @@ const Clinician = require("../models/clinicianModel.js");
 const genPassword = require("../encryption/passwordEncrypt").genPassword;
 const clinicianAuth = require("./authMiddleware.js").clinicianAuth;
 
-router.get("/", async (req, res) => {
-  if (req.user && req.user.type === "clinician") {
-    /* clinician data */
-    const clinician = req.user;
-    /* patients' records */
-    const allRecords = await Patient.find({ clinician: clinician._id });
-    res.render("clinicianDashboard");
-  } else {
-    res.render("clinicianLogin");
-  }
+/* clinician login */
+router.get("/", clinicianAuth, (req, res) => {
+  res.redirect("/clinician/dashboard");
+});
+
+/* clinician dashboard */
+router.get("/dashboard", clinicianAuth, async (req, res) => {
+  /* clinician data */
+  const clinician = req.user;
+  /* patients' records */
+  const allRecords = await Patient.find({ clinician: clinician._id });
+  res.render("clinicianDashboard");
 });
 
 /* register clinician */
-router.post("/patient-register", (req, res) => {
+router.post("/register", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   /* new clinician object */
@@ -39,7 +41,7 @@ router.post("/patient-register", (req, res) => {
           hash: hash,
           salt: salt,
         });
-        await newPatient.save();
+        await newClinician.save();
         res.send("Clinician Account Created");
       }
     })
@@ -69,7 +71,7 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
           email: email,
           hash: hash,
           salt: salt,
-          daysRegistered: 0,
+          startDate: new Date().getTime(),
           dayscompleted: 0,
         });
         await newPatient.save();

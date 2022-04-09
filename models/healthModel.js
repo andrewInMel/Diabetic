@@ -7,6 +7,10 @@ const healthSchema = new mongoose.Schema({
     type: String,
     require: [true],
   },
+  time: {
+    type: String,
+    require: [true],
+  },
   patient: {
     type: mongoose.Schema.ObjectId,
     ref: "Patient",
@@ -14,22 +18,18 @@ const healthSchema = new mongoose.Schema({
   },
   bgl: {
     figure: String,
-    time: String,
     commentId: { type: mongoose.Schema.ObjectId, ref: "Comment" },
   },
   weight: {
     figure: String,
-    time: String,
     commentId: { type: mongoose.Schema.ObjectId, ref: "Comment" },
   },
   insulin: {
     figure: String,
-    time: String,
     commentId: { type: mongoose.Schema.ObjectId, ref: "Comment" },
   },
   exercise: {
     figure: String,
-    time: String,
     commentId: { type: mongoose.Schema.ObjectId, ref: "Comment" },
   },
 });

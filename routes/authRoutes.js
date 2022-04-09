@@ -3,16 +3,26 @@ const router = express.Router();
 const passport = require("passport");
 
 /* patient sign in */
-router.post("/login/patient", passport.authenticate("patient"), (req, res) => {
-  res.render("dashboard");
-});
+router.post(
+  "/login/patient",
+  passport.authenticate("patient", {
+    failureRedirect: "/patient",
+    failureMessage: true,
+  }),
+  (req, res) => {
+    res.redirect("/patient/dashboard");
+  }
+);
 
 /* clinician sign in */
 router.post(
   "/login/clinician",
-  passport.authenticate("clinician"),
+  passport.authenticate("clinician", {
+    failureRedirect: "/clinician",
+    failureMessage: true,
+  }),
   (req, res) => {
-    res.send("Authtication succeed");
+    res.redirect("/clinician/dashboard");
   }
 );
 

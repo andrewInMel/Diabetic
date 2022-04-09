@@ -3,17 +3,20 @@ const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const exphbs = require("express-handlebars");
+const path = require("path");
+const app = express();
 /* routes */
 const authRoutes = require("./routes/authRoutes.js");
 const patientRoutes = require("./routes/patientRoutes.js");
 const clinicianRoutes = require("./routes/clinicianRoutes.js");
 
-/* enviroment variable, access by process.env.Variable_Name */
+/* other setup */
 require("dotenv").config();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "/public")));
 
-/* express application */
-const app = express();
-app.use(express.static("pubic"));
+/* template engine configuration */
 app.engine(
   "hbs",
   exphbs.engine({
@@ -22,14 +25,8 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
-/* bodyParser */
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-/* cors setup */
-app.set("trust proxy", 1);
-
-/* session setup */
+/* session configuration */
 app.use(
   session({
     secret: process.env.SECRET,
@@ -53,6 +50,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* routes */
+app.get("/", (req, res) => {
+  res.render("index");
+});
 app.use("/auth", authRoutes);
 app.use("/patient", patientRoutes);
 app.use("/clinician", clinicianRoutes);

@@ -21,7 +21,7 @@ const patientSchema = new mongoose.Schema({
     require: [true],
   },
   dataSet: [String],
-  daysRegistered: Number,
+  startDate: Number,
   dayscompleted: Number,
   supportMsg: String,
   lastName: String,
