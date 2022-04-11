@@ -11,6 +11,8 @@
     <p class="engagement-rate">N/A%</p>
     <h3>Engagement Rate</h3>
   </div>
+  <br />
+  <br />
   <div class="insulin-dose-container">
     <h3>Insulin doses</h3>
     {{#if healthRd.insulin}}
@@ -20,6 +22,7 @@
     {{/if}}
     <h3>Doses</h3>
   </div>
+  <br />
   <br />
   <div class="weight-container">
     <h3>Weight</h3>
@@ -31,8 +34,9 @@
     <h3>Kg</h3>
   </div>
   <br />
+  <br />
   <div class="blood-glucose-container">
-    <h3>BGL</h3>
+    <h3>Bgl</h3>
     {{#if healthRd.bgl}}
       <h3 class="blood-glucose-level">{{healthRd.bgl.figure}}</h3>
     {{else}}
@@ -41,6 +45,7 @@
     <h3>nmol/L</h3>
   </div>
   <br />
+  <br /> 
   <div class="exercise-container">
     <h3>Exercise</h3>
     {{#if healthRd.exercise}}
@@ -50,17 +55,11 @@
     {{/if}}
     <h3>Steps</h3>
   </div>
+  <br />
+  <br />
   <div class="requirement-container">
     <p>* Required</p>
   </div>
 </main>
 
-<nav>
-  <button type="button"><img src="/image/icon/patient-dashboard.png" /></button>
-  <button type="button"><img src="/image/icon/patient-calendar.png" /></button>
-  <button type="button"><img src="/image/icon/patient-new-data.png" /></button>
-  <button type="button"><img src="/image/icon/patient-progress.png" /></button>
-  <button type="button"><img
-      src="/image/icon/patient-personal-profile.png"
-    /></button>
-</nav>
+{{> navigation}}

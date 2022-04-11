@@ -1,10 +1,13 @@
-const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 const db = require("../config/databaseConfig");
 
 /* user schema */
-const commentSchema = new mongoose.Schema({
-  date: {
+const dataSchema = new mongoose.Schema({
+  figure: {
+    type: String,
+    require: [true],
+  },
+  time: {
     type: String,
     require: [true],
   },
@@ -25,6 +28,6 @@ const commentSchema = new mongoose.Schema({
   comment: String,
 });
 
-const Comment = db.model("Comment", commentSchema);
+const Data = db.model("Data", dataSchema);
 /* export model */
-module.exports = Comment;
+module.exports = Data;

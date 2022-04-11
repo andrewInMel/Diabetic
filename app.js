@@ -51,7 +51,7 @@ app.use(passport.session());
 
 /* routes */
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { style: "stylesheet.css" });
 });
 app.use("/auth", authRoutes);
 app.use("/patient", patientRoutes);

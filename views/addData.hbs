@@ -1,0 +1,16 @@
+<header>
+  <h1>{{healthRd.date}}</h1>
+  <button type="button"><img src="/image/icon/patient-msg-logo.png" /></button>
+</header>
+
+<main class="mainStyle">
+  <h1>Add Inputs</h1>
+  <h2>Today <a href="/past.html">Past</a></h2>
+  {{! add data }}
+  {{> singleData data=healthRd.bgl type="bgl" unit="nmol/L"}} <br><br>
+  {{> singleData data=healthRd.weight type="weight" unit="kg"}}<br><br>
+  {{> singleData data=healthRd.insulin type="insulin" unit="doses)"}}<br><br>
+  {{> singleData data=healthRd.exercise type="exercise" unit="steps"}}
+</main>
+
+{{> navigation}}

@@ -1,0 +1,52 @@
+{{! a single data block }}
+<form action="/patient/addHealth/{{type}}" method="post">
+  <div class="block-container">
+    {{! data already exist }}
+    {{#if data}}
+      <div class="data-container">
+        <h5>{{type}} doses</h5>
+        <input
+          type="number"
+          class="dataStyle"
+          name={{type}}
+          value={{data.figure}}
+          disabled
+        />
+        <h5>{{unit}}</h5>
+      </div>
+      {{! time section }}
+      <div class="time-container">
+        <div>{{data.time}}</div>
+        <button type="submit" class="editStyle" disabled>Edit</button>
+      </div>
+      {{! comment section }}
+      <input
+        class="comment"
+        type="text"
+        name="{{type}}Comment"
+        placeholder="Comment"
+        value="{{data.commentId.comment}}"
+        disabled
+      />
+      {{! waiting for today's data }}
+    {{else}}
+      <div class="data-container">
+        <h5>{{type}}</h5>
+        <input type="text" class="dataStyle" name={{type}} required />
+        <h5>{{unit}}</h5>
+      </div>
+      {{! time section }}
+      <div class="time-container">
+        <div>00:00:00</div>
+        <button type="submit" class="editStyle">Edit</button>
+      </div>
+      {{! comment section }}
+      <input
+        class="comment"
+        type="text"
+        name="{{type}}Comment"
+        placeholder="Comment"
+      />
+    {{/if}}
+  </div>
+</form>
