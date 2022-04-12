@@ -25,6 +25,15 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
+/* custom helper */
+const hbs = exphbs.create({});
+hbs.handlebars.registerHelper("validation", (current, min, max) => {
+  if (current) {
+    return Number(current) < Number(min) || Number(current) > Number(max);
+  } else {
+    return false;
+  }
+});
 
 /* session configuration */
 app.use(

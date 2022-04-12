@@ -1,0 +1,11 @@
+.layout-header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  background-color: aqua;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

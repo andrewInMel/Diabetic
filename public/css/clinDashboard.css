@@ -1,0 +1,38 @@
+.clin-container {
+  display: flex;
+}
+
+nav {
+  width: 10vw;
+  height: 80vh;
+  background-color: aquamarine;
+}
+
+main {
+  width: 90vw;
+  height: 100vh;
+  background-color: blanchedalmond;
+}
+
+.list-title div {
+  display: inline-block;
+  padding: 10px 25px;
+}
+
+.list-title {
+  background-color: darkgrey;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.row-container div {
+  display: inline-block;
+  padding: 10px 25px;
+}
+
+.warning {
+  background-color: red;
+}

@@ -1,0 +1,42 @@
+<div class="row-container">
+  <div>{{patient.firstName}} {{patient.lastName}}</div>
+  <div>{{patient.gender}}</div>
+  <div>{{patient.dob}}</div>
+  {{! if patient has entered some data today }}
+  {{#if record}}
+    {{!-- bgl --}}
+    <div {{#if (validation record.bgl.figure dataSet.bgl.min dataSet.bgl.max)}}
+      class="warning"
+      {{/if}}
+    >{{record.bgl.figure}}</div>
+
+    {{!-- weight --}}
+    <div {{#if (validation record.weight.figure dataSet.weight.min dataSet.weight.max)}}
+      class="warning"
+      {{/if}}>{{record.weight.figure}}</div>
+
+    {{!-- insulin --}}
+    <div {{#if (validation record.insulin.figure dataSet.insulin.min dataSet.insulin.max)}}
+      class="warning"
+      {{/if}}>{{record.insulin.figure}}</div>
+
+    {{!-- exercise --}}
+    <div {{#if (validation record.exercise.figure dataSet.exercise.min dataSet.exercise.max)}}
+      class="warning"
+      {{/if}}>{{record.exercise.figure}}</div>
+
+    {{!-- comments --}}
+    <div>
+      {{#each comments}}
+        <p class="comment">{{this}}</p>
+      {{/each}}
+    </div>
+    {{! patient hasn't entered any data }}
+  {{else}}
+    <div>N/A</div>
+    <div>N/A</div>
+    <div>N/A</div>
+    <div>N/A</div>
+    <div>N/A</div>
+  {{/if}}
+</div>

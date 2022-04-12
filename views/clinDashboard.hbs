@@ -1,0 +1,40 @@
+<div class="clin-container">
+  <nav>
+    <div>
+      <a>Patient List</a>
+    </div>
+    <div>
+      <a>Patient</a>
+    </div>
+    <div>
+      <a>Comments</a>
+    </div>
+    <div>
+      <a>Setting</a>
+    </div>
+  </nav>
+  <main>
+    <div class="list-title">
+    <div>Name</div>
+    <div>sex</div>
+    <div>DOB</div>
+    <div>BGL</div>
+    <div>Weight</div>
+    <div>Insulin</div>
+    <div>Exercise</div>
+    <div>Comments</div>
+    </div>
+    <ul>
+      {{#each patients}}
+        <li>
+          {{> patientEntry 
+          patient=this.patient 
+          record=this.todayRd 
+          comments=this.comments 
+          dataSet = this.patient.dataSet
+          }}
+        </li>
+      {{/each}}
+    </ul>
+  </main>
+</div>

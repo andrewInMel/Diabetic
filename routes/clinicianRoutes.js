@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Patient = require("../models/patientModel.js");
 const Clinician = require("../models/clinicianModel.js");
+const Health = require("../models/healthModel.js");
 const genPassword = require("../encryption/passwordEncrypt").genPassword;
 const clinicianAuth = require("./authMiddleware.js").clinicianAuth;
 
@@ -15,9 +16,32 @@ router.get("/dashboard", clinicianAuth, async (req, res) => {
   /* clinician data */
   const clinician = req.user;
   /* patients' records */
-  const allRecords = await Patient.find({ clinician: clinician._id });
-  res.render("clinicianDashboard");
+  const allPatients = await Patient.find({ clinician: clinician._id }).lean();
+  const records = await getRecords(allPatients);
+  res.render("clinDashboard", {
+    layout: "clinician",
+    style: "clinDashboard.css",
+    patients: records,
+  });
 });
+
+/******
+ ******
+ ****** 
+ BELOW DEMON ONLY
+ ****** 
+ ******
+ ******/
+router.get("/test", clinicianAuth, (req, res) => {
+  res.render("test", { layout: "clinician" });
+});
+/******
+ ******
+ ****** 
+ ABOVE DEMON ONLY
+ ****** 
+ ******
+ ******/
 
 /* register clinician */
 router.post("/register", (req, res) => {
@@ -67,6 +91,8 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           clinician: req.user._id,
+          gender: req.body.gender,
+          dob: req.body.dob,
           type: "patient",
           email: email,
           hash: hash,
@@ -83,4 +109,39 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
     });
 });
 
+/* today's date */
+const today = new Date();
+const date = today.toLocaleDateString();
+
+/* get health record */
+const getRecords = (allPatients) =>
+  Promise.all(
+    allPatients.map(async (onePatient) => {
+      const record = await Health.findOne({
+        patient: onePatient._id,
+        date: date,
+      })
+        .populate("bgl")
+        .populate("insulin")
+        .populate("weight")
+        .populate("exercise")
+        .lean();
+      const comments = [];
+      if (record) {
+        if (record.bgl && record.bgl.comment) {
+          comments.push(record.bgl.comment);
+        }
+        if (record.weight && record.weight.comment) {
+          comments.push(record.weight.comment);
+        }
+        if (record.insulin && record.insulin.comment) {
+          comments.push(record.insulin.comment);
+        }
+        if (record.exercise && record.exercise.comment) {
+          comments.push(record.exercise.comment);
+        }
+      }
+      return { patient: onePatient, todayRd: record, comments: comments };
+    })
+  );
 module.exports = router;

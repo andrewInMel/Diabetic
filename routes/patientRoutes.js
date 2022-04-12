@@ -5,9 +5,6 @@ const patientAuth = require("./authMiddleware.js").patientAuth;
 const Health = require("../models/healthModel.js");
 const Data = require("../models/dataModel.js");
 
-/* current date */
-const date = new Date().toLocaleDateString();
-
 /* patient login */
 router.get("/", patientAuth, (req, res) => {
   res.redirect("/patient/dashboard");
@@ -27,14 +24,18 @@ router.get("/dashboard", patientAuth, async (req, res) => {
     .populate("weight")
     .populate("exercise")
     .lean();
+  /* completion progress */
+  const currentProg = progress(patient, todayRecord);
+  /* render the patient dashboard page */
   res.render("ptDashboard", {
     healthRd: todayRecord,
     patient: patient.firstName,
     style: "stylesheet.css",
+    progress: currentProg,
   });
 });
 
-/* add Health data page */
+/* addHealth page */
 router.get("/addHealth", patientAuth, async (req, res) => {
   /* authenticated patient */
   const patient = req.user;
@@ -109,5 +110,15 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
     res.redirect("/patient/addHealth");
   }
 });
+
+/* current date */
+const date = new Date().toLocaleDateString();
+
+/* calculate the progress of today's data entry */
+const progress = (patient, record) => {
+  const requiedEntry = patient.dataSet.length;
+  const currentCount = Object.keys(record).length - 4;
+  return Math.floor((currentCount / requiedEntry) * 100);
+};
 
 module.exports = router;
