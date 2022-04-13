@@ -63,9 +63,7 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
   const figure = req.body[dataType];
   const commnet = req.body[`${dataType}Comment`];
   /* current date & time  */
-  const today = new Date();
-  const date = today.toLocaleDateString();
-  const time = today.toLocaleTimeString();
+
   /* find the document */
   const healthDoc = await Health.findOne({
     patient: patient._id,
@@ -111,8 +109,9 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
 });
 
 /* current date */
-const date = new Date().toLocaleDateString("en-GB");
-
+const today = new Date();
+const date = today.toLocaleDateString("en-GB");
+const time = today.toLocaleTimeString("en-GB");
 /* calculate the progress of today's data entry */
 const progress = (patient, record) => {
   const requiedEntry = Object.keys(patient.dataSet).length;
