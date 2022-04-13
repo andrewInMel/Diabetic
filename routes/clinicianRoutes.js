@@ -109,9 +109,17 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
     });
 });
 
+/* set required time-series */
+router.post("/dataset", clinicianAuth, async (req, res) => {
+  const patient = await Patient.findById("624ed2cab705003aae0ad1c3").exec();
+  patient.dataSet = req.body;
+  patient.markModified("dataSet");
+  await patient.save();
+  res.send("updated");
+});
+
 /* today's date */
-const today = new Date();
-const date = today.toLocaleDateString();
+const date = new Date().toLocaleDateString("en-GB");
 
 /* get health record */
 const getRecords = (allPatients) =>

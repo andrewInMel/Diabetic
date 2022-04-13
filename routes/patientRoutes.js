@@ -111,11 +111,11 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
 });
 
 /* current date */
-const date = new Date().toLocaleDateString();
+const date = new Date().toLocaleDateString("en-GB");
 
 /* calculate the progress of today's data entry */
 const progress = (patient, record) => {
-  const requiedEntry = patient.dataSet.length;
+  const requiedEntry = Object.keys(patient.dataSet).length;
   if (record) {
     const currentCount = Object.keys(record).length - 4;
     return Math.floor((currentCount / requiedEntry) * 100);

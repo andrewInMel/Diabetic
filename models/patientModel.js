@@ -20,12 +20,7 @@ const patientSchema = new mongoose.Schema({
     type: String,
     require: [true],
   },
-  dataSet: {
-    bgl: { min: String, max: String },
-    weight: { min: String, max: String },
-    insulin: { min: String, max: String },
-    exercise: { min: String, max: String },
-  },
+  dataSet: Object,
   startDate: Number,
   dayscompleted: Number,
   supportMsg: String,
