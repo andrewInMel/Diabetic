@@ -119,7 +119,9 @@ router.post("/dataset", clinicianAuth, async (req, res) => {
 });
 
 /* today's date */
-const date = new Date().toLocaleDateString("en-GB");
+const date = new Date().toLocaleDateString("en-AU", {
+  timeZone: "Australia/Melbourne",
+});
 
 /* get health record */
 const getRecords = (allPatients) =>
