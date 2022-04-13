@@ -66,7 +66,7 @@ router.post("/register", (req, res) => {
           salt: salt,
         });
         await newClinician.save();
-        res.send("Clinician Account Created");
+        res.redirect("/clinician");
       }
     })
     .catch((err) => {

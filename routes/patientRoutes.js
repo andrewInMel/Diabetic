@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const patientAuth = require("./authMiddleware.js").patientAuth;
-//const Patient = require("../models/patientModel.js");
 const Health = require("../models/healthModel.js");
 const Data = require("../models/dataModel.js");
 
@@ -24,13 +23,13 @@ router.get("/dashboard", patientAuth, async (req, res) => {
     .populate("weight")
     .populate("exercise")
     .lean();
-  /* completion progress */
+  /* calculate data entry progress */
   const currentProg = progress(patient, todayRecord);
   /* render the patient dashboard page */
   res.render("ptDashboard", {
     healthRd: todayRecord,
     patient: patient.firstName,
-    style: "stylesheet.css",
+    style: "ptDashboard.css",
     progress: currentProg,
   });
 });
@@ -50,10 +49,10 @@ router.get("/addHealth", patientAuth, async (req, res) => {
     .populate("exercise")
     .lean();
   /* render the page */
-  res.render("addData", {
+  res.render("ptAddData", {
     healthRd: todayRecord,
     patient: patient.firstName,
-    style: "stylesheet.css",
+    style: "ptAddData.css",
   });
 });
 
@@ -117,8 +116,12 @@ const date = new Date().toLocaleDateString();
 /* calculate the progress of today's data entry */
 const progress = (patient, record) => {
   const requiedEntry = patient.dataSet.length;
-  const currentCount = Object.keys(record).length - 4;
-  return Math.floor((currentCount / requiedEntry) * 100);
+  if (record) {
+    const currentCount = Object.keys(record).length - 4;
+    return Math.floor((currentCount / requiedEntry) * 100);
+  } else {
+    return 0;
+  }
 };
 
 module.exports = router;

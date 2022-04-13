@@ -3,7 +3,7 @@ module.exports.clinicianAuth = (req, res, next) => {
   if (req.isAuthenticated() && req.user.type === "clinician") {
     next();
   } else {
-    res.render("clinicianLogin", { style: "stylesheet.css" });
+    res.render("clinLogin", { layout: "greeting" });
   }
 };
 
@@ -12,6 +12,6 @@ module.exports.patientAuth = (req, res, next) => {
   if (req.isAuthenticated() && req.user.type === "patient") {
     next();
   } else {
-    res.render("patientLogin", { style: "stylesheet.css" });
+    res.render("ptLogin", { layout: "greeting" });
   }
 };

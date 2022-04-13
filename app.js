@@ -6,10 +6,10 @@ const exphbs = require("express-handlebars");
 const path = require("path");
 const app = express();
 /* routes */
+const greetingRoutes = require("./routes/greetingRoutes.js");
 const authRoutes = require("./routes/authRoutes.js");
 const patientRoutes = require("./routes/patientRoutes.js");
 const clinicianRoutes = require("./routes/clinicianRoutes.js");
-
 /* other setup */
 require("dotenv").config();
 app.use(express.json());
@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.engine(
   "hbs",
   exphbs.engine({
-    defaultLayout: "main",
+    defaultLayout: "patient",
     extname: "hbs",
   })
 );
@@ -59,9 +59,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* routes */
-app.get("/", (req, res) => {
-  res.render("index", { style: "stylesheet.css" });
-});
+app.use("/", greetingRoutes);
 app.use("/auth", authRoutes);
 app.use("/patient", patientRoutes);
 app.use("/clinician", clinicianRoutes);

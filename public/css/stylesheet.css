@@ -131,3 +131,7 @@ h4 {
   color: var(--color-text);
   border-radius: var(--round-border);
 }
+
+a {
+  text-decoration: none;
+}

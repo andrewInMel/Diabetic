@@ -29,7 +29,7 @@ router.post(
 /* log out */
 router.get("/logout", (req, res) => {
   req.logOut();
-  res.send("You are successfully logged out");
+  res.redirect("/");
 });
 
 module.exports = router;
