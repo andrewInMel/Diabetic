@@ -118,14 +118,14 @@ router.post("/dataset", clinicianAuth, async (req, res) => {
   res.send("updated");
 });
 
-/* today's date */
-const date = new Date().toLocaleDateString("en-AU", {
-  timeZone: "Australia/Melbourne",
-});
-
 /* get health record */
-const getRecords = (allPatients) =>
-  Promise.all(
+const getRecords = (allPatients) => {
+  /* current date */
+  const date = new Date().toLocaleDateString("en-AU", {
+    timeZone: "Australia/Melbourne",
+  });
+  /* map through patients' array, return desired data object */
+  return Promise.all(
     allPatients.map(async (onePatient) => {
       const record = await Health.findOne({
         patient: onePatient._id,
@@ -154,4 +154,5 @@ const getRecords = (allPatients) =>
       return { patient: onePatient, todayRd: record, comments: comments };
     })
   );
+};
 module.exports = router;

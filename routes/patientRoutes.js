@@ -13,6 +13,10 @@ router.get("/", patientAuth, (req, res) => {
 router.get("/dashboard", patientAuth, async (req, res) => {
   /* authenticated patient */
   const patient = req.user;
+  /* current date */
+  const date = new Date().toLocaleDateString("en-AU", {
+    timeZone: "Australia/Melbourne",
+  });
   /* health records */
   const todayRecord = await Health.findOne({
     patient: patient._id,
@@ -38,6 +42,10 @@ router.get("/dashboard", patientAuth, async (req, res) => {
 router.get("/addHealth", patientAuth, async (req, res) => {
   /* authenticated patient */
   const patient = req.user;
+  /* current date time */
+  const date = new Date().toLocaleDateString("en-AU", {
+    timeZone: "Australia/Melbourne",
+  });
   /* health records */
   const todayRecord = await Health.findOne({
     patient: patient._id,
@@ -51,7 +59,7 @@ router.get("/addHealth", patientAuth, async (req, res) => {
   /* render the page */
   res.render("ptAddData", {
     healthRd: todayRecord,
-    patient: patient.firstName,
+    required: patient.dataSet,
     style: "ptAddData.css",
   });
 });
@@ -62,6 +70,14 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
   const dataType = req.params.type;
   const figure = req.body[dataType];
   const commnet = req.body[`${dataType}Comment`];
+  /* current date */
+  const today = new Date();
+  const date = today.toLocaleDateString("en-AU", {
+    timeZone: "Australia/Melbourne",
+  });
+  const time = today.toLocaleTimeString("en-AU", {
+    timeZone: "Australia/Melbourne",
+  });
   /* find the document */
   const healthDoc = await Health.findOne({
     patient: patient._id,
@@ -106,14 +122,6 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
   }
 });
 
-/* current date */
-const today = new Date();
-const date = today.toLocaleDateString("en-AU", {
-  timeZone: "Australia/Melbourne",
-});
-const time = today.toLocaleTimeString("en-AU", {
-  timeZone: "Australia/Melbourne",
-});
 /* calculate the progress of today's data entry */
 const progress = (patient, record) => {
   const requiedEntry = Object.keys(patient.dataSet).length;
