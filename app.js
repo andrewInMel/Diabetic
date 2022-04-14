@@ -34,6 +34,9 @@ hbs.handlebars.registerHelper("validation", (current, min, max) => {
     return false;
   }
 });
+hbs.handlebars.registerHelper("in", (type, required) => {
+  return required.includes(type);
+});
 
 /* session configuration */
 app.use(

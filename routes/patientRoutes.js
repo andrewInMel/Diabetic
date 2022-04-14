@@ -59,7 +59,7 @@ router.get("/addHealth", patientAuth, async (req, res) => {
   /* render the page */
   res.render("ptAddData", {
     healthRd: todayRecord,
-    required: patient.dataSet,
+    required: Object.keys(patient.dataSet),
     style: "ptAddData.css",
   });
 });

@@ -2,10 +2,9 @@
 <form action="/patient/addHealth/{{type}}" method="post">
   <div class="block-container">
     {{! data already exist }}
-    {{#if required}}
-      <p>i am at not null</p>
+    {{#if data}}
       <div class="data-container">
-        <h5>{{type}}</h5>
+        <h5>{{#if (in type required)}}*{{/if}}{{type}}</h5>
         <input
           type="number"
           class="dataStyle"
@@ -31,9 +30,8 @@
       />
       {{! waiting for today's data }}
     {{else}}
-      <p>i am at null</p>
       <div class="data-container">
-        <h5>{{type}}</h5>
+        <h5>{{#if (in type required)}}*{{/if}}{{type}}</h5>
         <input type="text" class="dataStyle" name={{type}} required />
         <h5>{{unit}}</h5>
       </div>
