@@ -15,6 +15,7 @@ passport.use(
 
     (username, password, done) => {
       Patient.findOne({ email: username })
+        .lean()
         .then((user) => {
           /* user not found, auth failed */
           if (!user) {
@@ -47,6 +48,7 @@ passport.use(
     },
     (username, password, done) => {
       Clinician.findOne({ email: username })
+        .lean()
         .then((user) => {
           /* user not found, auth failed */
           if (!user) {
@@ -78,6 +80,7 @@ passport.deserializeUser((obj, done) => {
   switch (obj.type) {
     case "patient":
       Patient.findById(obj.id)
+        .lean()
         .then((user) => {
           return done(null, user);
         })
@@ -87,6 +90,7 @@ passport.deserializeUser((obj, done) => {
       break;
     case "clinician":
       Clinician.findById(obj.id)
+        .lean()
         .then((user) => {
           return done(null, user);
         })

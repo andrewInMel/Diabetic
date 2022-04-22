@@ -1,0 +1,20 @@
+<div class="comment-List">
+  {{> myNav}}
+  <main>
+    <h3>Comments Overview</h3>
+    <div class="row-container">
+      <div class="flex-item-name">Name</div>
+      <div class="flex-item-comment">Comments</div>
+    </div>
+    {{#each data}}
+      <div class="row-container">
+        <div class="flex-item-name">
+          {{this.patient.fullName}}
+        </div>   
+        <div class="flex-item-comment">
+          {{this.comment}}
+        </div>
+      </div>
+    {{/each}}
+  </main>
+</div>

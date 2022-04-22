@@ -28,7 +28,7 @@ router.get("/dashboard", patientAuth, async (req, res) => {
     .populate("exercise")
     .lean();
   /* calculate data entry progress */
-  const currentProg = progress(patient, todayRecord);
+  const currentProg = await progress(patient, date);
   /* render the patient dashboard page */
   res.render("ptDashboard", {
     healthRd: todayRecord,
@@ -69,7 +69,7 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
   const patient = req.user;
   const dataType = req.params.type;
   const figure = req.body[dataType];
-  const commnet = req.body[`${dataType}Comment`];
+  const comment = req.body[`${dataType}Comment`];
   /* current date */
   const today = new Date();
   const date = today.toLocaleDateString("en-AU", {
@@ -90,9 +90,12 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
       figure: figure,
       time: time,
       clinician: patient.clinician,
-      patient: patient._id,
+      patient: {
+        id: patient._id,
+        fullName: `${patient.firstName} ${patient.lastName}`,
+      },
       about: dataType,
-      comment: commnet,
+      comment: comment,
     });
     const savedDataEntry = await newDataEntry.save();
     /* create health record */
@@ -110,9 +113,12 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
       figure: figure,
       time: time,
       clinician: patient.clinician,
-      patient: patient._id,
+      patient: {
+        id: patient._id,
+        fullName: `${patient.firstName} ${patient.lastName}`,
+      },
       about: dataType,
-      comment: commnet,
+      comment: comment,
     });
     const savedDataEntry = await newDataEntry.save();
     /* update health record */
@@ -123,11 +129,23 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
 });
 
 /* calculate the progress of today's data entry */
-const progress = (patient, record) => {
+const progress = async (patient, today) => {
+  /* retrieve today's health record & required data */
+  const record = await Health.findOne({
+    patient: patient._id,
+    date: today,
+  }).lean();
   const requiedEntry = Object.keys(patient.dataSet).length;
   if (record) {
-    const currentCount = Object.keys(record).length - 4;
-    return Math.floor((currentCount / requiedEntry) * 100);
+    const keys = Object.keys(record);
+    var completed = 0;
+    /* calculate engagement rate */
+    for (const key in patient.dataSet) {
+      if (keys.includes(key)) {
+        completed++;
+      }
+    }
+    return Math.floor((completed / requiedEntry) * 100);
   } else {
     return 0;
   }

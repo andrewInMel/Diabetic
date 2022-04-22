@@ -17,9 +17,8 @@ const dataSchema = new mongoose.Schema({
     require: [true],
   },
   patient: {
-    type: mongoose.Schema.ObjectId,
-    ref: "Patient",
-    require: [true],
+    id: { type: mongoose.Schema.ObjectId, ref: "Patient", require: [true] },
+    fullName: String,
   },
   about: {
     type: String,

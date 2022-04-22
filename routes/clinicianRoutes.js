@@ -3,6 +3,7 @@ const router = express.Router();
 const Patient = require("../models/patientModel.js");
 const Clinician = require("../models/clinicianModel.js");
 const Health = require("../models/healthModel.js");
+const Data = require("../models/dataModel.js");
 const genPassword = require("../encryption/passwordEncrypt").genPassword;
 const clinicianAuth = require("./authMiddleware.js").clinicianAuth;
 
@@ -22,26 +23,29 @@ router.get("/dashboard", clinicianAuth, async (req, res) => {
     layout: "clinician",
     style: "clinDashboard.css",
     patients: records,
+    clinician: req.user,
   });
 });
 
-/******
- ******
- ****** 
- BELOW DEMON ONLY
- ****** 
- ******
- ******/
-router.get("/test", clinicianAuth, (req, res) => {
-  res.render("test", { layout: "clinician" });
+/* comment list */
+router.get("/comments", clinicianAuth, async (req, res) => {
+  console.log(req.user);
+  /* get all comments of the clinician's patients */
+  const data = await Data.find({ clinicianAuth: req.user._id })
+    .sort({ _id: -1 })
+    .lean();
+  /* keep data that has comment */
+  const commentData = data.filter(
+    (oneData) => oneData.comment !== "" && oneData.comment != null
+  );
+  /* render the page */
+  res.render("clinComments", {
+    layout: "clinician",
+    style: "clinComments.css",
+    data: commentData,
+    clinician: req.user,
+  });
 });
-/******
- ******
- ****** 
- ABOVE DEMON ONLY
- ****** 
- ******
- ******/
 
 /* register clinician */
 router.post("/register", (req, res) => {
