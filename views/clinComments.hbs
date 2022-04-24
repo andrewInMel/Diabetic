@@ -1,0 +1,24 @@
+<div class="clin-container">
+  <nav>
+    {{>myNav}}
+  </nav>
+  <main>
+    <div class="list-title">
+    <div>Name</div>
+    <div>Comments</div>
+    </div>
+    <ul>
+      {{#each patients}}
+        <li>
+            {{! TODO: Ask Andrew about code for each list item below. }}
+          {{> patientEntry 
+          patient=this.patient 
+          record=this.todayRd 
+          comments=this.comments 
+          dataSet = this.patient.dataSet
+          }}
+        </li>
+      {{/each}}
+    </ul>
+  </main>
+</div>
