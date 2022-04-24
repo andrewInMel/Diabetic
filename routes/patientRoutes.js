@@ -66,10 +66,12 @@ router.get("/addHealth", patientAuth, async (req, res) => {
 
 /* patient create or update health record */
 router.post("/addHealth/:type", patientAuth, async (req, res) => {
+  /* required infoamtion */
   const patient = req.user;
   const dataType = req.params.type;
   const figure = req.body[dataType];
   const comment = req.body[`${dataType}Comment`];
+  const unit = getUnit(dataType);
   /* current date */
   const today = new Date();
   const date = today.toLocaleDateString("en-AU", {
@@ -88,6 +90,7 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
     /* create data entry */
     const newDataEntry = new Data({
       figure: figure,
+      unit: unit,
       time: time,
       clinician: patient.clinician,
       patient: {
@@ -111,6 +114,7 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
     /* create data entry */
     const newDataEntry = new Data({
       figure: figure,
+      unit: unit,
       time: time,
       clinician: patient.clinician,
       patient: {
@@ -148,6 +152,25 @@ const progress = async (patient, today) => {
     return Math.floor((completed / requiedEntry) * 100);
   } else {
     return 0;
+  }
+};
+
+/* get the unit of added data */
+
+const getUnit = (type) => {
+  switch (type) {
+    case "insulin":
+      return "doses";
+      break;
+    case "weight":
+      return "kg";
+      break;
+    case "bgl":
+      return "nmol/L";
+      break;
+    case "exercise":
+      return "steps";
+      break;
   }
 };
 

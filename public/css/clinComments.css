@@ -1,0 +1,69 @@
+.comment-List {
+  height: 90vh;
+  display: flex;
+}
+
+main {
+  width: 90vw;
+  font-family: "PT sans";
+}
+
+main .title {
+  height: 50px;
+  color: #446275;
+  font-style: italic;
+  font-family: "PT sans";
+  padding-left: 3vw;
+}
+
+.row-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #446275;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.row-container > div {
+  margin: auto 2.5vw;
+}
+
+.flex-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 10vw;
+}
+
+.flex-item-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 50vw;
+}
+
+.list-header {
+  font-weight: bold;
+}
+
+.box {
+  border-radius: 15px;
+  height: 50px;
+  background-color: #f8f8f8;
+  box-shadow: 1px 1px 3px #c6cfd5 inset;
+}
+
+.comment-box {
+  border-radius: 15px;
+  height: 50px;
+  background-color: #f8f8f8;
+  box-shadow: 1px 1px 3px #c6cfd5 inset;
+}
+
+@media only screen and (max-width: 1280px) {
+  .hide-date {
+    display: none !important;
+  }
+}

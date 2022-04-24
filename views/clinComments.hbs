@@ -1,46 +1,31 @@
-<<<<<<< HEAD
 <div class="comment-List">
   {{> myNav}}
   <main>
-    <h3>Comments Overview</h3>
-    <div class="row-container">
-      <div class="flex-item-name">Name</div>
-      <div class="flex-item-comment">Comments</div>
-    </div>
-    {{#each data}}
-      <div class="row-container">
-        <div class="flex-item-name">
-          {{this.patient.fullName}}
-        </div>   
-        <div class="flex-item-comment">
-          {{this.comment}}
-        </div>
-      </div>
-    {{/each}}
-  </main>
-=======
-<div class="clin-container">
-  <nav>
-    {{>myNav}}
-  </nav>
-  <main>
-    <div class="list-title">
-    <div>Name</div>
-    <div>Comments</div>
-    </div>
+    <h3 class="title">Comments Overview</h3>
     <ul>
-      {{#each patients}}
-        <li>
-            {{! TODO: Ask Andrew about code for each list item below. }}
-          {{> patientEntry 
-          patient=this.patient 
-          record=this.todayRd 
-          comments=this.comments 
-          dataSet = this.patient.dataSet
-          }}
+      <li class="row-container">
+        <div class="flex-item list-header">Name</div>
+        <div class="flex-item list-header hide-date" >Date</div> 
+        <div class="flex-item list-header">Data</div>
+        <div class="flex-item-comment list-header">Comments</div>
+      </li>
+      {{#each data}}
+        <li class="row-container">
+          <div class="flex-item">
+            {{this.patient.fullName}}
+          </div>  
+          <div class="flex-item box hide-date">
+            {{this.date}}
+          </div> 
+          <div class=" flex-item box">
+            <div>{{this.about}}:</div> 
+            <div>{{this.figure}} {{this.unit}}</div>
+          </div>
+          <div class="flex-item-comment comment-box">
+            {{this.comment}}
+          </div>
         </li>
       {{/each}}
     </ul>
   </main>
->>>>>>> dff344f6c9e6cf8a8b5dc43308c6c8fae7d1e569
 </div>

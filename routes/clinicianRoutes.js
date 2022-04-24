@@ -29,15 +29,19 @@ router.get("/dashboard", clinicianAuth, async (req, res) => {
 
 /* comment list */
 router.get("/comments", clinicianAuth, async (req, res) => {
-  console.log(req.user);
   /* get all comments of the clinician's patients */
   const data = await Data.find({ clinicianAuth: req.user._id })
     .sort({ _id: -1 })
     .lean();
   /* keep data that has comment */
-  const commentData = data.filter(
-    (oneData) => oneData.comment !== "" && oneData.comment != null
-  );
+  const commentData = data
+    .filter((oneData) => oneData.comment !== "" && oneData.comment != null)
+    .map((node) => {
+      node.date = node._id.getTimestamp().toLocaleDateString("en-AU", {
+        timeZone: "Australia/Melbourne",
+      });
+      return node;
+    });
   /* render the page */
   res.render("clinComments", {
     layout: "clinician",

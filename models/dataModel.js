@@ -7,6 +7,10 @@ const dataSchema = new mongoose.Schema({
     type: String,
     require: [true],
   },
+  unit: {
+    type: String,
+    require: [true],
+  },
   time: {
     type: String,
     require: [true],
