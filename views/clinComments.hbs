@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="comment-List">
   {{> myNav}}
   <main>
@@ -17,4 +18,29 @@
       </div>
     {{/each}}
   </main>
+=======
+<div class="clin-container">
+  <nav>
+    {{>myNav}}
+  </nav>
+  <main>
+    <div class="list-title">
+    <div>Name</div>
+    <div>Comments</div>
+    </div>
+    <ul>
+      {{#each patients}}
+        <li>
+            {{! TODO: Ask Andrew about code for each list item below. }}
+          {{> patientEntry 
+          patient=this.patient 
+          record=this.todayRd 
+          comments=this.comments 
+          dataSet = this.patient.dataSet
+          }}
+        </li>
+      {{/each}}
+    </ul>
+  </main>
+>>>>>>> dff344f6c9e6cf8a8b5dc43308c6c8fae7d1e569
 </div>
