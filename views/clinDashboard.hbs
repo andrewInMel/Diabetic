@@ -1,33 +1,25 @@
 <div class="clin-container">
-  <nav>
-    {{>myNav}}
-  </nav>
+  {{> myNav}}
   <main>
-    <div class="list-title">
-    <div>Name</div>
-    <div>Sex</div>
-    <div>Age</div>
-    <div>DOB</div>
-    <div>BGL</div>
-    <div>Weight</div>
-    <div>Insulin</div>
-    <div>Exercise</div>
-    <div>Comments</div>
-    </div>
+    <h3 class="title">Patient List</h3>
     <ul>
+      <li class="row-container">
+        <div class="flex-item-name list-header">Name</div>
+        <div class="flex-item list-header box">Sex</div>
+        <div class="flex-item list-header box">DOB</div>
+        <div class="flex-item list-header box">BGL (nmol/L)</div>
+        <div class="flex-item list-header box">Weight (kg)</div>
+        <div class="flex-item list-header box">Insulin (doses)</div>
+        <div class="flex-item list-header box">Exercise (steps)</div>
+        <div class="flex-item list-header box">Comments</div>
+      </li>
       {{#each patients}}
-        <li>
-          {{> patientEntry 
-          patient=this.patient 
-          record=this.todayRd 
-          comments=this.comments 
-          dataSet = this.patient.dataSet
-          }}
+        <li class = "row-container">
+          <div class="flex-item">
+            {{> patientEntry}}
+          </div>
         </li>
       {{/each}}
     </ul>
   </main>
 </div>
-
-
-
