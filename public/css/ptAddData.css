@@ -1,4 +1,200 @@
-* {
-  margin: 0;
-  padding: 0;
+/* all content style */
+body {
+  font-family: "PT sans";
+}
+/* header style*/
+header {
+  height: 10vh;
+  background-color: #d7e9f5;
+}
+
+.header-date {
+  color: #446275;
+  font-style: italic;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-date div {
+  font-size: 6vmin;
+  font-weight: bold;
+}
+
+.message {
+  height: 10vh;
+  position: fixed;
+  right: 2vw;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* main style */
+main {
+  height: 90vh;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+.mainStyle {
+  color: #446275;
+  padding: 2vh 5vw 2vh;
+}
+
+.input-style {
+  font-style: italic;
+}
+
+.link-style {
+  padding-top: 1vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.link-style a {
+  margin-left: 3vmin;
+  text-decoration: none;
+  color: #abb8c2;
+}
+
+.require-style {
+  color: red;
+  font-size: 3vmin;
+}
+
+/* add data style */
+.data-section {
+  padding-top: 2vh;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.block-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 0 2vh;
+  width: 100%;
+}
+
+/* data block section */
+.data-container {
+  width: 30%;
+  height: 12.5vh;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+/* left upper data section*/
+.upper-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3vw 0;
+}
+
+.type-style {
+  font-size: 4vw;
+  font-weight: bold;
+  color: #f5eccb;
+}
+
+.star-style {
+  font-size: 5vw;
+  color: red;
+}
+
+/* left middle data section*/
+.data-style {
+  align-self: center;
+  width: 90%;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 8vmin;
+  font-style: italic;
+  outline: none;
+}
+
+/* left lower data section*/
+.unit-style {
+  align-self: flex-end;
+  padding-right: 2vw;
+  font-size: 3.5vmin;
+}
+
+.Insulin-color {
+  background-color: #84aac2;
+}
+.BGL-color {
+  background-color: #89a5d9;
+}
+.Weight-color {
+  background-color: #8289cf;
+}
+.Exercise-color {
+  background-color: #89cfd9;
+}
+
+/* time block section */
+.time-container {
+  height: 12.5vh;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.time-style {
+  border-radius: 15px;
+  width: 80%;
+  height: 48%;
+  color: #84aac2;
+  font-size: 3vw;
+  text-align: center;
+  background-color: white;
+}
+
+.Insulin-border {
+  border: 1px solid #84aac2;
+  color: #84aac2;
+}
+.BGL-border {
+  border: 1px solid #89a5d9;
+  color: #89a5d9;
+}
+.Weight-border {
+  border: 1px solid #8289cf;
+  color: #8289cf;
+}
+.Exercise-border {
+  border: 1px solid #89cfd9;
+  color: #89cfd9;
+}
+
+/* comments block section */
+.comment-style {
+  width: 40%;
+  height: 12.5vh;
+  border-radius: 15px;
+  background-color: white;
+  text-align: start;
+  outline: none;
+  padding: 2vmin 3vmin;
+  resize: none;
+}
+/* Navigation style */
+nav {
+  height: 8vmax;
+  display: flex;
+  background-color: #f4f9fd;
+  justify-content: space-evenly;
+  align-items: center;
 }

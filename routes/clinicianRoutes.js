@@ -139,24 +139,24 @@ const getRecords = (allPatients) => {
         patient: onePatient._id,
         date: date,
       })
-        .populate("bgl")
-        .populate("insulin")
-        .populate("weight")
-        .populate("exercise")
+        .populate("BGL")
+        .populate("Insulin")
+        .populate("Weight")
+        .populate("Exercise")
         .lean();
       const comments = [];
       if (record) {
-        if (record.bgl && record.bgl.comment) {
-          comments.push(record.bgl.comment);
+        if (record.BGL && record.BGL.comment) {
+          comments.push(record.BGL.comment);
         }
-        if (record.weight && record.weight.comment) {
-          comments.push(record.weight.comment);
+        if (record.Weight && record.Weight.comment) {
+          comments.push(record.Weight.comment);
         }
-        if (record.insulin && record.insulin.comment) {
-          comments.push(record.insulin.comment);
+        if (record.Insulin && record.Insulin.comment) {
+          comments.push(record.Insulin.comment);
         }
-        if (record.exercise && record.exercise.comment) {
-          comments.push(record.exercise.comment);
+        if (record.Exercise && record.Exercise.comment) {
+          comments.push(record.Exercise.comment);
         }
       }
       return { patient: onePatient, todayRd: record, comments: comments };

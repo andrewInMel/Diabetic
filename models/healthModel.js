@@ -12,10 +12,10 @@ const healthSchema = new mongoose.Schema({
     ref: "Patient",
     require: [true],
   },
-  bgl: { type: mongoose.Schema.ObjectId, ref: "Data" },
-  weight: { type: mongoose.Schema.ObjectId, ref: "Data" },
-  insulin: { type: mongoose.Schema.ObjectId, ref: "Data" },
-  exercise: { type: mongoose.Schema.ObjectId, ref: "Data" },
+  BGL: { type: mongoose.Schema.ObjectId, ref: "Data" },
+  Weight: { type: mongoose.Schema.ObjectId, ref: "Data" },
+  Insulin: { type: mongoose.Schema.ObjectId, ref: "Data" },
+  Exercise: { type: mongoose.Schema.ObjectId, ref: "Data" },
 });
 
 const Health = db.model("Health", healthSchema);

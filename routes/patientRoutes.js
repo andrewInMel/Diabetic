@@ -22,10 +22,10 @@ router.get("/dashboard", patientAuth, async (req, res) => {
     patient: patient._id,
     date: date,
   })
-    .populate("bgl")
-    .populate("insulin")
-    .populate("weight")
-    .populate("exercise")
+    .populate("BGL")
+    .populate("Insulin")
+    .populate("Weight")
+    .populate("Exercise")
     .lean();
   /* calculate data entry progress */
   const currentProg = await progress(patient, date);
@@ -43,21 +43,29 @@ router.get("/addHealth", patientAuth, async (req, res) => {
   /* authenticated patient */
   const patient = req.user;
   /* current date time */
-  const date = new Date().toLocaleDateString("en-AU", {
+  const today = new Date();
+  const date = today.toLocaleDateString("en-AU", {
     timeZone: "Australia/Melbourne",
+  });
+  const formattedDate = today.toLocaleDateString("en-AU", {
+    timeZone: "Australia/Melbourne",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
   });
   /* health records */
   const todayRecord = await Health.findOne({
     patient: patient._id,
     date: date,
   })
-    .populate("bgl")
-    .populate("insulin")
-    .populate("weight")
-    .populate("exercise")
+    .populate("BGL")
+    .populate("Insulin")
+    .populate("Weight")
+    .populate("Exercise")
     .lean();
   /* render the page */
   res.render("ptAddData", {
+    date: formattedDate,
     healthRd: todayRecord,
     required: Object.keys(patient.dataSet),
     style: "ptAddData.css",
@@ -79,6 +87,8 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
   });
   const time = today.toLocaleTimeString("en-AU", {
     timeZone: "Australia/Melbourne",
+    hour: "2-digit",
+    minute: "2-digit",
   });
   /* find the document */
   const healthDoc = await Health.findOne({
@@ -156,19 +166,18 @@ const progress = async (patient, today) => {
 };
 
 /* get the unit of added data */
-
 const getUnit = (type) => {
   switch (type) {
-    case "insulin":
+    case "Insulin":
       return "doses";
       break;
-    case "weight":
+    case "Weight":
       return "kg";
       break;
-    case "bgl":
+    case "BGL":
       return "nmol/L";
       break;
-    case "exercise":
+    case "Exercise":
       return "steps";
       break;
   }

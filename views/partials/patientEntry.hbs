@@ -5,25 +5,25 @@
   {{! if patient has entered some data today }}
   {{#if record}}
     {{!-- bgl --}}
-    <div {{#if (validation record.bgl.figure dataSet.bgl.min dataSet.bgl.max)}}
+    <div {{#if (validation record.BGL.figure dataSet.BGL.min dataSet.BGL.max)}}
       class="warning"
       {{/if}}
-    >{{record.bgl.figure}}</div>
+    >{{record.BGL.figure}}</div>
 
     {{!-- weight --}}
-    <div {{#if (validation record.weight.figure dataSet.weight.min dataSet.weight.max)}}
+    <div {{#if (validation record.Weight.figure dataSet.Weight.min dataSet.Weight.max)}}
       class="warning"
-      {{/if}}>{{record.weight.figure}}</div>
+      {{/if}}>{{record.Weight.figure}}</div>
 
     {{!-- insulin --}}
-    <div {{#if (validation record.insulin.figure dataSet.insulin.min dataSet.insulin.max)}}
+    <div {{#if (validation record.Insulin.figure dataSet.Insulin.min dataSet.Insulin.max)}}
       class="warning"
-      {{/if}}>{{record.insulin.figure}}</div>
+      {{/if}}>{{record.Insulin.figure}}</div>
 
     {{!-- exercise --}}
-    <div {{#if (validation record.exercise.figure dataSet.exercise.min dataSet.exercise.max)}}
+    <div {{#if (validation record.Exercise.figure dataSet.Exercise.min dataSet.Exercise.max)}}
       class="warning"
-      {{/if}}>{{record.exercise.figure}}</div>
+      {{/if}}>{{record.Exercise.figure}}</div>
 
     {{!-- comments --}}
     <div>

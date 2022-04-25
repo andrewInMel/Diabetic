@@ -1,52 +1,79 @@
 {{! a single data block }}
-<form action="/patient/addHealth/{{type}}" method="post">
-  <div class="block-container">
+<div>
+  <form
+    class="block-container"
+    action="/patient/addHealth/{{type}}"
+    method="post"
+  >
     {{! data already exist }}
     {{#if data}}
-      <div class="data-container">
-        <h5>{{#if (in type required)}}*{{/if}}{{type}}</h5>
+      {{! data secrion }}
+      <div class="data-container {{type}}-color">
+        <div class="upper-section">
+          <div class="type-style">{{type}}</div>
+          {{#if (in type required)}}
+            <div class="star-style">*</div>
+          {{/if}}
+        </div>
         <input
           type="number"
-          class="dataStyle"
+          class="data-style {{type}}-color"
           name={{type}}
           value={{data.figure}}
           disabled
         />
-        <h5>{{unit}}</h5>
+        <div class="unit-style">{{unit}}</div>
       </div>
       {{! time section }}
       <div class="time-container">
-        <div>{{data.time}}</div>
-        <button type="submit" class="editStyle" disabled>Edit</button>
+        <input
+          class="time-style {{type}}-border"
+          value="{{data.time}}"
+          disabled
+        />
+        <input
+          type="submit"
+          class="time-style {{type}}-border"
+          value="Save"
+          disabled
+        />
       </div>
       {{! comment section }}
-      <input
-        class="comment"
-        type="text"
+      <textarea
+        class="comment-style {{type}}-border"
         name="{{type}}Comment"
-        placeholder="Comment"
-        value="{{data.comment}}"
+        placeholder="Add notes..."
         disabled
-      />
+      >{{data.comment}}</textarea>
       {{! waiting for today's data }}
     {{else}}
-      <div class="data-container">
-        <h5>{{#if (in type required)}}*{{/if}}{{type}}</h5>
-        <input type="text" class="dataStyle" name={{type}} required />
-        <h5>{{unit}}</h5>
+      <div class="data-container {{type}}-color">
+        <div class="upper-section">
+          <div class="type-style">{{type}}</div>
+          {{#if (in type required)}}
+            <div class="star-style">*</div>
+          {{/if}}
+        </div>
+        <input
+          type="number"
+          class="data-style {{type}}-color"
+          name={{type}}
+          required
+        />
+        <div class="unit-style">{{unit}}</div>
       </div>
       {{! time section }}
       <div class="time-container">
-        <div>00:00:00</div>
-        <button type="submit" class="editStyle">Edit</button>
+        <input class="time-style {{type}}-border" value=":" disabled />
+        <input type="submit" value="Save" class="time-style {{type}}-border" />
       </div>
       {{! comment section }}
-      <input
-        class="comment"
-        type="text"
+      <textarea
+        autofocus
+        class="comment-style {{type}}-border"
         name="{{type}}Comment"
-        placeholder="Comment"
-      />
+        placeholder="Add notes..."
+      ></textarea>
     {{/if}}
-  </div>
-</form>
+  </form>
+</div>
