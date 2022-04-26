@@ -5,17 +5,17 @@
     <ul>
       <li class="row-container">
         <div class="flex-item-name list-header">Name</div>
-        <div class="flex-item list-header box">Sex</div>
-        <div class="flex-item list-header box">DOB</div>
-        <div class="flex-item list-header box">BGL (nmol/L)</div>
-        <div class="flex-item list-header box">Weight (kg)</div>
-        <div class="flex-item list-header box">Insulin (doses)</div>
-        <div class="flex-item list-header box">Exercise (steps)</div>
-        <div class="flex-item list-header box">Comments</div>
+        <div class="flex-item list-header">Sex</div>
+        <div class="flex-item list-header">DOB</div>
+        <div class="flex-item list-header">BGL (nmol/L)</div>
+        <div class="flex-item list-header">Weight (kg)</div>
+        <div class="flex-item list-header">Insulin (doses)</div>
+        <div class="flex-item list-header">Exercise (steps)</div>
+        <div class="flex-item list-header">Comments</div>
       </li>
       {{#each patients}}
-        <li class = "row-container">
-          <div class="flex-item">
+        <li class="row-container">
+          <div>
             {{> patientEntry}}
           </div>
         </li>

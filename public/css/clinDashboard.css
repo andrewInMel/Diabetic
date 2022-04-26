@@ -5,12 +5,12 @@
 
 main {
   width: 90vw;
+  color: #446275;
   font-family: "PT sans";
 }
 
 main .title {
   height: 50px;
-  color: #446275;
   font-style: italic;
   padding-left: 3vw;
 }
@@ -20,7 +20,6 @@ main .title {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #446275;
   text-align: center;
   margin-bottom: 15px;
   padding-right: 8vw;
@@ -31,19 +30,18 @@ main .title {
 }
 
 .flex-item {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   flex: 10vw;
 }
 
 .flex-item-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex: 50vw;
   padding-right: 4vw;
+}
+
+.data-item {
+  flex-direction: column;
+  flex: 10vw;
 }
 
 .list-header {
@@ -56,5 +54,5 @@ main .title {
 }
 
 .warning {
-  background-color: red;
+  color: red;
 }

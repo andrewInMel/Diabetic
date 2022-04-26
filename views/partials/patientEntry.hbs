@@ -1,42 +1,41 @@
 <div class="row-container">
-  <div>{{patient.firstName}} {{patient.lastName}}</div>
-  <div>{{patient.gender}}</div>
-  <div>{{patient.dob}}</div>
+  <div class="flex-item-name">{{patient.firstName}} {{patient.lastName}}</div>
+  <div class="data-item">{{patient.gender}}</div>
+  <div class="data-item">{{patient.dob}}</div>
   {{! if patient has entered some data today }}
   {{#if record}}
     {{!-- bgl --}}
-    <div {{#if (validation record.BGL.figure dataSet.BGL.min dataSet.BGL.max)}}
-      class="warning"
-      {{/if}}
-    >{{record.BGL.figure}}</div>
+    <div class="data-item"{{#if (validation record.BGL.figure dataSet.BGL.min dataSet.BGL.max)}}
+      class="data-item warning"
+      {{/if}}>{{record.BGL.figure}}</div>
 
     {{!-- weight --}}
-    <div {{#if (validation record.Weight.figure dataSet.Weight.min dataSet.Weight.max)}}
-      class="warning"
+    <div class="data-item"{{#if (validation record.Weight.figure dataSet.Weight.min dataSet.Weight.max)}}
+      class="data-item warning"
       {{/if}}>{{record.Weight.figure}}</div>
 
     {{!-- insulin --}}
-    <div {{#if (validation record.Insulin.figure dataSet.Insulin.min dataSet.Insulin.max)}}
-      class="warning"
+    <div class="data-item"{{#if (validation record.Insulin.figure dataSet.Insulin.min dataSet.Insulin.max)}}
+      class="data-item warning"
       {{/if}}>{{record.Insulin.figure}}</div>
 
     {{!-- exercise --}}
-    <div {{#if (validation record.Exercise.figure dataSet.Exercise.min dataSet.Exercise.max)}}
-      class="warning"
+    <div class="data-item"{{#if (validation record.Exercise.figure dataSet.Exercise.min dataSet.Exercise.max)}}
+      class="data-item warning"
       {{/if}}>{{record.Exercise.figure}}</div>
 
     {{!-- comments --}}
     <div>
       {{#each comments}}
-        <p class="comment">{{this}}</p>
+        <p class="data-item">{{this}}</p>
       {{/each}}
     </div>
     {{! patient hasn't entered any data }}
   {{else}}
-    <div>N/A</div>
-    <div>N/A</div>
-    <div>N/A</div>
-    <div>N/A</div>
-    <div>N/A</div>
+    <div class="data-item">N/A</div>
+    <div class="data-item">N/A</div>
+    <div class="data-item">N/A</div>
+    <div class="data-item">N/A</div>
+    <div class="data-item">-</div>
   {{/if}}
 </div>
