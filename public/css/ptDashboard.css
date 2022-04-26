@@ -80,7 +80,7 @@ body {
   display: grid;
   grid-template-rows: 0.15fr 1fr;
   grid-template-columns:1fr 1fr 0.25fr;
-  grid-gap: 2rem;
+  grid-gap: 0;
   grid-template-areas: 
       "header header header"
       "engagement data nav";
@@ -145,9 +145,14 @@ header h1{
 }
 
 .engagement {
+  padding-top: 10%;
   padding-left: 25%;
 }
 
 .insulin-doses, .weight, .blood-glucose-level, .exercise{
   text-align: center;
+}
+
+.data {
+  padding-top: 10%;
 }
