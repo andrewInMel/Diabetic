@@ -37,6 +37,9 @@ hbs.handlebars.registerHelper("validation", (current, min, max) => {
 hbs.handlebars.registerHelper("in", (type, required) => {
   return required.includes(type);
 });
+hbs.handlebars.registerHelper("checkComment", (comments) => {
+  return comments.length !== 0;
+});
 
 /* session configuration */
 app.use(
