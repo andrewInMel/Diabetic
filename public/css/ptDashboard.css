@@ -2,3 +2,157 @@
   margin: 0;
   padding: 0;
 }
+
+
+:root {
+    --text-btn: 50px;
+    --text-heading: 50px;
+    --text-subheading: 40px;
+    --text-body: 30px;
+    --font-family-body: 'PT Sans';
+    --font-family-heading: 'PT Sans';
+    --color-text: #446275;
+    --color-background: #D7E9F5;
+    --color-text-label: #F5ECCB;
+}
+  
+  .circle-wrap {
+    margin: 150px auto;
+    width: 150px;
+    height: 150px;
+    background: #fefcff;
+    border-radius: 50%;
+    border: 1px solid #cdcbd0;
+  }
+
+  .circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.mask .fill {
+  clip: rect(0px, 75px, 150px, 0px);
+  background-color: #227ded;
+}
+
+.circle-wrap .circle .mask {
+    clip: rect(0px, 150px, 150px, 75px);
+  }
+  
+  .mask.full,
+  .circle .fill {
+    animation: fill ease-in-out 3s;
+    transform: rotate(144deg);
+  }
+  
+  @keyframes fill{
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(144deg);
+    }
+  }
+  .circle-wrap .inside-circle {
+    width: 122px;
+    height: 122px;
+    border-radius: 50%;
+    background: #d2eaf1;
+    margin-top: 14px;
+    margin-left: 14px;
+    color: #1e51dc;
+    position: absolute;
+  }
+
+  .text-inside-circle {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-top: 10px;
+    z-index: 100;
+    text-align: center;
+  }
+
+body {
+  display: grid;
+  grid-template-rows: 0.15fr 1fr;
+  grid-template-columns:1fr 1fr 0.25fr;
+  grid-gap: 0;
+  grid-template-areas: 
+      "header header header"
+      "engagement data nav";
+}
+
+header {grid-area: header;}
+nav {grid-area: nav;}
+
+.engagement {grid-area: engagement;}
+.data {grid-area: data;}
+
+h3 {
+  color: var(--color-text-label);
+}
+
+.insulin-dose-container {
+  background-color: #84AAC2;
+}
+
+.weight-container{
+  background-color: #89A5D9;
+}
+
+.blood-glucose-container{
+  background-color: #8289CF;
+}
+
+.exercise-container{
+  background-color: #89CFD9;
+}
+
+.blood-glucose-container, .insulin-dose-container, .exercise-container, .weight-container{
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+header{
+  background-color: var(--color-background);
+}
+
+header h1{
+  font-size: var(--text-heading);
+  font-family: var(--font-family-heading);
+  font-style: italic;
+  color: var(--color-text);
+  text-align: center;
+  margin-top: 15px;
+}
+
+.msg-button {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 0px;
+}
+
+.engagement {
+  padding-top: 10%;
+  padding-left: 25%;
+}
+
+.insulin-doses, .weight, .blood-glucose-level, .exercise{
+  text-align: center;
+}
+
+.data {
+  padding-top: 10%;
+}
