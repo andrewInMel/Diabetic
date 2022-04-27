@@ -13,9 +13,14 @@ main {
 
 /* Navigation style */
 nav {
-  height: 8vmax;
+  height: 8vh;
   display: flex;
   background-color: #f4f9fd;
+}
+
+nav div {
+  width: 100%;
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
