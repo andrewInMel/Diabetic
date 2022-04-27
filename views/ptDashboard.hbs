@@ -1,9 +1,7 @@
-<header>
-  <h1>Welcome back, {{patient}}!</h1>
-  <button type="button"><img src="/image/icon/patient-msg-logo.png" /></button>
-</header>
+{{! tag changed }}
+<div>
+  {{! tag changed }}
 
-<main>
   <h1>Dashboard</h1>
   <h3>Today <a href="/past.html">Past</a></h3>
   <div class="engagement-rate-container">
@@ -45,7 +43,7 @@
     <h3>nmol/L</h3>
   </div>
   <br />
-  <br /> 
+  <br />
   <div class="exercise-container">
     <h3>Exercise</h3>
     {{#if healthRd.Exercise}}
@@ -60,6 +58,7 @@
   <div class="requirement-container">
     <p>* Required</p>
   </div>
-</main>
 
-{{> navigation}}
+  {{! tag changed }}
+</div>
+{{! tag changed }}

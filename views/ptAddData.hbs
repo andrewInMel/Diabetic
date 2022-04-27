@@ -1,27 +1,15 @@
-<header>
-  <div class="header-date">
-    <div>Today - {{date}}</div>
+{{! main content}}
+<div class="mainStyle">
+  <h3 class="input-style">Add Inputs</h3>
+  <div class="link-style">
+    <h3>Today <a href="/past.html">Past</a></h3>
+    <p class="require-style"> * Required</p>
   </div>
-  <div class="message">
-    <img src="/image/icon/patient-msg-logo-new.png" />
+  {{! add data }}
+  <div class="data-section">
+    {{> singleData data=healthRd.Insulin type="Insulin" unit="doses"}} 
+    {{> singleData data=healthRd.Weight type="Weight" unit="kg"}}
+    {{> singleData data=healthRd.BGL type="BGL" unit=" nmol/L"}}
+    {{> singleData data=healthRd.Exercise type="Exercise" unit="steps"}}
   </div>
-</header>
-<main>
-  {{! navigation}}
-  {{> navigation}}
-  {{! main content}}
-  <div class="mainStyle">
-    <h3 class="input-style">Add Inputs</h3>
-    <div class="link-style">
-      <h3>Today <a href="/past.html">Past</a></h3>
-      <p class="require-style"> * Required</p>
-    </div>
-    {{! add data }}
-    <div class="data-section">
-      {{> singleData data=healthRd.Insulin type="Insulin" unit="doses"}} 
-      {{> singleData data=healthRd.Weight type="Weight" unit="kg"}}
-      {{> singleData data=healthRd.BGL type="BGL" unit=" nmol/L"}}
-      {{> singleData data=healthRd.Exercise type="Exercise" unit="steps"}}
-    </div>
-  </div>
-</main>
+</div>

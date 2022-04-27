@@ -9,7 +9,7 @@ router.get("/", patientAuth, (req, res) => {
   res.redirect("/patient/dashboard");
 });
 
-/* patient dashboard */
+/* get patient dashboard */
 router.get("/dashboard", patientAuth, async (req, res) => {
   /* authenticated patient */
   const patient = req.user;
@@ -27,12 +27,13 @@ router.get("/dashboard", patientAuth, async (req, res) => {
     .populate("Weight")
     .populate("Exercise")
     .lean();
-  /* calculate data entry progress */
+  /* calculate data entry progress & header text */
   const currentProg = await progress(patient, date);
+  const headerText = `Welcome back, ${patient.firstName}`;
   /* render the patient dashboard page */
   res.render("ptDashboard", {
+    headerText: headerText,
     healthRd: todayRecord,
-    patient: patient.firstName,
     style: "ptDashboard.css",
     progress: currentProg,
   });
@@ -42,7 +43,7 @@ router.get("/dashboard", patientAuth, async (req, res) => {
 router.get("/addHealth", patientAuth, async (req, res) => {
   /* authenticated patient */
   const patient = req.user;
-  /* current date time */
+  /* current date time & header text*/
   const today = new Date();
   const date = today.toLocaleDateString("en-AU", {
     timeZone: "Australia/Melbourne",
@@ -53,6 +54,7 @@ router.get("/addHealth", patientAuth, async (req, res) => {
     month: "short",
     year: "numeric",
   });
+  const headerText = `Today - ${formattedDate}`;
   /* health records */
   const todayRecord = await Health.findOne({
     patient: patient._id,
@@ -65,7 +67,7 @@ router.get("/addHealth", patientAuth, async (req, res) => {
     .lean();
   /* render the page */
   res.render("ptAddData", {
-    date: formattedDate,
+    headerText: headerText,
     healthRd: todayRecord,
     required: Object.keys(patient.dataSet),
     style: "ptAddData.css",

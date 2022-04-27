@@ -8,6 +8,19 @@
     <title>Sprint 2</title>
   </head>
   <body>
-    {{{body}}}
+    <header>
+      <div class="header-date">
+        <div>{{headerText}}</div>
+      </div>
+      <div class="message">
+        <img src="/image/icon/patient-msg-logo-new.png" />
+       </div>
+    </header>
+    <main>
+      {{! navigation}}
+      {{> navigation}}
+      {{!main content}}
+      {{{body}}}
+    </main>    
   </body>
 </html>
