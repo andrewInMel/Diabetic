@@ -61,3 +61,14 @@ body {
   color: #446275;
   text-decoration: none;
 }
+
+/* clinician footer style */
+.layout-footer {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  background-color: #d7e9f5;
+  align-items: center;
+  color: #446275;
+  font-family: "PT sans";
+}
