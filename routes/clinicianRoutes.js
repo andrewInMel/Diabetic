@@ -19,6 +19,7 @@ router.get("/dashboard", clinicianAuth, async (req, res) => {
   /* patients' records */
   const allPatients = await Patient.find({ clinician: clinician._id }).lean();
   const records = await getRecords(allPatients);
+  /* render the page */
   res.render("clinDashboard", {
     layout: "clinician",
     style: "clinDashboard.css",

@@ -1,25 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+:root {
+  --text-home-btn: 50px;
+  --text-heading: 5vw;
+  --text-subheading: 3vw;
+  --text-body: 1.5vmax;
+  --font-family-body: "PT Sans";
+  --font-family-heading: "PT Sans";
+  --font-family-btn: "PT Sans";
+  --color-text: #446275;
+  --color-background: #d7e9f5;
+  --round-border: 50px;
+}
 
 * {
   margin: 0;
   padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-}
-:root {
-  --text-home-btn: 50px;
-  --text-heading: 50px;
-  --text-subheading: 40px;
-  --text-body: 30px;
-  --font-family-body: "PT Sans";
-  --font-family-heading: "PT Sans";
-  --font-family-btn: "Comfortaa";
-  --color-text: #446275;
-  --color-background: #d7e9f5;
-  --round-border: 50px;
+  font-family: var(--font-family-body);
 }
 
 .btn-home {
@@ -64,72 +60,6 @@ header {
 }
 .col1 {
   margin-left: 20px;
-}
-
-h3 {
-  font-size: var(--text-subheading);
-}
-
-h4 {
-  font-size: var(--text-heading);
-  font-family: var(--font-family-btn);
-  color: var(--color-text);
-}
-
-.btn-about-diabetes {
-  background-color: blue;
-  padding: 14px 28px;
-  margin: 14px 28px;
-  font-size: var(--text-body);
-  font-family: var(--font-family-body);
-  color: white;
-  cursor: pointer;
-  border-radius: var(--round-border);
-}
-
-.btn-about-website {
-  background-color: black;
-  padding: 14px 28px;
-  margin: 14px 28px;
-  font-size: var(--text-body);
-  font-family: var(--font-family-body);
-  color: white;
-  cursor: pointer;
-  border-radius: var(--round-border);
-}
-
-.btn-login {
-  display: block;
-  border: 3px solid rgb(194, 188, 188);
-  background-color: white;
-  margin: 14px 28px;
-  padding: 14px 28px;
-  font-size: var(--text-body);
-  font-family: var(--font-family-body);
-  color: var(--color-text);
-  cursor: pointer;
-  border-radius: var(--round-border);
-}
-
-.front-page-container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: beige;
-}
-
-.input-style {
-  border: 3px solid rgb(194, 188, 188);
-  background-color: white;
-  margin: 14px 28px;
-  padding: 14px 28px;
-  font-size: var(--text-body);
-  font-family: var(--font-family-body);
-  color: var(--color-text);
-  border-radius: var(--round-border);
 }
 
 a {

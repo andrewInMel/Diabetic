@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* greeting page */
 router.get("/", (req, res) => {
-  res.render("index", { layout: "greeting" });
+  res.render("index", { layout: "greeting", style: "index.css" });
 });
 
 /* about diabetes page */

@@ -1,41 +1,35 @@
-  <div class="flex-item-name">{{patient.firstName}} {{patient.lastName}}</div>
-  <div class="data box">
-    <div class="flex-item-sex">{{patient.gender}}</div>
-    <div class="flex-item-dob">{{patient.dob}}</div>
-    {{! if patient has entered some data today }}
-    {{#if record}}
-      {{!-- bgl --}}
-      <div class="flex-item-bgl" {{#if (validation record.BGL.figure dataSet.BGL.min dataSet.BGL.max)}}
-        id="warning"
-        {{/if}}>{{record.BGL.figure}}</div>
-
-      {{!-- weight --}}
-      <div class="flex-item-weight"{{#if (validation record.Weight.figure dataSet.Weight.min dataSet.Weight.max)}}
-        id="warning"
-        {{/if}}>{{record.Weight.figure}}</div>
-
-      {{!-- insulin --}}
-      <div class="flex-item-insulin"{{#if (validation record.Insulin.figure dataSet.Insulin.min dataSet.Insulin.max)}}
-        id="warning"
-        {{/if}}>{{record.Insulin.figure}}</div>
-
-      {{!-- exercise --}}
-      <div class="flex-item-exercise"{{#if (validation record.Exercise.figure dataSet.Exercise.min dataSet.Exercise.max)}}
-        id="warning"
-        {{/if}}>{{record.Exercise.figure}}</div>
-
-      {{!-- comments --}}
-      <div>
-        {{#each comments}}
-          <p class="flex-item-comments">{{this}}</p>
-        {{/each}}
-      </div>
-      {{! patient hasn't entered any data }}
-    {{else}}
-      <div class="flex-item-bgl">N/A</div>
-      <div class="flex-item-weight">N/A</div>
-      <div class="flex-item-insulin">N/A</div>
-      <div class="flex-item-exercise">N/A</div>
-      <div class="flex-item-comments">-</div>
-    {{/if}}
-  </div>
+<div class="flex-item">{{patient.firstName}} {{patient.lastName}}</div>
+<div class="data box">
+  <div class="flex-item">{{patient.gender}}</div>
+  <div class="flex-item">{{patient.dob}}</div>    
+  {{! BGL data }}
+  {{> clinSingleData 
+      data = todayRd.BGL.figure 
+      min = patient.dataSet.BGL.min 
+      max = patient.dataSet.BGL.max
+  }}
+  {{! Weight data }}
+  {{> clinSingleData 
+      data = todayRd.Weight.figure 
+      min = patient.dataSet.Weight.min 
+      max = patient.dataSet.Weight.max
+  }}
+  {{! Insulin data }}
+  {{> clinSingleData 
+      data = todayRd.Insulin.figure 
+      min = patient.dataSet.Insulin.min 
+      max = patient.dataSet.Insulin.max
+  }}
+  {{! Exercise data }}
+  {{> clinSingleData 
+      data = todayRd.Exercise.figure 
+      min = patient.dataSet.Exercise.min 
+      max = patient.dataSet.Exercise.max
+  }}
+  {{!-- comments --}}
+  {{#if (checkComment comments)}}
+    <div class="flex-item comment">New</div>
+  {{else}}
+    <div class="flex-item">-</div>
+  {{/if}}
+</div>
