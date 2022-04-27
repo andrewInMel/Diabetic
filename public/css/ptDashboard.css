@@ -3,29 +3,28 @@
   padding: 0;
 }
 
-
 :root {
-    --text-btn: 50px;
-    --text-heading: 50px;
-    --text-subheading: 40px;
-    --text-body: 30px;
-    --font-family-body: 'PT Sans';
-    --font-family-heading: 'PT Sans';
-    --color-text: #446275;
-    --color-background: #D7E9F5;
-    --color-text-label: #F5ECCB;
+  --text-btn: 50px;
+  --text-heading: 50px;
+  --text-subheading: 40px;
+  --text-body: 30px;
+  --font-family-body: "PT Sans";
+  --font-family-heading: "PT Sans";
+  --color-text: #446275;
+  --color-background: #d7e9f5;
+  --color-text-label: #f5eccb;
 }
-  
-  .circle-wrap {
-    margin: 150px auto;
-    width: 150px;
-    height: 150px;
-    background: #fefcff;
-    border-radius: 50%;
-    border: 1px solid #cdcbd0;
-  }
 
-  .circle-wrap .circle .mask,
+.circle-wrap {
+  margin: 150px auto;
+  width: 150px;
+  height: 150px;
+  background: #fefcff;
+  border-radius: 50%;
+  border: 1px solid #cdcbd0;
+}
+
+.circle-wrap .circle .mask,
 .circle-wrap .circle .fill {
   width: 150px;
   height: 150px;
@@ -39,80 +38,91 @@
 }
 
 .circle-wrap .circle .mask {
-    clip: rect(0px, 150px, 150px, 75px);
+  clip: rect(0px, 150px, 150px, 75px);
+}
+
+.mask.full,
+.circle .fill {
+  animation: fill ease-in-out 3s;
+  transform: rotate(144deg);
+}
+
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .mask.full,
-  .circle .fill {
-    animation: fill ease-in-out 3s;
+  100% {
     transform: rotate(144deg);
   }
-  
-  @keyframes fill{
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(144deg);
-    }
-  }
-  .circle-wrap .inside-circle {
-    width: 122px;
-    height: 122px;
-    border-radius: 50%;
-    background: #d2eaf1;
-    margin-top: 14px;
-    margin-left: 14px;
-    color: #1e51dc;
-    position: absolute;
-  }
+}
+.circle-wrap .inside-circle {
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+  background: #d2eaf1;
+  margin-top: 14px;
+  margin-left: 14px;
+  color: #1e51dc;
+  position: absolute;
+}
 
-  .text-inside-circle {
-    position: absolute;
-    margin-top: 20px;
-    margin-left: 20px;
-    padding-top: 10px;
-    z-index: 100;
-    text-align: center;
-  }
+.text-inside-circle {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding-top: 10px;
+  z-index: 100;
+  text-align: center;
+}
 
 body {
   display: grid;
   grid-template-rows: 0.15fr 1fr;
-  grid-template-columns:1fr 1fr 0.25fr;
+  grid-template-columns: 1fr 1fr 0.25fr;
   grid-gap: 0;
-  grid-template-areas: 
-      "header header header"
-      "engagement data nav";
+  grid-template-areas:
+    "header header header"
+    "engagement data nav";
 }
 
-header {grid-area: header;}
-nav {grid-area: nav;}
+header {
+  grid-area: header;
+}
+nav {
+  grid-area: nav;
+}
 
-.engagement {grid-area: engagement;}
-.data {grid-area: data;}
+.engagement {
+  grid-area: engagement;
+}
+.data {
+  grid-area: data;
+}
 
 h3 {
   color: var(--color-text-label);
 }
 
 .insulin-dose-container {
-  background-color: #84AAC2;
+  background-color: #84aac2;
 }
 
-.weight-container{
-  background-color: #89A5D9;
+.weight-container {
+  background-color: #89a5d9;
 }
 
-.blood-glucose-container{
-  background-color: #8289CF;
+.blood-glucose-container {
+  background-color: #8289cf;
 }
 
-.exercise-container{
-  background-color: #89CFD9;
+.exercise-container {
+  background-color: #89cfd9;
 }
 
-.blood-glucose-container, .insulin-dose-container, .exercise-container, .weight-container{
+.blood-glucose-container,
+.insulin-dose-container,
+.exercise-container,
+.weight-container {
   display: flex;
   flex-direction: column;
   border-radius: 14px;
@@ -120,12 +130,11 @@ h3 {
   padding-right: 5px;
 }
 
-
-header{
+header {
   background-color: var(--color-background);
 }
 
-header h1{
+header h1 {
   font-size: var(--text-heading);
   font-family: var(--font-family-heading);
   font-style: italic;
@@ -149,7 +158,10 @@ header h1{
   padding-left: 25%;
 }
 
-.insulin-doses, .weight, .blood-glucose-level, .exercise{
+.insulin-doses,
+.weight,
+.blood-glucose-level,
+.exercise {
   text-align: center;
 }
 
