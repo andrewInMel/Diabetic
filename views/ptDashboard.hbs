@@ -1,74 +1,69 @@
-<section class="engagement">
-  <h1>Dashboard</h1>
-  <h2>
-    <u>Today</u>
-    <a href="/past.html">Past</a>
-  </h2>
-  <div class="circle-wrap">
-    <div class="circle">
-      <div class="mask half">
-        <div class="fill"></div>
-      </div>
-      <div class="mask full">
-        <div class="fill"></div>
-      </div>
-      <div class="inside-circle"></div>
-      <div class="text-inside-circle">
-        <h4>Your Today's</h4>
-        <p class="engagement-rate">N/A%</p>
-        <h4>Engagement Rate</h4>
-      </div>
+<div class="grid-container">
+  <div class="engagement">
+    <h1 style="color: #446275;"><i>Dashboard</i></h1>
+    <h2>
+      <a style="text-decoration: underline; color: #446275;">Today</a>
+      <a href="/past.html" style="text-decoration: none; color: #ABB8C2">Past</a>
+    </h2>
+  </div>
+  <br />
+  <div class="required">
+  <div class="data">
+    <div class="insulin-dose-container">
+      <h3>Insulin doses</h3>
+      {{#if healthRd.Insulin}}
+        <h2 class="insulin-doses">{{healthRd.Insulin.figure}}</h2>
+      {{else}}
+        <h2 class="insulin-doses">N/A</h2>
+      {{/if}}
+      <h3 style="text-align: right;">Doses</h3>
+      {{#if (healthRd.Insulin.required)}}
+        <a class="asterisk-insulin">*</a>
+      {{/if}}
+    </div>
+    <br />
+    <div class="weight-container">
+      <h3>Weight</h3>
+      {{#if healthRd.Weight}}
+        <h2 class="weight">{{healthRd.Weight.figure}}</h2>
+      {{else}}
+        <h2 class="weight">N/A</h2>
+      {{/if}}
+      <h3 style="text-align: right;">Kg</h3>
+      {{#if healthRd.Weight.required}}
+        <a class="asterisk-weight">*</a>
+      {{/if}}
+    </div>
+    <br />
+    <div class="blood-glucose-container">
+      <h3>BGL</h3>
+      {{#if healthRd.BGL}}
+        <h2 class="blood-glucose-level">{{healthRd.BGL.figure}}</h2>
+      {{else}}
+        <h2 class="blood-glucose-level">N/A</h2>
+      {{/if}}
+      <h3 style="text-align: right;">nmol/L</h3>
+      {{#if healthRd.BGL.required}}
+        <a class="asterisk-bgl">*</a>
+      {{/if}}
+    </div>
+    <br />
+    <div class="exercise-container">
+      <h3>Exercise</h3>
+      {{#if healthRd.Exercise}}
+        <h2 class="exercise">{{healthRd.Exercise.figure}}</h2>
+      {{else}}
+        <h2 class="exercise">N/A</h2>
+      {{/if}}
+      <h3 style="text-align: right;">Steps</h3>
+      {{#if healthRd.Exercise.required}}
+        <a class="asterisk-exercise">*</a>
+      {{/if}}
     </div>
   </div>
-</section>
-<br />
-<br />
-<section class="data">
-  <div class="insulin-dose-container">
-    <h3>Insulin doses</h3>
-    {{#if healthRd.Insulin}}
-      <h2 class="insulin-doses">{{healthRd.Insulin.figure}}</h2>
-    {{else}}
-      <h2 class="insulin-doses">N/A</h2>
-    {{/if}}
-    <h3 style="text-align: right;">Doses</h3>
+    <br />
+    <div class="requirement-container">
+      <p>* Required</p>
+    </div>
   </div>
-  <br />
-  <br />
-  <div class="weight-container">
-    <h3>Weight</h3>
-    {{#if healthRd.Weight}}
-      <h2 class="weight">{{healthRd.Weight.figure}}</h2>
-    {{else}}
-      <h2 class="weight">N/A</h2>
-    {{/if}}
-    <h3 style="text-align: right;">Kg</h3>
-  </div>
-  <br />
-  <br />
-  <div class="blood-glucose-container">
-    <h3>BGL</h3>
-    {{#if healthRd.BGL}}
-      <h2 class="blood-glucose-level">{{healthRd.BGL.figure}}</h2>
-    {{else}}
-      <h2 class="blood-glucose-level">N/A</h2>
-    {{/if}}
-    <h3 style="text-align: right;">nmol/L</h3>
-  </div>
-  <br />
-  <br />
-  <div class="exercise-container">
-    <h3>Exercise</h3>
-    {{#if healthRd.Exercise}}
-      <h2 class="exercise">{{healthRd.Exercise.figure}}</h2>
-    {{else}}
-      <h2 class="exercise">N/A</h2>
-    {{/if}}
-    <h3 style="text-align: right;">Steps</h3>
-  </div>
-  <br />
-  <br />
-  <div class="requirement-container">
-    <p>* Required</p>
-  </div>
-</section>>
+</div>
