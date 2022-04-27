@@ -19,29 +19,7 @@ main .title {
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
   margin-bottom: 15px;
-  padding-right: 8vw;
-}
-
-.row-container > div {
-  margin: auto 2.5vw;
-}
-
-.flex-item {
-  flex-direction: column;
-  flex: 10vw;
-}
-
-.flex-item-name {
-  flex: 50vw;
-  padding-right: 4vw;
-}
-
-.data-item {
-  flex-direction: column;
-  flex: 10vw;
 }
 
 .list-header {
@@ -53,6 +31,53 @@ main .title {
   border: 5px solid #c6cfd5;
 }
 
-.warning {
+#warning {
   color: red;
+}
+
+.flex-item-name {
+  flex: 5vw;
+  text-align: center;
+}
+
+.flex-item-sex {
+  flex: 10vw;
+  text-align: center;
+}
+
+.flex-item-dob {
+  flex: 10vw;
+  text-align: center;
+}
+
+.flex-item-bgl {
+  flex: 10vw;
+  text-align: center;
+}
+
+.flex-item-weight {
+  flex: 10vw;
+  text-align: center;
+}
+
+.flex-item-insulin {
+  flex: 10vw;
+  text-align: center;
+}
+
+.flex-item-exercise {
+  flex: 10vw;
+  text-align: center;
+}
+
+.flex-item-comments {
+  flex: 10vw;
+  text-align: center;
+}
+
+.data {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex: 70vw;
 }

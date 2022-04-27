@@ -1,41 +1,41 @@
-<div class="row-container">
   <div class="flex-item-name">{{patient.firstName}} {{patient.lastName}}</div>
-  <div class="data-item">{{patient.gender}}</div>
-  <div class="data-item">{{patient.dob}}</div>
-  {{! if patient has entered some data today }}
-  {{#if record}}
-    {{!-- bgl --}}
-    <div class="data-item"{{#if (validation record.BGL.figure dataSet.BGL.min dataSet.BGL.max)}}
-      class="data-item warning"
-      {{/if}}>{{record.BGL.figure}}</div>
+  <div class="data box">
+    <div class="flex-item-sex">{{patient.gender}}</div>
+    <div class="flex-item-dob">{{patient.dob}}</div>
+    {{! if patient has entered some data today }}
+    {{#if record}}
+      {{!-- bgl --}}
+      <div class="flex-item-bgl" {{#if (validation record.BGL.figure dataSet.BGL.min dataSet.BGL.max)}}
+        id="warning"
+        {{/if}}>{{record.BGL.figure}}</div>
 
-    {{!-- weight --}}
-    <div class="data-item"{{#if (validation record.Weight.figure dataSet.Weight.min dataSet.Weight.max)}}
-      class="data-item warning"
-      {{/if}}>{{record.Weight.figure}}</div>
+      {{!-- weight --}}
+      <div class="flex-item-weight"{{#if (validation record.Weight.figure dataSet.Weight.min dataSet.Weight.max)}}
+        id="warning"
+        {{/if}}>{{record.Weight.figure}}</div>
 
-    {{!-- insulin --}}
-    <div class="data-item"{{#if (validation record.Insulin.figure dataSet.Insulin.min dataSet.Insulin.max)}}
-      class="data-item warning"
-      {{/if}}>{{record.Insulin.figure}}</div>
+      {{!-- insulin --}}
+      <div class="flex-item-insulin"{{#if (validation record.Insulin.figure dataSet.Insulin.min dataSet.Insulin.max)}}
+        id="warning"
+        {{/if}}>{{record.Insulin.figure}}</div>
 
-    {{!-- exercise --}}
-    <div class="data-item"{{#if (validation record.Exercise.figure dataSet.Exercise.min dataSet.Exercise.max)}}
-      class="data-item warning"
-      {{/if}}>{{record.Exercise.figure}}</div>
+      {{!-- exercise --}}
+      <div class="flex-item-exercise"{{#if (validation record.Exercise.figure dataSet.Exercise.min dataSet.Exercise.max)}}
+        id="warning"
+        {{/if}}>{{record.Exercise.figure}}</div>
 
-    {{!-- comments --}}
-    <div>
-      {{#each comments}}
-        <p class="data-item">{{this}}</p>
-      {{/each}}
-    </div>
-    {{! patient hasn't entered any data }}
-  {{else}}
-    <div class="data-item">N/A</div>
-    <div class="data-item">N/A</div>
-    <div class="data-item">N/A</div>
-    <div class="data-item">N/A</div>
-    <div class="data-item">-</div>
-  {{/if}}
-</div>
+      {{!-- comments --}}
+      <div>
+        {{#each comments}}
+          <p class="flex-item-comments">{{this}}</p>
+        {{/each}}
+      </div>
+      {{! patient hasn't entered any data }}
+    {{else}}
+      <div class="flex-item-bgl">N/A</div>
+      <div class="flex-item-weight">N/A</div>
+      <div class="flex-item-insulin">N/A</div>
+      <div class="flex-item-exercise">N/A</div>
+      <div class="flex-item-comments">-</div>
+    {{/if}}
+  </div>

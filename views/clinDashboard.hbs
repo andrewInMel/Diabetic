@@ -5,19 +5,19 @@
     <ul>
       <li class="row-container">
         <div class="flex-item-name list-header">Name</div>
-        <div class="flex-item list-header">Sex</div>
-        <div class="flex-item list-header">DOB</div>
-        <div class="flex-item list-header">BGL (nmol/L)</div>
-        <div class="flex-item list-header">Weight (kg)</div>
-        <div class="flex-item list-header">Insulin (doses)</div>
-        <div class="flex-item list-header">Exercise (steps)</div>
-        <div class="flex-item list-header">Comments</div>
+        <div class="data">
+          <div class="flex-item-sex list-header">Sex</div>
+          <div class="flex-item-dob list-header">DOB</div>
+          <div class="flex-item-bgl list-header">BGL (nmol/L)</div>
+          <div class="flex-item-weight list-header">Weight (kg)</div>
+          <div class="flex-item-insulin list-header">Insulin (doses)</div>
+          <div class="flex-item-exercise list-header">Exercise (steps)</div>
+          <div class="flex-item-comments list-header">Comments</div>
+        </div>
       </li>
       {{#each patients}}
         <li class="row-container">
-          <div>
             {{> patientEntry}}
-          </div>
         </li>
       {{/each}}
     </ul>
