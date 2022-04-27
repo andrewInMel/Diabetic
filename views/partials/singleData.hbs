@@ -23,6 +23,10 @@
           disabled
         />
         <div class="unit-style">{{unit}}</div>
+        {{! desktop star}}
+        {{#if (in type required)}}
+          <div class="desktop-star-style">*</div>
+        {{/if}}
       </div>
       {{! time section }}
       <div class="time-container">
@@ -49,7 +53,7 @@
     {{else}}
       <div class="data-container {{type}}-color">
         <div class="upper-section">
-          <div class="type-style">{{type}}</div>
+          <label for="{{type}}" class="type-style">{{type}}</label>
           {{#if (in type required)}}
             <div class="star-style">*</div>
           {{/if}}
@@ -58,9 +62,14 @@
           type="number"
           class="data-style {{type}}-color"
           name={{type}}
+          id="{{type}}"
           required
         />
         <div class="unit-style">{{unit}}</div>
+        {{! desktop star}}
+        {{#if (in type required)}}
+          <div class="desktop-star-style">*</div>
+        {{/if}}
       </div>
       {{! time section }}
       <div class="time-container">

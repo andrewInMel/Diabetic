@@ -3,8 +3,13 @@ body {
   font-family: "PT sans";
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 /* main style */
-.mainStyle {
+.content-style {
   color: #446275;
   padding: 3vh 5vw 2vh;
 }
@@ -27,25 +32,23 @@ body {
 }
 
 .require-style {
+  padding-right: 1vw;
   color: red;
   font-size: 3vmin;
 }
 
 /* add data style */
 .data-section {
-  padding-top: 2vh;
-  min-height: 60vh;
+  min-height: 65vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-evenly;
 }
 
 .block-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1vh 0 2vh;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -58,22 +61,26 @@ body {
   flex-direction: column;
   justify-content: space-around;
 }
+
 /* left upper data section*/
 .upper-section {
   display: flex;
-  justify-content: space-between;
-  padding: 0 3vw 0;
-}
-
-.type-style {
-  font-size: 4vw;
-  font-weight: bold;
-  color: #f5eccb;
+  justify-content: space-around;
 }
 
 .star-style {
   font-size: 5vw;
   color: red;
+}
+
+.desktop-star-style {
+  display: none;
+}
+
+.type-style {
+  font-size: 5vw;
+  font-weight: bold;
+  color: #f5eccb;
 }
 
 /* left middle data section*/
@@ -119,7 +126,7 @@ body {
 }
 .time-style {
   border-radius: 15px;
-  width: 80%;
+  width: 90%;
   height: 48%;
   color: #84aac2;
   font-size: 3vw;
@@ -154,4 +161,66 @@ body {
   outline: none;
   padding: 2vmin 3vmin;
   resize: none;
+}
+
+/* Desktop style*/
+@media screen and (min-width: 400px) {
+  .content-style {
+    padding: 5vh 5vw 0 10vw;
+  }
+  .link-style {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .require-style {
+    color: red;
+    font-size: 2vmin;
+  }
+  /* data block section */
+  .data-container {
+    margin-right: 9%;
+    width: 40%;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .upper-section {
+    width: 30%;
+    justify-content: flex-start;
+  }
+  .star-style {
+    display: none;
+  }
+  .desktop-star-style {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    font-size: 2vw;
+    color: red;
+  }
+  .type-style {
+    padding-left: 2vw;
+    font-size: 2vw;
+    align-self: center;
+  }
+  .data-style {
+    width: 30%;
+    font-size: 2vw;
+  }
+  .unit-style {
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+    padding: 0;
+    font-size: 2.5vmin;
+  }
+  /* time block section*/
+  .time-container {
+    width: 11%;
+  }
+  .time-style {
+    font-size: 1.5vw;
+    padding: 0.5vw;
+  }
 }

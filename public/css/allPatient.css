@@ -7,7 +7,7 @@
 main {
   height: 90vh;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -34,6 +34,7 @@ nav a img:hover {
 
 /* header style*/
 header {
+  width: 100%;
   height: 10vh;
   background-color: #d7e9f5;
 }
@@ -63,25 +64,20 @@ header {
 }
 
 /* Desktop style*/
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 400px) {
   main {
-    height: 90vh;
-    display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
+
   nav {
     height: 100%;
     width: 6vw;
-    background-color: #f4f9fd;
-    display: block;
   }
+
   nav div {
     height: 70%;
     width: 6vw;
-    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
   }
 }
