@@ -97,7 +97,7 @@ h3 {
 .asterisk-insulin{
   color: red;
   position: absolute;
-  right: 9vw;
+  right: 10vw;
   top: 15vh;
   font-size: 5vw;
 }
@@ -105,7 +105,7 @@ h3 {
 .asterisk-weight{
   color: red;
   position: absolute;
-  right: 9vw;
+  right: 10vw;
   top: 34vh;
   font-size: 5vw;
 }
@@ -113,7 +113,7 @@ h3 {
 .asterisk-bgl{
   color: red;
   position: absolute;
-  right: 9vw;
+  right: 10vw;
   top: 53vh;
   font-size: 5vw;
 }
@@ -121,18 +121,11 @@ h3 {
 .asterisk-exercise{
   color: red;
   position: absolute;
-  right: 9vw;
+  right: 10vw;
   top: 72vh;
   font-size: 5vw;
 }
 
-.asterisk{
-  color: red;
-  position: relative;
-  right: 0;
-  top: 0;
-  font-size: 5vw;
-}
 
 p {
   color: red;
@@ -231,7 +224,6 @@ p {
     flex-direction: column;
     grid-gap: 0;
     height: 80vh;
-    padding-left: 5vw;
   }
 
   .data{
@@ -246,6 +238,7 @@ p {
     height: 15vh;
     width: 25vw;
     padding-top: 2vh;
+    margin-left: 2vw;
   }
 
   .insulin-doses,
@@ -266,5 +259,28 @@ p {
 
   .progress-circle {
     font-size: 15vw;
+  }
+
+  .asterisk-insulin{
+    right: 79vw;
+    top: 69vh;
+    font-size: 5vw;
+  }
+  
+  .asterisk-weight{
+    right: 57vw;
+    top: 69vh;
+    font-size: 5vw;
+  }
+  
+  .asterisk-bgl{
+    right: 35vw;
+    top: 69vh;
+    font-size: 5vw;
+  }
+  
+  .asterisk-exercise{
+    right: 12vw;
+    top: 69vh;
   }
 }
