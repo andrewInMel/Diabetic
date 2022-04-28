@@ -5,7 +5,7 @@
 }
 /* body section container  */
 main {
-  height: 83vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,6 +37,7 @@ header {
   width: 100%;
   height: 10vh;
   background-color: #d7e9f5;
+  font-family: "PT sans";
 }
 
 .header-date {
@@ -63,8 +64,26 @@ header {
   align-items: center;
 }
 
+.layout-footer {
+  display: none;
+}
+
 /* Desktop style*/
 @media screen and (min-width: 400px) {
+  /* clinician footer style */
+  .layout-footer {
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    background-color: #f4f9fd;
+    align-items: center;
+    color: #446275;
+    font-family: "PT sans";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
   main {
     flex-direction: row;
     justify-content: space-between;
@@ -80,19 +99,8 @@ header {
     width: 6vw;
     flex-direction: column;
   }
-}
 
-/* clinician footer style */
-.layout-footer {
-  height: 7vh;
-  display: flex;
-  justify-content: center;
-  background-color: #f4f9fd;
-  align-items: center;
-  color: #446275;
-  font-family: "PT sans";
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  .desktop {
+    display: flex;
+  }
 }

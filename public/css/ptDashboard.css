@@ -30,6 +30,10 @@
   grid-area: data;
 }
 
+h1 {
+  font-family: "PT sans";
+}
+
 h3 {
   color: var(--color-text-label);
   font-family: var(--font-family-heading);
@@ -129,8 +133,6 @@ h3 {
   top: 70vh;
   font-size: 2vw;
 }
-
-
 
 p {
   color: red;
@@ -284,23 +286,22 @@ p {
     top: 69vh;
     font-size: 5vw;
   }
-  
+
   .asterisk-weight {
     right: 58vw;
     top: 69vh;
     font-size: 5vw;
   }
-  
+
   .asterisk-bgl {
     right: 36vw;
     top: 69vh;
     font-size: 5vw;
   }
-  
+
   .asterisk-exercise {
     right: 13vw;
     top: 69vh;
     font-size: 5vw;
   }
-  
 }
