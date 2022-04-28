@@ -238,7 +238,7 @@ p {
     display: flex;
     flex-direction: column;
     grid-gap: 0;
-    height: 80vh;
+    height: 66vh;
   }
 
   .data {
