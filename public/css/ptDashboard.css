@@ -276,4 +276,29 @@ p {
   .progress-circle {
     font-size: 15vw;
   }
+
+  .asterisk-insulin {
+    right: 80vw;
+    top: 69vh;
+    font-size: 5vw;
+  }
+  
+  .asterisk-weight {
+    right: 58vw;
+    top: 69vh;
+    font-size: 5vw;
+  }
+  
+  .asterisk-bgl {
+    right: 36vw;
+    top: 69vh;
+    font-size: 5vw;
+  }
+  
+  .asterisk-exercise {
+    right: 13vw;
+    top: 69vh;
+    font-size: 5vw;
+  }
+  
 }
