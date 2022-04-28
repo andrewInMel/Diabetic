@@ -36,7 +36,7 @@
         <h2 class="insulin-doses">N/A</h2>
       {{/if}}
       <h3 style="text-align: right;">Doses</h3>
-      {{#if (healthRd.Insulin.required)}}
+      {{#if (healthRd.Insurequired)}}
         <a class="asterisk-insulin">*</a>
       {{/if}}
     </div>
@@ -85,4 +85,18 @@
       <p>* Required</p>
     </div>
   </div>
+  {{#each required}}
+    {{#if Insulin}}
+      <a class="asterisk-insulin">*</a>
+    {{/if}}
+    {{#if Weight}}
+      <a class="asterisk-weight">*</a>
+    {{/if}}
+    {{#if BGL}}
+      <a class="asterisk-bgl">*</a>
+    {{/if}}
+    {{#if Exercise}}
+      <a class="asterisk-exercise">*</a>
+    {{/if}}
+  {{/each}}
 </div>
