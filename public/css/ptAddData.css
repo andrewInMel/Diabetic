@@ -165,7 +165,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* Desktop style*/
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 500px) {
   .content-style {
     padding: 5vh 5vw 0 10vw;
   }

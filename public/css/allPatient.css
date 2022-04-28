@@ -69,7 +69,7 @@ header {
 }
 
 /* Desktop style*/
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 500px) {
   /* clinician footer style */
   .layout-footer {
     height: 7vh;
