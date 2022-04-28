@@ -182,12 +182,12 @@ input[type="number"]::-webkit-inner-spin-button {
   /* data block section */
   .data-container {
     margin-right: 9%;
-    width: 40%;
+    width: 45%;
     flex-direction: row;
     justify-content: flex-start;
   }
   .upper-section {
-    width: 30%;
+    width: 40%;
     justify-content: flex-start;
   }
   .star-style {
@@ -212,7 +212,7 @@ input[type="number"]::-webkit-inner-spin-button {
   .unit-style {
     display: flex;
     justify-content: flex-end;
-    width: 30%;
+    width: 20%;
     padding: 0;
     font-size: 2.5vmin;
   }
