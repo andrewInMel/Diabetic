@@ -97,33 +97,33 @@ h3 {
 .asterisk-insulin{
   color: red;
   position: absolute;
-  right: 10vw;
+  right: 11vw;
   top: 15vh;
-  font-size: 5vw;
+  font-size: 2vw;
 }
 
 .asterisk-weight{
   color: red;
   position: absolute;
-  right: 10vw;
+  right: 11vw;
   top: 34vh;
-  font-size: 5vw;
+  font-size: 2vw;
 }
 
 .asterisk-bgl{
   color: red;
   position: absolute;
-  right: 10vw;
+  right: 11vw;
   top: 53vh;
-  font-size: 5vw;
+  font-size: 2vw;
 }
 
 .asterisk-exercise{
   color: red;
   position: absolute;
-  right: 10vw;
+  right: 11vw;
   top: 72vh;
-  font-size: 5vw;
+  font-size: 2vw;
 }
 
 

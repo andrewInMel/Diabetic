@@ -36,7 +36,7 @@
         <h2 class="insulin-doses">N/A</h2>
       {{/if}}
       <h3 style="text-align: right;">Doses</h3>
-      {{#if (healthRd.Insurequired)}}
+      {{#if (in "Insulin" required)}}
         <a class="asterisk-insulin">*</a>
       {{/if}}
     </div>
@@ -49,7 +49,7 @@
         <h2 class="weight">N/A</h2>
       {{/if}}
       <h3 style="text-align: right;">Kg</h3>
-      {{#if healthRd.Weight.required}}
+      {{#if (in "Weight" required)}}
         <a class="asterisk-weight">*</a>
       {{/if}}
     </div>
@@ -62,7 +62,7 @@
         <h2 class="blood-glucose-level">N/A</h2>
       {{/if}}
       <h3 style="text-align: right;">nmol/L</h3>
-      {{#if healthRd.BGL.required}}
+      {{#if (in "BGL" required)}}
         <a class="asterisk-bgl">*</a>
       {{/if}}
     </div>
@@ -75,7 +75,7 @@
         <h2 class="exercise">N/A</h2>
       {{/if}}
       <h3 style="text-align: right;">Steps</h3>
-      {{#if healthRd.Exercise.required}}
+      {{#if (in "Exercise" required)}}
         <a class="asterisk-exercise">*</a>
       {{/if}}
     </div>
@@ -85,18 +85,4 @@
       <p>* Required</p>
     </div>
   </div>
-  {{#each required}}
-    {{#if this}}
-      <a class="asterisk-insulin">*</a>
-    {{/if}}
-    {{#if Weight}}
-      <a class="asterisk-weight">*</a>
-    {{/if}}
-    {{#if BGL}}
-      <a class="asterisk-bgl">*</a>
-    {{/if}}
-    {{#if Exercise}}
-      <a class="asterisk-exercise">*</a>
-    {{/if}}
-  {{/each}}
 </div>
