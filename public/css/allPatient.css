@@ -5,7 +5,7 @@
 }
 /* body section container  */
 main {
-  height: 90vh;
+  height: 83vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13,7 +13,7 @@ main {
 
 /* Navigation style */
 nav {
-  height: 8vh;
+  height: 7vh;
   display: flex;
   background-color: #f4f9fd;
 }
@@ -80,4 +80,19 @@ header {
     width: 6vw;
     flex-direction: column;
   }
+}
+
+/* clinician footer style */
+.layout-footer {
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  background-color: #f4f9fd;
+  align-items: center;
+  color: #446275;
+  font-family: "PT sans";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
