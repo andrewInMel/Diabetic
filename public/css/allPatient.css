@@ -56,7 +56,7 @@ header {
 
 .message {
   height: 10vh;
-  position: fixed;
+  position: absolute;
   right: 2vw;
   top: 0;
   display: flex;

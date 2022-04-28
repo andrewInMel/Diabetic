@@ -79,7 +79,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .type-style {
-  font-size: 5vw;
+  font-size: 2vh;
   font-weight: bold;
   color: #f5eccb;
 }
@@ -91,7 +91,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border: none;
   text-align: center;
   font-weight: bold;
-  font-size: 8vmin;
+  font-size: 4vh;
   font-style: italic;
   outline: none;
 }
@@ -130,7 +130,7 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 90%;
   height: 48%;
   color: #84aac2;
-  font-size: 3vw;
+  font-size: 4vw;
   text-align: center;
   background-color: white;
 }
@@ -221,7 +221,7 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 11%;
   }
   .time-style {
-    font-size: 1.5vw;
+    font-size: 1vw;
     padding: 0.5vw;
   }
 }

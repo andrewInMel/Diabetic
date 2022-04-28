@@ -3,10 +3,10 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 0.15fr 1fr;
-  grid-gap: 2rem;
   grid-template-areas:
     "header header"
-    "col1 col2";
+    "col1 col2"
+    "footer footer"
 }
 
 /* assign regions of the page to the grid */
@@ -16,9 +16,22 @@ header {
 
 .col1 {
   grid-area: col1;
+  padding: 15px;
 }
 .col2 {
   grid-area: col2;
+  padding: 15px;
+}
+
+footer {
+  grid-area: footer;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  background-color: #d7e9f5;
+  align-items: center;
+  color: #446275;
+  font-family: "PT sans";
 }
 
 /* responsive screen */
