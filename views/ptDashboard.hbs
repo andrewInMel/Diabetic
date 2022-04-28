@@ -50,7 +50,7 @@
           <h2 class="weight">N/A</h2>
         {{/if}}
         <h3 class="unit-style">Kg</h3>
-        {{#if in "Weight" required}}
+        {{#if (in "Weight" required)}}
           <a class="asterisk-weight">*</a>
         {{/if}}
       </div>
@@ -63,7 +63,7 @@
           <h2 class="blood-glucose-level">N/A</h2>
         {{/if}}
         <h3 class="unit-style">nmol/L</h3>
-        {{#if in "BGL" required}}
+        {{#if (in "BGL" required)}}
           <a class="asterisk-bgl">*</a>
         {{/if}}
       </div>
@@ -76,7 +76,7 @@
           <h2 class="exercise">N/A</h2>
         {{/if}}
         <h3 class="unit-style">Steps</h3>
-        {{#if in "Exercise" required}}
+        {{#if (in "Exercise" required)}}
           <a class="asterisk-exercise">*</a>
         {{/if}}
       </div>

@@ -108,7 +108,7 @@ h3 {
   color: red;
   position: absolute;
   right: 11vw;
-  top: 34vh;
+  top: 33vh;
   font-size: 2vw;
 }
 
@@ -116,7 +116,7 @@ h3 {
   color: red;
   position: absolute;
   right: 11vw;
-  top: 53vh;
+  top: 51vh;
   font-size: 2vw;
 }
 
@@ -124,17 +124,11 @@ h3 {
   color: red;
   position: absolute;
   right: 11vw;
-  top: 72vh;
+  top: 70vh;
   font-size: 2vw;
 }
 
-.asterisk {
-  color: red;
-  position: relative;
-  right: 0;
-  top: 0;
-  font-size: 5vw;
-}
+
 
 p {
   color: red;
