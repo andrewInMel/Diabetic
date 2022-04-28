@@ -40,6 +40,10 @@ hbs.handlebars.registerHelper("in", (type, required) => {
 hbs.handlebars.registerHelper("checkComment", (comments) => {
   return comments.length !== 0;
 });
+hbs.handlebars.registerHelper('gt', function( a, b ){
+	var next =  arguments[arguments.length-1];
+	return (a > b) ? next.fn(this) : next.inverse(this);
+});
 
 /* session configuration */
 app.use(

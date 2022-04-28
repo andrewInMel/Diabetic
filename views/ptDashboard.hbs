@@ -1,3 +1,5 @@
+
+
 <div class="grid-container">
   <div class="engagement">
     <h1 style="color: #446275;"><i>Dashboard</i></h1>
@@ -5,8 +7,25 @@
       <a style="text-decoration: underline; color: #446275;">Today</a>
       <a href="/past.html" style="text-decoration: none; color: #ABB8C2">Past</a>
     </h2>
+    {{#gt progress 50}}
+    <div class="progress-circle over50 p{{progress}}">
+      <span>{{progress}}%</span>
+      <div class="left-half-clipper">
+        <div class="first50-bar"></div>
+        <div class="value-bar"></div>
+      </div>
+    </div>
+    {{else}}
+    <div class="progress-circle p{{progress}}">
+      <span>{{progress}}%</span>
+      <div class="left-half-clipper">
+        <div class="first50-bar"></div>
+        <div class="value-bar"></div>
+      </div>
+    </div>
+    {{/gt}}
   </div>
-  <br />
+  
   <div class="required">
   <div class="data">
     <div class="insulin-dose-container">
