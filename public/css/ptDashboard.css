@@ -30,6 +30,10 @@
   grid-area: data;
 }
 
+h1 {
+  font-family: "PT sans";
+}
+
 h3 {
   color: var(--color-text-label);
   font-family: var(--font-family-heading);
@@ -37,11 +41,13 @@ h3 {
 
 .type-style {
   padding-left: 1vmax;
+  font-family: var(--font-family-heading);
 }
 
 .unit-style {
   text-align: right;
   padding-right: 1vmax;
+  font-family: var(--font-family-heading);
 }
 
 .insulin-dose-container {
@@ -127,8 +133,6 @@ h3 {
   top: 70vh;
   font-size: 2vw;
 }
-
-
 
 p {
   color: red;
@@ -233,12 +237,12 @@ p {
   transform: rotate(360deg);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .grid-container {
     display: flex;
     flex-direction: column;
     grid-gap: 0;
-    height: 80vh;
+    height: 66vh;
   }
 
   .data {
@@ -274,7 +278,7 @@ p {
   }
 
   .progress-circle {
-    font-size: 15vw;
+    font-size: 14vw;
   }
 
   .asterisk-insulin {
@@ -282,23 +286,22 @@ p {
     top: 69vh;
     font-size: 5vw;
   }
-  
+
   .asterisk-weight {
     right: 58vw;
     top: 69vh;
     font-size: 5vw;
   }
-  
+
   .asterisk-bgl {
     right: 36vw;
     top: 69vh;
     font-size: 5vw;
   }
-  
+
   .asterisk-exercise {
     right: 13vw;
     top: 69vh;
     font-size: 5vw;
   }
-  
 }

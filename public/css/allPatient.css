@@ -13,7 +13,7 @@ main {
 
 /* Navigation style */
 nav {
-  height: 8vh;
+  height: 7vh;
   display: flex;
   background-color: #f4f9fd;
 }
@@ -37,6 +37,7 @@ header {
   width: 100%;
   height: 10vh;
   background-color: #d7e9f5;
+  font-family: "PT sans";
 }
 
 .header-date {
@@ -63,8 +64,26 @@ header {
   align-items: center;
 }
 
+.layout-footer {
+  display: none;
+}
+
 /* Desktop style*/
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 500px) {
+  /* clinician footer style */
+  .layout-footer {
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    background-color: #f4f9fd;
+    align-items: center;
+    color: #446275;
+    font-family: "PT sans";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
   main {
     flex-direction: row;
     justify-content: space-between;
@@ -79,5 +98,9 @@ header {
     height: 70%;
     width: 6vw;
     flex-direction: column;
+  }
+
+  .desktop {
+    display: flex;
   }
 }
