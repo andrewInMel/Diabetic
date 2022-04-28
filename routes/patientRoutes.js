@@ -36,6 +36,7 @@ router.get("/dashboard", patientAuth, async (req, res) => {
     healthRd: todayRecord,
     style: "ptDashboard.css",
     progress: currentProg,
+    required: Object.keys(patient.dataSet),
   });
 });
 
