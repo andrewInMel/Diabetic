@@ -19,7 +19,7 @@ main .title {
   height: 60px;
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .list-header {

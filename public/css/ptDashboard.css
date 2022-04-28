@@ -99,7 +99,7 @@ h3 {
 .asterisk-insulin {
   color: red;
   position: absolute;
-  right: 9vw;
+  right: 10vw;
   top: 15vh;
   font-size: 5vw;
 }
@@ -107,7 +107,7 @@ h3 {
 .asterisk-weight {
   color: red;
   position: absolute;
-  right: 9vw;
+  right: 10vw;
   top: 34vh;
   font-size: 5vw;
 }
@@ -115,7 +115,7 @@ h3 {
 .asterisk-bgl {
   color: red;
   position: absolute;
-  right: 9vw;
+  right: 10vw;
   top: 53vh;
   font-size: 5vw;
 }
@@ -123,7 +123,7 @@ h3 {
 .asterisk-exercise {
   color: red;
   position: absolute;
-  right: 9vw;
+  right: 10vw;
   top: 72vh;
   font-size: 5vw;
 }
@@ -245,7 +245,6 @@ p {
     flex-direction: column;
     grid-gap: 0;
     height: 80vh;
-    padding-left: 5vw;
   }
 
   .data {
@@ -261,6 +260,7 @@ p {
     width: 24vw;
     margin: 0 0.5vw;
     padding-top: 2vh;
+    margin-left: 2vw;
   }
 
   .insulin-doses,
