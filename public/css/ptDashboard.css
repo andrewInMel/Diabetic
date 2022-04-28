@@ -37,11 +37,13 @@ h3 {
 
 .type-style {
   padding-left: 1vmax;
+  font-family: var(--font-family-heading);
 }
 
 .unit-style {
   text-align: right;
   padding-right: 1vmax;
+  font-family: var(--font-family-heading);
 }
 
 .insulin-dose-container {
