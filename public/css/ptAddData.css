@@ -12,7 +12,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .content-style {
   color: #446275;
   padding: 3vh 5vw 2vh;
-  margin-left: 5vw;
+  margin-left: 4.3vw;
 }
 
 .input-style {
@@ -218,7 +218,7 @@ input[type="number"]::-webkit-inner-spin-button {
   }
   /* data block section */
   .data-container {
-    margin-right: 9%;
+    margin-right: 4%;
     width: 45%;
     flex-direction: row;
     justify-content: flex-start;
@@ -258,7 +258,7 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 11%;
   }
   .time-style {
-    font-size: 2vh;
+    font-size: 1vw;
     padding: 0.5vw;
   }
 }
