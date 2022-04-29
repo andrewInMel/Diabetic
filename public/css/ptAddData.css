@@ -135,23 +135,13 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: white;
 }
 
-.submit:hover {
-  cursor: pointer;
-}
-
 .Insulin-border {
   border: 1px solid #84aac2;
   color: #84aac2;
 }
 
-.Insulin-hover {
-  border-color: white;
-  color: white;
-}
-
-.Insulin-hover:hover {
+.Insulin-fill:hover {
   cursor: pointer;
-  border: 2px solid black;
   color: white;
   background-color: #84aac2;
 }
@@ -161,9 +151,8 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #89a5d9;
 }
 
-.BGL-hover:hover {
+.BGL-fill:hover {
   cursor: pointer;
-  border: 2px solid black;
   color: white;
   background-color: #89a5d9;
 }
@@ -173,9 +162,8 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #89a5d9;
 }
 
-.Weight-hover:hover {
+.Weight-fill:hover {
   cursor: pointer;
-  border: 2px solid black;
   color: white;
   background-color: #8289cf;
 }
@@ -185,9 +173,8 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #89cfd9;
 }
 
-.Exercise-hover:hover {
+.Exercise-fill:hover {
   cursor: pointer;
-  border: 2px solid black;
   color: white;
   background-color: #89cfd9;
 }
