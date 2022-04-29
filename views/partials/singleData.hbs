@@ -31,7 +31,7 @@
       {{! time section}}
       <div class="time-container">
         <input
-          class="time-style {{type}}-border"
+          class="time-style time-position {{type}}-border"
           value="{{data.time}}"
           disabled
         />
@@ -46,7 +46,6 @@
       <textarea
         class="comment-style {{type}}-border"
         name="{{type}}Comment"
-        placeholder="Add notes..."
         disabled
       >{{data.comment}}</textarea>
       {{! waiting for today's data}}
@@ -71,15 +70,6 @@
           <div class="desktop-star-style">*</div>
         {{/if}}
       </div>
-      {{! time section}}
-      <div class="time-container">
-        <input class="time-style {{type}}-border" value=":" disabled />
-        <input
-          type="submit"
-          value="Save"
-          class="time-style {{type}}-border {{type}}-fill"
-        />
-      </div>
       {{! comment section}}
       <textarea
         autofocus
@@ -87,6 +77,15 @@
         name="{{type}}Comment"
         placeholder="Add notes..."
       ></textarea>
+      {{! time section}}
+      <div class="time-container">
+        <input class="time-style-disabled {{type}}-border" value=":" disabled />
+        <input
+          type="submit"
+          value="Save"
+          class="time-style {{type}}-border {{type}}-fill"
+        />
+      </div>
     {{/if}}
   </form>
 </div>

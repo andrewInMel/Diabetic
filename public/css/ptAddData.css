@@ -70,7 +70,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .star-style {
-  font-size: 5vw;
+  font-size: 5vh;
   color: red;
 }
 
@@ -79,7 +79,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .type-style {
-  font-size: 2vh;
+  font-size: 2vw;
   font-weight: bold;
   color: #f5eccb;
 }
@@ -90,7 +90,7 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 90%;
   border: none;
   font-weight: bold;
-  font-size: 4vh;
+  font-size: 4vw;
   font-style: italic;
   outline: none;
 }
@@ -128,10 +128,16 @@ input[type="number"]::-webkit-inner-spin-button {
 .time-style {
   border-radius: 15px;
   width: 90%;
-  height: 48%;
-  font-size: 4vw;
+  height: 60%;
+  font-size: 4vh;
   text-align: center;
   background-color: white;
+  margin-top: 5vh;
+}
+
+.time-position {
+  height: 40%;
+  margin-top: 0vh;
 }
 
 .time-style-disabled {
@@ -251,7 +257,7 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 11%;
   }
   .time-style {
-    font-size: 1vw;
+    font-size: 2vh;
     padding: 0.5vw;
   }
 }
