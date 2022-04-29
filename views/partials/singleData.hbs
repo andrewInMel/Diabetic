@@ -1,13 +1,13 @@
-{{! a single data block }}
+{{! a single data block}}
 <div>
   <form
     class="block-container"
     action="/patient/addHealth/{{type}}"
     method="post"
   >
-    {{! data already exist }}
+    {{! data already exist}}
     {{#if data}}
-      {{! data secrion }}
+      {{! data section}}
       <div class="data-container {{type}}-color">
         <div class="upper-section">
           <div class="type-style">{{type}}</div>
@@ -28,7 +28,7 @@
           <div class="desktop-star-style">*</div>
         {{/if}}
       </div>
-      {{! time section }}
+      {{! time section}}
       <div class="time-container">
         <input
           class="time-style {{type}}-border"
@@ -42,14 +42,14 @@
           disabled
         />
       </div>
-      {{! comment section }}
+      {{! comment section}}
       <textarea
         class="comment-style {{type}}-border"
         name="{{type}}Comment"
         placeholder="Add notes..."
         disabled
       >{{data.comment}}</textarea>
-      {{! waiting for today's data }}
+      {{! waiting for today's data}}
     {{else}}
       <div class="data-container {{type}}-color">
         <div class="upper-section">
@@ -71,12 +71,12 @@
           <div class="desktop-star-style">*</div>
         {{/if}}
       </div>
-      {{! time section }}
+      {{! time section}}
       <div class="time-container">
         <input class="time-style {{type}}-border" value=":" disabled />
         <input type="submit" value="Save" class="time-style {{type}}-hover" />
       </div>
-      {{! comment section }}
+      {{! comment section}}
       <textarea
         autofocus
         class="comment-style {{type}}-border"

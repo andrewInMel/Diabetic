@@ -5,11 +5,13 @@ const MongoStore = require("connect-mongo");
 const exphbs = require("express-handlebars");
 const path = require("path");
 const app = express();
+
 /* routes */
 const greetingRoutes = require("./routes/greetingRoutes.js");
 const authRoutes = require("./routes/authRoutes.js");
 const patientRoutes = require("./routes/patientRoutes.js");
 const clinicianRoutes = require("./routes/clinicianRoutes.js");
+
 /* other setup */
 require("dotenv").config();
 app.use(express.json());
@@ -25,6 +27,7 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
+
 /* custom helper */
 const hbs = exphbs.create({});
 hbs.handlebars.registerHelper("validation", (current, min, max) => {
@@ -74,5 +77,5 @@ app.use("/auth", authRoutes);
 app.use("/patient", patientRoutes);
 app.use("/clinician", clinicianRoutes);
 
-/* litsen on port process.env.PORT || 5000 */
+/* listen on port process.env.PORT || 8080 */
 app.listen(process.env.PORT || 8080);

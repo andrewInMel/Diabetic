@@ -2,31 +2,31 @@
 <div class="data box">
   <div class="flex-item">{{patient.gender}}</div>
   <div class="flex-item">{{patient.dob}}</div>    
-  {{! BGL data }}
+  {{! BGL data}}
   {{> clinSingleData 
       data = todayRd.BGL.figure 
       min = patient.dataSet.BGL.min 
       max = patient.dataSet.BGL.max
   }}
-  {{! Weight data }}
+  {{! Weight data}}
   {{> clinSingleData 
       data = todayRd.Weight.figure 
       min = patient.dataSet.Weight.min 
       max = patient.dataSet.Weight.max
   }}
-  {{! Insulin data }}
+  {{! Insulin data}}
   {{> clinSingleData 
       data = todayRd.Insulin.figure 
       min = patient.dataSet.Insulin.min 
       max = patient.dataSet.Insulin.max
   }}
-  {{! Exercise data }}
+  {{! Exercise data}}
   {{> clinSingleData 
       data = todayRd.Exercise.figure 
       min = patient.dataSet.Exercise.min 
       max = patient.dataSet.Exercise.max
   }}
-  {{!-- comments --}}
+  {{! comments}}
   {{#if (checkComment comments)}}
     <div class="flex-item comment">New</div>
   {{else}}

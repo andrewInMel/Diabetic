@@ -26,6 +26,7 @@
 .engagement {
   grid-area: engagement;
 }
+
 .required {
   grid-area: data;
 }
@@ -175,6 +176,7 @@ p {
   color: #53777a;
   z-index: 2;
 }
+
 .left-half-clipper {
   /* a round circle */
   border-radius: 50%;
