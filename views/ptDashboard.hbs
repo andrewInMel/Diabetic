@@ -8,6 +8,8 @@
         style="text-decoration: none; padding-left: 15px; color: #ABB8C2"
       >Past</a>
     </h2>
+    {{! Circle code}}
+    {{! If progress percentage is greater than 50 uses this code for the circle}}
     {{#gt progress 50}}
       <div class="progress-circle over50 p{{progress}}">
         <span>{{progress}}%</span>
@@ -16,6 +18,7 @@
           <div class="value-bar"></div>
         </div>
       </div>
+      {{! If progress not greater than 50 uses this code}}
     {{else}}
       <div class="progress-circle p{{progress}}">
         <span>{{progress}}%</span>
@@ -27,6 +30,7 @@
     {{/gt}}
   </div>
 
+  {{! Data containers code}}
   <div class="required">
     <div class="data">
       <div class="insulin-dose-container">

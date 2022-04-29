@@ -14,6 +14,7 @@
   --color-text-label: #f5eccb;
 }
 
+/*Sets up grid*/
 .grid-container {
   display: grid;
   width: 90vw;
@@ -31,8 +32,9 @@
   grid-area: data;
 }
 
+/*font css*/
 .requirement-container {
-  font-family: PT Sans;
+  font-family: "PT Sans";
 }
 
 h1 {
@@ -55,6 +57,7 @@ h3 {
   font-family: var(--font-family-heading);
 }
 
+/*data container customization*/
 .insulin-dose-container {
   background-color: #84aac2;
 }
@@ -107,6 +110,7 @@ h3 {
   font-size: 2.5vh;
 }
 
+/* Asterisks css*/
 .asterisk-insulin {
   color: red;
   position: absolute;
@@ -243,6 +247,7 @@ p {
   transform: rotate(360deg);
 }
 
+/*Changes to the css when the screen size width is less than 500px*/
 @media screen and (max-width: 500px) {
   .grid-container {
     display: flex;
@@ -256,6 +261,7 @@ p {
     flex-direction: row;
   }
 
+  /*data container positioning*/
   .blood-glucose-container,
   .insulin-dose-container,
   .exercise-container,
@@ -287,6 +293,7 @@ p {
     font-size: 14vw;
   }
 
+  /*asterisk positioning*/
   .asterisk-insulin {
     right: 80vw;
     top: 69vh;
