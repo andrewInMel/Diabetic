@@ -31,6 +31,10 @@
   grid-area: data;
 }
 
+.requirement-container {
+  font-family: PT Sans;
+}
+
 h1 {
   font-family: "PT sans";
 }
