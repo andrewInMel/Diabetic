@@ -70,6 +70,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .star-style {
+  padding-right: 1vw;
+  width: 10%;
   font-size: 5vw;
   color: red;
 }
@@ -79,6 +81,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .type-style {
+  padding-left: 1vw;
+  width: 90%;
   font-size: 2vh;
   font-weight: bold;
   color: #f5eccb;
@@ -89,7 +93,7 @@ input[type="number"]::-webkit-inner-spin-button {
   align-self: center;
   width: 90%;
   border: none;
-  text-align: left;
+  text-align: center;
   font-weight: bold;
   font-size: 4vh;
   font-style: italic;
@@ -218,7 +222,7 @@ input[type="number"]::-webkit-inner-spin-button {
     justify-content: flex-start;
   }
   .upper-section {
-    width: 40%;
+    width: 35%;
     justify-content: flex-start;
   }
   .star-style {
@@ -227,7 +231,7 @@ input[type="number"]::-webkit-inner-spin-button {
   .desktop-star-style {
     width: 10%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     font-size: 2vw;
     color: red;
   }
