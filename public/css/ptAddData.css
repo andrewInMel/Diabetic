@@ -120,7 +120,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .time-container {
   height: 10vh;
   width: 40vw;
-  padding-left: 1vw;
+  padding-left: 3vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
