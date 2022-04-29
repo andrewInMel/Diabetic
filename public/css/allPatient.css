@@ -71,7 +71,7 @@ header {
 }
 
 /* Desktop style*/
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 800px) {
   /* footer style */
   .layout-footer {
     height: 7vh;

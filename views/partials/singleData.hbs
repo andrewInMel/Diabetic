@@ -28,6 +28,13 @@
           <div class="desktop-star-style">*</div>
         {{/if}}
       </div>
+
+      {{! comment section}}
+      <textarea
+        class="comment-style {{type}}-border"
+        name="{{type}}Comment"
+        disabled
+      >{{data.comment}}</textarea>
       {{! time section}}
       <div class="time-container">
         <input
@@ -42,12 +49,6 @@
           disabled
         />
       </div>
-      {{! comment section}}
-      <textarea
-        class="comment-style {{type}}-border"
-        name="{{type}}Comment"
-        disabled
-      >{{data.comment}}</textarea>
       {{! waiting for today's data}}
     {{else}}
       <div class="data-container {{type}}-color">
