@@ -1,0 +1,16 @@
+{{! single data in clinician dashbord}}
+{{#if data}}
+<div 
+  {{#if (validation data min max)}} 
+    class="flex-item warning" 
+  {{else}}
+    class="flex-item" 
+  {{/if}}
+>
+  {{data}}
+</div>
+{{else}}
+  <div class="flex-item">
+  N/A 
+  </div>
+{{/if}}

@@ -2,24 +2,53 @@ const express = require("express");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const exphbs = require("express-handlebars");
+const path = require("path");
+const app = express();
+
 /* routes */
+const greetingRoutes = require("./routes/greetingRoutes.js");
 const authRoutes = require("./routes/authRoutes.js");
 const patientRoutes = require("./routes/patientRoutes.js");
-//const clinicianRoutes = require("./routes/clinicianRoutes.js");
+const clinicianRoutes = require("./routes/clinicianRoutes.js");
 
-/* enviroment variable, access by process.env.Variable_Name */
+/* other setup */
 require("dotenv").config();
-
-/* express application */
-const app = express();
-/* bodyParser */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "/public")));
 
-/* cors setup */
-app.set("trust proxy", 1);
+/* template engine configuration */
+app.engine(
+  "hbs",
+  exphbs.engine({
+    defaultLayout: "patient",
+    extname: "hbs",
+  })
+);
+app.set("view engine", "hbs");
 
-/* session setup */
+/* custom helper */
+const hbs = exphbs.create({});
+hbs.handlebars.registerHelper("validation", (current, min, max) => {
+  if (current && min && max) {
+    return Number(current) < Number(min) || Number(current) > Number(max);
+  } else {
+    return false;
+  }
+});
+hbs.handlebars.registerHelper("in", (type, required) => {
+  return required.includes(type);
+});
+hbs.handlebars.registerHelper("checkComment", (comments) => {
+  return comments.length !== 0;
+});
+hbs.handlebars.registerHelper('gt', function( a, b ){
+	var next =  arguments[arguments.length-1];
+	return (a > b) ? next.fn(this) : next.inverse(this);
+});
+
+/* session configuration */
 app.use(
   session({
     secret: process.env.SECRET,
@@ -43,9 +72,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* routes */
+app.use("/", greetingRoutes);
 app.use("/auth", authRoutes);
-app.use("/api/patient", patientRoutes);
-//app.use("/api/clinician", clinicianRoutes);
+app.use("/patient", patientRoutes);
+app.use("/clinician", clinicianRoutes);
 
-/* litsen on port process.env.PORT || 5000 */
-app.listen(process.env.PORT || 8081);
+/* listen on port process.env.PORT || 8080 */
+app.listen(process.env.PORT || 8080);

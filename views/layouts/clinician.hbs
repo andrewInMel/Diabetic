@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/{{style}}" />
+    <link rel="stylesheet" href="/css/allClinician.css" />
+    <title>Diabetes@Home</title>
+  </head>
+  <body>
+    <header class="layout-header">
+      <h1 class="header-title">D@H</h1>
+      <h3 class="header-doctor">
+        Dr.
+        {{clinician.firstName}}
+        {{clinician.lastName}}</h3>
+    </header>
+    {{! main content}}
+    {{{body}}}
+    <footer class="layout-footer">
+      <p>© Diabetes@Home 2022 &nbsp;&nbsp;|&nbsp;&nbsp; P: 0123456789 &nbsp;&nbsp;|&nbsp;&nbsp; E: <a href="mailto:diabetes.home@gmail.com">diabetes.home@gmail.com</p>
+    </footer>
+  </body>
+</html>

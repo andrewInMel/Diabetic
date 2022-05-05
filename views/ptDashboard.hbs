@@ -1,0 +1,96 @@
+<div class="grid-container">
+  <div class="engagement">
+    <h1 style="color: #446275;"><i>Dashboard</i></h1>
+    <h2>
+      <a style="color: #446275;">Today</a>
+      <a
+        href="/past.html"
+        style="text-decoration: none; padding-left: 15px; color: #ABB8C2"
+      >Past</a>
+    </h2>
+    {{! Circle code}}
+    {{! If progress percentage is greater than 50 uses this code for the circle}}
+    {{#gt progress 50}}
+      <div class="progress-circle over50 p{{progress}}">
+        <span>{{progress}}%</span>
+        <div class="left-half-clipper">
+          <div class="first50-bar"></div>
+          <div class="value-bar"></div>
+        </div>
+      </div>
+      {{! If progress not greater than 50 uses this code}}
+    {{else}}
+      <div class="progress-circle p{{progress}}">
+        <span>{{progress}}%</span>
+        <div class="left-half-clipper">
+          <div class="first50-bar"></div>
+          <div class="value-bar"></div>
+        </div>
+      </div>
+    {{/gt}}
+  </div>
+
+  {{! Data containers code}}
+  <div class="required">
+    <div class="data">
+      <div class="insulin-dose-container">
+        <h3 class="type-style">Insulin doses</h3>
+        {{#if healthRd.Insulin}}
+          <h2 class="insulin-doses">{{healthRd.Insulin.figure}}</h2>
+        {{else}}
+          <h2 class="insulin-doses">N/A</h2>
+        {{/if}}
+        <h3 class="unit-style">doses</h3>
+        {{#if (in "Insulin" required)}}
+          <a class="asterisk-insulin">*</a>
+        {{/if}}
+      </div>
+      <br />
+      <div class="weight-container">
+        <h3 class="type-style">Weight</h3>
+        {{#if healthRd.Weight}}
+          <h2 class="weight">{{healthRd.Weight.figure}}</h2>
+        {{else}}
+          <h2 class="weight">N/A</h2>
+        {{/if}}
+        <h3 class="unit-style">kg</h3>
+        {{#if (in "Weight" required)}}
+          <a class="asterisk-weight">*</a>
+        {{/if}}
+      </div>
+      <br />
+      <div class="blood-glucose-container">
+        <h3 class="type-style">BGL</h3>
+        {{#if healthRd.BGL}}
+          <h2 class="blood-glucose-level">{{healthRd.BGL.figure}}</h2>
+        {{else}}
+          <h2 class="blood-glucose-level">N/A</h2>
+        {{/if}}
+        <h3 class="unit-style">nmol/L</h3>
+        {{#if (in "BGL" required)}}
+          <a class="asterisk-bgl">*</a>
+        {{/if}}
+      </div>
+      <br />
+      <div class="exercise-container">
+        <h3 class="type-style">Exercise</h3>
+        {{#if healthRd.Exercise}}
+          <h2 class="exercise">{{healthRd.Exercise.figure}}</h2>
+        {{else}}
+          <h2 class="exercise">N/A</h2>
+        {{/if}}
+        <h3 class="unit-style">steps</h3>
+        {{#if (in "Exercise" required)}}
+          <a class="asterisk-exercise">*</a>
+        {{/if}}
+      </div>
+    </div>
+    <br />
+    <div class="requirement-container">
+      <p>* Required</p>
+    </div>
+  </div>
+</div>
+<footer class="layout-footer">
+  <div> © Diabetes@Home 2022 &nbsp;&nbsp;|&nbsp;&nbsp; P: 0123456789 &nbsp;&nbsp;|&nbsp;&nbsp; E: <a href="mailto:diabetes.home@gmail.com">diabetes.home@gmail.com</div>
+</footer>   

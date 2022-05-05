@@ -1,0 +1,59 @@
+/* all content style */
+.clin-container {
+  height: 83vh;
+  display: flex;
+}
+
+/* main style */
+main {
+  width: 90vw;
+  color: #446275;
+  font-family: "PT sans";
+}
+
+main .title {
+  height: 50px;
+  font-style: italic;
+  padding-left: 3vw;
+}
+
+/* row formatting */
+.row-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.flex-item {
+  width: 10vw;
+  text-align: center;
+}
+
+.data {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 70vw;
+}
+
+/* Make column headers bold */
+.list-header {
+  font-weight: bold;
+}
+
+/* Formatting for box */
+.box {
+  border-radius: 15px;
+  border: 5px solid #c6cfd5;
+}
+
+/* CSS for data exceeding threshold */
+.warning {
+  color: red;
+}
+
+/* CSS for new comment */
+.comment {
+  color: red;
+}

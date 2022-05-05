@@ -1,0 +1,92 @@
+{{! a single data block}}
+<div>
+  <form
+    class="block-container"
+    action="/patient/addHealth/{{type}}"
+    method="post"
+  >
+    {{! data already exist}}
+    {{#if data}}
+      {{! data section}}
+      <div class="data-container {{type}}-color">
+        <div class="upper-section">
+          <div class="type-style">{{type}}</div>
+          {{#if (in type required)}}
+            <div class="star-style">*</div>
+          {{/if}}
+        </div>
+        <input
+          type="number"
+          class="data-style {{type}}-color"
+          name={{type}}
+          value={{data.figure}}
+          disabled
+        />
+        <div class="unit-style">{{unit}}</div>
+        {{! desktop star}}
+        {{#if (in type required)}}
+          <div class="desktop-star-style">*</div>
+        {{/if}}
+      </div>
+
+      {{! comment section}}
+      <textarea
+        class="comment-style {{type}}-border"
+        name="{{type}}Comment"
+        disabled
+      >{{data.comment}}</textarea>
+      {{! time section}}
+      <div class="time-container">
+        <input
+          class="time-style time-position {{type}}-border"
+          value="{{data.time}}"
+          disabled
+        />
+        <input
+          type="submit"
+          class="time-style-disabled {{type}}-border"
+          value="Save"
+          disabled
+        />
+      </div>
+      {{! waiting for today's data}}
+    {{else}}
+      <div class="data-container {{type}}-color">
+        <div class="upper-section">
+          <label for="{{type}}" class="type-style">{{type}}</label>
+          {{#if (in type required)}}
+            <div class="star-style">*</div>
+          {{/if}}
+        </div>
+        <input
+          type="number"
+          class="data-style {{type}}-color"
+          name={{type}}
+          id="{{type}}"
+          required
+        />
+        <div class="unit-style">{{unit}}</div>
+        {{! desktop star}}
+        {{#if (in type required)}}
+          <div class="desktop-star-style">*</div>
+        {{/if}}
+      </div>
+      {{! comment section}}
+      <textarea
+        autofocus
+        class="comment-style {{type}}-border"
+        name="{{type}}Comment"
+        placeholder="Add notes..."
+      ></textarea>
+      {{! time section}}
+      <div class="time-container">
+        <input class="time-style-disabled {{type}}-border" value=":" disabled />
+        <input
+          type="submit"
+          value="Save"
+          class="time-style {{type}}-border {{type}}-fill"
+        />
+      </div>
+    {{/if}}
+  </form>
+</div>

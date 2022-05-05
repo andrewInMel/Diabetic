@@ -1,0 +1,281 @@
+/* all content style */
+body {
+  font-family: "PT sans";
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* main style */
+.content-style {
+  color: #446275;
+  padding: 3vh 5vw 2vh;
+}
+
+.input-style {
+  font-style: italic;
+}
+
+.link-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.link-style a {
+  padding-left: 3vmin;
+  text-decoration: none;
+  color: #abb8c2;
+}
+
+.require-style {
+  color: red;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+/* add data style */
+.data-section {
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.block-container {
+  display: flex;
+  align-items: bottom;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* data block section */
+.data-container {
+  width: 60%;
+  height: 12.5vh;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 5%;
+}
+
+/* left upper data section*/
+.upper-section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.star-style {
+  font-size: 30px;
+  color: red;
+}
+
+.desktop-star-style {
+  display: none;
+}
+
+.type-style {
+  padding-top: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f5eccb;
+}
+
+/* left middle data section*/
+.data-style {
+  align-self: center;
+  width: 80px;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  font-style: italic;
+  outline: none;
+}
+
+/* left lower data section*/
+.unit-style {
+  align-self: flex-end;
+  padding-right: 10px;
+  font-size: 3.5vmin;
+}
+
+.Insulin-color {
+  background-color: #84aac2;
+}
+.BGL-color {
+  background-color: #89a5d9;
+}
+.Weight-color {
+  background-color: #8289cf;
+}
+.Exercise-color {
+  background-color: #89cfd9;
+}
+
+/* time block section */
+.time-container {
+  height: 10vh;
+  width: 40vw;
+  padding-left: 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time-style {
+  border-radius: 15px;
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  text-align: center;
+  background-color: white;
+  margin-left: 0px;
+  margin-right: 6px;
+}
+
+.time-position {
+  float: bottom;
+}
+
+.time-style-disabled {
+  display: none;
+}
+
+.Insulin-border {
+  border: 1px solid #84aac2;
+  color: #84aac2;
+}
+
+.Insulin-fill:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #84aac2;
+}
+
+.BGL-border {
+  border: 1px solid #89a5d9;
+  color: #89a5d9;
+}
+
+.BGL-fill:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #89a5d9;
+}
+
+.Weight-border {
+  border: 1px solid #89a5d9;
+  color: #89a5d9;
+}
+
+.Weight-fill:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #8289cf;
+}
+
+.Exercise-border {
+  border: 1px solid #89cfd9;
+  color: #89cfd9;
+}
+
+.Exercise-fill:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #89cfd9;
+}
+
+/* comments block section */
+.comment-style {
+  width: 100%;
+  height: 12.5vh;
+  border-radius: 15px;
+  background-color: white;
+  text-align: start;
+  outline: none;
+  padding: 2vmin 3vmin;
+  resize: none;
+}
+
+@media screen and (max-width: 900px) {
+  .content-style {
+    padding: 5vh 5vw 0 3vw;
+  }
+}
+
+/* Desktop style*/
+@media screen and (min-width: 800px) {
+  .content-style {
+    display: center;
+    padding-left: 15vw;
+    padding-right: 10vw;
+  }
+  .link-style {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .require-style {
+    color: red;
+    font-size: 20px;
+  }
+  /* data block section */
+  .data-container {
+    width: 60%;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .upper-section {
+    width: 35%;
+    justify-content: flex-start;
+  }
+  .star-style {
+    display: none;
+  }
+  .desktop-star-style {
+    width: 1px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 3em;
+    color: red;
+  }
+
+  .type-style {
+    padding-top: 0;
+    padding-left: 2vw;
+    font-size: 1.7em;
+    align-self: center;
+  }
+  .data-style {
+    margin-left: 30px;
+    width: 100px;
+    font-size: 20px;
+  }
+  .unit-style {
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+    padding: 0;
+    font-size: 2.5vmin;
+  }
+
+  .comment-style {
+    width: 40vw;
+    margin: 0;
+  }
+
+  /* time block section*/
+  .time-container {
+    width: 40px;
+  }
+  .time-style {
+    font-size: 13px;
+    margin-left: 80px;
+  }
+}

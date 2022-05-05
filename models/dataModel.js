@@ -2,12 +2,16 @@ const mongoose = require("mongoose");
 const db = require("../config/databaseConfig");
 
 /* user schema */
-const patientSchema = new mongoose.Schema({
-  firstName: {
+const dataSchema = new mongoose.Schema({
+  figure: {
     type: String,
     require: [true],
   },
-  type: {
+  unit: {
+    type: String,
+    require: [true],
+  },
+  time: {
     type: String,
     require: [true],
   },
@@ -16,21 +20,17 @@ const patientSchema = new mongoose.Schema({
     ref: "Clinician",
     require: [true],
   },
-  email: {
+  patient: {
+    id: { type: mongoose.Schema.ObjectId, ref: "Patient", require: [true] },
+    fullName: String,
+  },
+  about: {
     type: String,
     require: [true],
   },
-  dataSet: Object,
-  startDate: Number,
-  dayscompleted: Number,
-  supportMsg: String,
-  lastName: String,
-  dob: String,
-  gender: String,
-  hash: String,
-  salt: String,
+  comment: String,
 });
 
-const Patient = db.model("Patient", patientSchema);
+const Data = db.model("Data", dataSchema);
 /* export model */
-module.exports = Patient;
+module.exports = Data;

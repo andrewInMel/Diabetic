@@ -12,10 +12,6 @@ const clinicianSchema = new mongoose.Schema({
     require: [true],
   },
   lastName: String,
-  phoneNumber: String,
-  address: String,
-  birthday: String,
-  imageSrc: String,
   email: {
     type: String,
     require: [true],

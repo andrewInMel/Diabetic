@@ -1,0 +1,18 @@
+{{! main content}}
+<div class="content-style">
+  <h3 class="input-style">Add Inputs</h3>
+  <div class="link-style">
+    <h3>Today <a href="/past.html">Past</a></h3>
+    <p class="require-style"> * Required</p>
+  </div>
+  {{! add data }}
+  <div class="data-section">
+    {{> singleData data=healthRd.Insulin type="Insulin" unit="doses"}} 
+    {{> singleData data=healthRd.Weight type="Weight" unit="kg"}}
+    {{> singleData data=healthRd.BGL type="BGL" unit=" nmol/L"}}
+    {{> singleData data=healthRd.Exercise type="Exercise" unit="steps"}}
+  </div>
+</div>
+<footer class="layout-footer desktop">
+  <div> © Diabetes@Home 2022 &nbsp;&nbsp;|&nbsp;&nbsp; P: 0123456789 &nbsp;&nbsp;|&nbsp;&nbsp; E: <a href="mailto:diabetes.home@gmail.com">diabetes.home@gmail.com</div>
+</footer> 

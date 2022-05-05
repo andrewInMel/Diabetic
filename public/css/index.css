@@ -1,0 +1,72 @@
+/* index page style (greeting page) */
+.sub-heading {
+  margin-top: -5vh;
+  font-size: var(--text-subheading);
+  color: var(--color-text);
+}
+
+h4 {
+  margin-bottom: 5vh;
+  font-size: var(--text-heading);
+  color: var(--color-text);
+}
+
+.btn-about-diabetes {
+  background-color: #628aa3;
+}
+
+.btn-about-website {
+  background-color: #6f7980;
+}
+
+button {
+  margin: 1vmin 0.5vmax;
+  width: 25vmax;
+  height: 6.5vh;
+  font-size: var(--text-body);
+  border-radius: var(--round-border);
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.front-page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7fcff;
+}
+
+.login-button-style {
+  margin-top: 5vh;
+  display: flex;
+}
+
+.btn-login {
+  width: 12vmax;
+  display: block;
+  border: 3px solid #628aa3;
+  background-color: #f7fcff;
+  color: #628aa3;
+  font-size: 1.5vmax;
+}
+
+@media screen and (max-width: 900px) {
+  span {
+    display: none;
+  }
+  .btn-login {
+    font-size: 2vmax;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sub-heading {
+    font-size: 3vh;
+  }
+  h4 {
+    font-size: 5vh;
+  }
+}
