@@ -76,9 +76,9 @@ header {
   .layout-footer {
     height: 7vh;
     display: flex;
-    justify-content: center;
     background-color: #f4f9fd;
     align-items: center;
+    justify-content: center;
     color: #446275;
     font-family: "PT sans";
     position: fixed;
