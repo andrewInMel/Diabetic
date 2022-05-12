@@ -1,0 +1,111 @@
+<div class="register-container">
+    <!--{{! navigation}}-->
+    <!--{{> myNav}}-->
+    <main>
+      <h3 class="title">Register Patient</h3>
+      <!--Link to backend-->
+      <form
+        class="register-form"
+        method="post"
+        name="register-patient"
+      >
+        <div class="patient-data">
+            <h4 class="sub-title">Patient Data</h4>
+            <ul>
+                <li>
+                    <div class="row-title">First Name</div>
+                    <input
+                    type="text"
+                    name="first-name"
+                    placeholder="Enter first name"
+                    required
+                    class="input-style"
+                    />
+                </li>
+                <li>
+                    <div class="row-title">Last Name</div>
+                    <input
+                    type="text"
+                    name="last-name"
+                    placeholder="Enter last name"
+                    required
+                    class="input-style"
+                    />
+                </li>
+                <li>
+                    <div class="row-title">Sex</div>
+                    <input required type="radio" class="radio" name="sex" value="Male">
+                    <label for="Male">Male</label><br>
+                    <input required type="radio" class="radio" name="sex" value="Female">
+                    <label for="Female">Female</label><br>
+                    <input required type="radio" class="radio" name="sex" value="Other">
+                    <label for="Other">Other</label>
+                </li>
+                <li>
+                    <div class="row-title">DOB</div>
+                    <input
+                    type="date"
+                    name="DOB"
+                    required
+                    class="input-style"
+                    />
+                </li>
+                <li>
+                    <div class="row-title">Email Address</div>
+                    <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter email"
+                    required
+                    class="input-style"
+                    />
+                </li>
+                <li>
+                    <div class="row-title">Username</div>
+                    <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter username"
+                    required
+                    class="input-style"
+                    />
+                </li>
+                <li>
+                    <div class="row-title">Password</div>
+                    <input
+                    type="password"
+                    name="password"
+                    placeholder="Password (min 8 characters)"
+                    required
+                    class="input-style"
+                    />
+                </li>
+                <li>
+                    <div class="row-title">Confirm Password</div>
+                    <input
+                    type="password"
+                    name="confirm-password"
+                    placeholder="Retype password"
+                    required
+                    class="input-style"
+                    />
+                </li>
+                <li>
+                    <div class="row-title">Bio</div>
+                    <input
+                    type="text"
+                    name="bio"
+                    placeholder="Brief bio of patient"
+                    class="input-style"
+                    />
+                </li>
+            </ul>
+        </div>
+        <div class="safety-thresholds">
+            <h4 class="sub-title">Safety Thresholds</h4>
+            <!--Insert value thresholds template as seen in clinPEdit.html-->
+        </div>
+        <input class="btn-submit" type="submit" value="Submit"/>
+      </form>
+    </main>
+</div>
