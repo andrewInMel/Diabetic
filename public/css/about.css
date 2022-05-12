@@ -34,6 +34,11 @@ footer {
   font-family: "PT sans";
 }
 
+footer a {
+  text-decoration: none;
+  color: #446275;
+}
+
 /* responsive screen */
 @media screen and (max-width: 640px) {
   body {

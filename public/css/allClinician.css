@@ -81,3 +81,8 @@ body {
   height: 83vh;
   display: flex;
 }
+
+.layout-footer a {
+  color: #446275;
+  text-decoration: none;
+}

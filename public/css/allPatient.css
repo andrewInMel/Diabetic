@@ -75,18 +75,37 @@ header {
   /* footer style */
   .layout-footer {
     height: 7vh;
-    display: flex;
     background-color: #f4f9fd;
-    align-items: center;
-    justify-content: center;
     color: #446275;
     font-family: "PT sans";
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
     bottom: 0;
-    left: 0;
     width: 100%;
+    text-decoration: none;
   }
-  
+
+  .left {
+    display: flex;
+    padding-left: 4vw;
+  }
+
+  .left a {
+    color:#446275;
+    text-decoration: none;
+  }
+
+  .right {
+    padding-left: 16vw;
+  }
+
+  .right a {
+    color:#446275;
+    text-decoration: none;
+  }
+
   main {
     flex-direction: row;
     justify-content: space-between;
