@@ -1,6 +1,6 @@
 <div class="settings-container">
     <!--{{! navigation}}-->
-    <!--{{> myNav}}-->
+    {{!-- {{> myNav}} --}}
     <main>
       <h3 class="title">Settings</h3>
       <!--Link to backend-->
@@ -18,19 +18,19 @@
         <ul class="clinician-details">
             <li>
                 <div class="row-title">First Name</div>
-                <div class="clinician-data"><!--Link to backend--></div>
+                <div class="clinician-data">{{clinician.firstName}}</div>
             </li>
             <li>
                 <div class="row-title">Last Name</div>
-                <div class="clinician-data"><!--Link to backend--></div>
+                <div class="clinician-data">{{clinician.lastName}}</div>
             </li>
             <li>
                 <div class="row-title">Email Address</div>
-                <div class="clinician-data"><!--Link to backend--></div>
+                <div class="clinician-data">{{clinician.email}}</div>
             </li>
             <li>
                 <div class="row-title">Clinician ID</div>
-                <div class="clinician-data"><!--Link to backend--></div>
+                <div class="clinician-data">{{clinician._id}}</div>
             </li>
             <li>
                 <div class="row-title">New Password</div>

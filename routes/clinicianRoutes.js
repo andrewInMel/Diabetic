@@ -14,10 +14,8 @@ router.get("/", clinicianAuth, (req, res) => {
 
 /* clinician dashboard */
 router.get("/dashboard", clinicianAuth, async (req, res) => {
-  /* clinician data */
-  const clinician = req.user;
   /* patients' records */
-  const allPatients = await Patient.find({ clinician: clinician._id }).lean();
+  const allPatients = await Patient.find({ clinician: req.user._id }).lean();
   const records = await getRecords(allPatients);
   /* render the page */
   res.render("clinDashboard", {
@@ -118,6 +116,16 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
     });
 });
 
+/* clinician setting */
+router.get("/settings", clinicianAuth, (req, res) => {
+  /* render the page */
+  res.render("clinSettings", {
+    layout: "clinician",
+    style: "clinSettings.css",
+    clinician: req.user,
+  });
+});
+
 /* set required time-series */
 router.post("/dataset", clinicianAuth, async (req, res) => {
   const patient = await Patient.findById("624ed2cab705003aae0ad1c3").exec();
@@ -164,4 +172,5 @@ const getRecords = (allPatients) => {
     })
   );
 };
+
 module.exports = router;

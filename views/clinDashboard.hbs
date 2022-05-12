@@ -1,28 +1,24 @@
-<div class="clin-container">
-  {{! navigation}}
-  {{> myNav}}
-  <main>
-    <h3 class="title">Patient List</h3>
-    <ul>
+<main>
+  <h3 class="title">Patient List</h3>
+  <ul>
+    <li class="row-container">
+      {{! label each column}}
+      <div class="flex-item list-header">Name</div>
+      <div class="data">
+        <div class="flex-item list-header">Sex</div>
+        <div class="flex-item list-header">DOB</div>
+        <div class="flex-item list-header">BGL (nmol/L)</div>
+        <div class="flex-item list-header">Weight (kg)</div>
+        <div class="flex-item list-header">Insulin (doses)</div>
+        <div class="flex-item list-header">Exercise (steps)</div>
+        <div class="flex-item list-header">Comments</div>
+      </div>
+    </li>
+    {{#each patients}}
       <li class="row-container">
-        {{! label each column}}
-        <div class="flex-item list-header">Name</div>
-        <div class="data">
-          <div class="flex-item list-header">Sex</div>
-          <div class="flex-item list-header">DOB</div>
-          <div class="flex-item list-header">BGL (nmol/L)</div>
-          <div class="flex-item list-header">Weight (kg)</div>
-          <div class="flex-item list-header">Insulin (doses)</div>
-          <div class="flex-item list-header">Exercise (steps)</div>
-          <div class="flex-item list-header">Comments</div>
-        </div>
+          {{! output data for each patient}}
+          {{> patientEntry}}
       </li>
-      {{#each patients}}
-        <li class="row-container">
-            {{! output data for each patient}}
-            {{> patientEntry}}
-        </li>
-      {{/each}}
-    </ul>
-  </main>
-</div>
+    {{/each}}
+  </ul>
+</main>

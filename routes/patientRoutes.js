@@ -3,6 +3,7 @@ const router = express.Router();
 const patientAuth = require("./authMiddleware.js").patientAuth;
 const Health = require("../models/healthModel.js");
 const Data = require("../models/dataModel.js");
+const Patient = require("../models/patientModel.js");
 
 /* patient login */
 router.get("/", patientAuth, (req, res) => {
@@ -120,8 +121,14 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
       patient: patient._id,
       [dataType]: savedDataEntry._id,
     });
-    await newDoc.save();
-    res.redirect("/patient/addHealth");
+    const complete = await newDoc.save();
+    /* if data stored, increment number of days of engagement */
+    if (complete) {
+      const patientDoc = await Patient.findById(patient._id);
+      patientDoc.dayscompleted = patientDoc.dayscompleted + 1;
+      await patientDoc.save();
+      res.redirect("/patient/addHealth");
+    }
     /* update health record*/
   } else {
     /* create data entry */
