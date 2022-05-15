@@ -1,0 +1,34 @@
+/* main style */
+main {
+    width: 90vw;
+    color: #446275;
+    font-family: "PT sans";
+  }
+
+main .headings {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+main .title {
+    font-style: italic;
+    padding-left: 3vw;
+}
+
+main .logout {
+    padding-right: 3vw;
+}
+
+main .logout button{
+    background-color: var(--color-text);
+    border-radius: 2vmax;
+    width: 11vmax;
+    height: 2.5vmax;
+    font-size: var(--text-body);
+    font-family: "PT sans";
+    color: #446275;
+    border: 2px solid #628aa3;
+    cursor: pointer;
+}
