@@ -1,6 +1,4 @@
 <div class="settings-container">
-    <!--{{! navigation}}-->
-    {{!-- {{> myNav}} --}}
     <main>
       <div class="headings">
           <h3 class="title">Settings</h3>
@@ -19,47 +17,51 @@
         method="post"
         name="update-password"
       >
-        <ul class="clinician-details">
-            <li>
-                <div class="row-title">First Name</div>
-                <div class="clinician-data">{{clinician.firstName}}</div>
+        <ul>
+            <li class="row-container">
+                <div class="flex-item list-header">First Name</div>
+                <div class="flex-item">{{clinician.firstName}}</div>
             </li>
-            <li>
-                <div class="row-title">Last Name</div>
-                <div class="clinician-data">{{clinician.lastName}}</div>
+            <li class="row-container">
+                <div class="flex-item list-header">Last Name</div>
+                <div class="flex-item">{{clinician.lastName}}</div>
             </li>
-            <li>
-                <div class="row-title">Email Address</div>
-                <div class="clinician-data">{{clinician.email}}</div>
+            <li class="row-container">
+                <div class="flex-item list-header">Email Address</div>
+                <div class="flex-item">{{clinician.email}}</div>
             </li>
-            <li>
-                <div class="row-title">Clinician ID</div>
-                <div class="clinician-data">{{clinician._id}}</div>
+            <li class="row-container">
+                <div class="flex-item list-header">Clinician ID</div>
+                <div class="flex-item">{{clinician._id}}</div>
             </li>
-            <li>
-                <div class="row-title">New Password</div>
-                <!--Is this correct?-->
-                <input
+            <li class="row-container">
+                <div class="flex-item list-header">New Password</div>
+                <div class="flex-item">
+                    <input
                     type="password"
                     name="password"
-                    placeholder="Password (min 8 characters)"
+                    placeholder="Password (min 8 char)"
                     required
-                    class="input-style"
-                />
+                    class="flex item input-style"
+                    />
+                </div>
             </li>
-            <li>
-                <div class="row-title">Confirm Password</div>
-                <!--Is this correct?-->
-                <input
+            <li class="row-container">
+                <div class="flex-item list-header">Confirm Password</div>
+                <div class="flex-item">
+                    <input
                     type="password"
                     name="confirm-password"
                     placeholder="Retype password"
                     required
                     class="input-style"
-                />
+                    />
+                </div>
             </li>
-            <li>
-                <input class="btn-confirm" type="submit" value="Confirm"/>
+            <li class="row-container">
+                <div class="flex-item btn-confirm">
+                    <input class="btn-confirm" type="submit" value="Confirm"/>
+                </div>
             </li>
         </ul>
       </form>

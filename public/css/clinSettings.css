@@ -1,11 +1,12 @@
 /* main style */
 main {
     width: 90vw;
-    color: #446275;
+    color: grey;
     font-family: "PT sans";
-  }
+}
 
 main .headings {
+    color: #446275;
     height: 50px;
     display: flex;
     align-items: center;
@@ -21,7 +22,7 @@ main .logout {
     padding-right: 3vw;
 }
 
-main .logout button{
+main .logout button {
     background-color: var(--color-text);
     border-radius: 2vmax;
     width: 11vmax;
@@ -31,4 +32,45 @@ main .logout button{
     color: #446275;
     border: 2px solid #628aa3;
     cursor: pointer;
+}
+
+.row-container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.flex-item {
+    width: 15vw;
+}
+
+.list-header {
+    font-weight: bold;
+}
+
+.input-style {
+  border: none;
+  box-shadow: 1px 1px 5px -3px inset;
+  background-color: #eaeaea;
+  height: 3vmax;
+  width: 15vmax;
+  font-size: var(--text-body);
+  font-family: var(--font-family-body);
+  border-radius: 15px;
+  color: var(--color-text);
+  padding: 0 1vmax;
+}
+
+.btn-confirm {
+    border: none;
+    box-shadow: 1px 1px 5px -3px inset;
+    background-color: #446275;
+    height: 3vmax;
+    width: 30vmax;
+    font-size: var(--text-body);
+    font-family: var(--font-family-body);
+    border-radius: 15px;
+    color: white;
 }
