@@ -85,7 +85,7 @@ router.post("/register", (req, res) => {
     });
 });
 
-/* register patient */
+/* register patient data receive */
 router.post("/patient-register", clinicianAuth, (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -102,7 +102,7 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           clinician: req.user._id,
-          gender: req.body.gender,
+          gender: req.body.sex,
           dob: req.body.dob,
           type: "patient",
           email: email,
@@ -126,6 +126,16 @@ router.get("/settings", clinicianAuth, (req, res) => {
   res.render("clinSettings", {
     layout: "clinician",
     style: "clinSettings.css",
+    clinician: req.user,
+  });
+});
+
+/* clinician register patient */
+router.get("/patient-register", clinicianAuth, (req, res) => {
+  /* render the page */
+  res.render("clinRegisterPatient", {
+    layout: "clinician",
+    style: "clinRegisterPatient.css",
     clinician: req.user,
   });
 });

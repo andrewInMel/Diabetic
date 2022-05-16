@@ -11,7 +11,6 @@ const greetingRoutes = require("./routes/greetingRoutes.js");
 const authRoutes = require("./routes/authRoutes.js");
 const patientRoutes = require("./routes/patientRoutes.js");
 const clinicianRoutes = require("./routes/clinicianRoutes.js");
-const { timeStamp } = require("console");
 
 /* other setup */
 require("dotenv").config();
