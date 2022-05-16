@@ -34,6 +34,7 @@ main .logout button {
     cursor: pointer;
 }
 
+/* code for each list item */
 .row-container {
     height: 60px;
     display: flex;
@@ -42,6 +43,7 @@ main .logout button {
     justify-content: center;
 }
 
+/* code for each div in list */
 .flex-item {
     width: 15vw;
 }
@@ -50,6 +52,7 @@ main .logout button {
     font-weight: bold;
 }
 
+/* style for input boxes and submit button */
 .box-style {
     border: none;
     box-shadow: 1px 1px 5px -3px inset;
@@ -59,6 +62,7 @@ main .logout button {
     border-radius: 15px;
 }
 
+/* style just for input boxes */
 .input-style {
     background-color: #eaeaea;
     width: 15vmax;
@@ -66,33 +70,9 @@ main .logout button {
     padding: 0 1vmax;
 }
 
+/* style just for submit button */
 .btn-confirm {
     background-color: #446275;
     width: 30vmax;
     color: white;
 }
-
-/*.input-style {
-  border: none;
-  box-shadow: 1px 1px 5px -3px inset;
-  background-color: #eaeaea;
-  height: 3vmax;
-  width: 15vmax;
-  font-size: var(--text-body);
-  font-family: var(--font-family-body);
-  border-radius: 15px;
-  color: var(--color-text);
-  padding: 0 1vmax;
-}*/
-
-/*.btn-confirm {
-    border: none;
-    box-shadow: 1px 1px 5px -3px inset;
-    background-color: #446275;
-    height: 3vmax;
-    width: 30vmax;
-    font-size: var(--text-body);
-    font-family: var(--font-family-body);
-    border-radius: 15px;
-    color: white;
-}*/
