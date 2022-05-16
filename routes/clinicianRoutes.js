@@ -50,6 +50,10 @@ router.get("/comments", clinicianAuth, async (req, res) => {
   });
 });
 
+/******************
+ * sprint 3 routes*
+ ******************/
+
 /* register clinician */
 router.post("/register", (req, res) => {
   const email = req.body.email;
@@ -134,6 +138,10 @@ router.post("/dataset", clinicianAuth, async (req, res) => {
   await patient.save();
   res.send("updated");
 });
+
+/********************
+ * helper functions *
+ ********************/
 
 /* get health record */
 const getRecords = (allPatients) => {

@@ -11,6 +11,7 @@ const greetingRoutes = require("./routes/greetingRoutes.js");
 const authRoutes = require("./routes/authRoutes.js");
 const patientRoutes = require("./routes/patientRoutes.js");
 const clinicianRoutes = require("./routes/clinicianRoutes.js");
+const { timeStamp } = require("console");
 
 /* other setup */
 require("dotenv").config();
@@ -43,9 +44,12 @@ hbs.handlebars.registerHelper("in", (type, required) => {
 hbs.handlebars.registerHelper("checkComment", (comments) => {
   return comments.length !== 0;
 });
-hbs.handlebars.registerHelper('gt', function( a, b ){
-	var next =  arguments[arguments.length-1];
-	return (a > b) ? next.fn(this) : next.inverse(this);
+hbs.handlebars.registerHelper("gt", function (a, b) {
+  var next = arguments[arguments.length - 1];
+  return a > b ? next.fn(this) : next.inverse(this);
+});
+hbs.handlebars.registerHelper("getTime", (timestamp) => {
+  return timestamp.slice(11);
 });
 
 /* session configuration */

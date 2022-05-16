@@ -105,7 +105,7 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
     const newDataEntry = new Data({
       figure: figure,
       unit: unit,
-      time: time,
+      timestamp: `${date} ${time}`,
       clinician: patient.clinician,
       patient: {
         id: patient._id,
@@ -135,7 +135,7 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
     const newDataEntry = new Data({
       figure: figure,
       unit: unit,
-      time: time,
+      timestamp: `${date} ${time}`,
       clinician: patient.clinician,
       patient: {
         id: patient._id,
@@ -151,6 +151,14 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
     res.redirect("/patient/addHealth");
   }
 });
+
+/******************
+ * sprint 3 routes*
+ ******************/
+
+/********************
+ * helper functions *
+ ********************/
 
 /* calculate the progress of today's data entry */
 const progress = async (patient, today) => {
