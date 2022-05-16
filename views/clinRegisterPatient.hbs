@@ -1,104 +1,140 @@
-<main>
-  <h3 class="title">Register Patient</h3>
-  <!--Link to backend-->
-  <form class="register-form" method="post" name="patient-register">
-    <div class="patient-data">
-      <h4 class="sub-title">Patient Data</h4>
-      <ul>
-        <li>
-          <div class="row-title">First Name</div>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="Enter first name"
-            required
-            class="input-style"
-          />
-        </li>
-        <li>
-          <div class="row-title">Last Name</div>
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Enter last name"
-            required
-            class="input-style"
-          />
-        </li>
-        <li>
-          <div class="row-title">Sex</div>
-          <input required type="radio" class="radio" name="sex" value="Male" />
-          <label for="Male">Male</label><br />
-          <input
-            required
-            type="radio"
-            class="radio"
-            name="sex"
-            value="Female"
-          />
-          <label for="Female">Female</label><br />
-          <input required type="radio" class="radio" name="sex" value="Other" />
-          <label for="Other">Other</label>
-        </li>
-        <li>
-          <div class="row-title">DOB</div>
-          <input type="date" name="dob" required class="input-style" />
-        </li>
-        <li>
-          <div class="row-title">Email Address</div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            required
-            class="input-style"
-          />
-        </li>
-        <li>
-          <div class="row-title">Username</div>
-          <input
-            type="text"
-            name="username"
-            placeholder="Enter username"
-            required
-            class="input-style"
-          />
-        </li>
-        <li>
-          <div class="row-title">Password</div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password (min 8 characters)"
-            required
-            class="input-style"
-          />
-        </li>
-        <li>
-          <div class="row-title">Confirm Password</div>
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Retype password"
-            required
-            class="input-style"
-          />
-        </li>
-        <li>
-          <div class="row-title">Bio</div>
-          <input
-            type="text"
-            name="bio"
-            placeholder="Brief bio of patient"
-            class="input-style"
-          />
-        </li>
-      </ul>
-    </div>
-    <div class="safety-thresholds">
-      <h4 class="sub-title">Safety Thresholds</h4>
-      <!--Insert value thresholds template as seen in clinPEdit.html-->
-    </div>
-    <input class="btn-submit" type="submit" value="Submit" />
-  </form>
-</main>
+<div class="register-container">
+  <main>
+    <h3 class="title">Register Patient</h3>
+    <form class="register-form" method="post" name="patient-register">
+      <div class="flex-div">
+        <h4 class="sub-title">Patient Data</h4>
+        <ul>
+          <li class="row-container">
+            <div class="flex-item row-title">First Name</div>
+            <div class="flex-item">
+              <input
+              type="text"
+              name="firstName"
+              placeholder="Enter first name"
+              required
+              class="box-style input-style"
+              />
+            </div>
+          </li>
+          <li class="row-container">
+            <div class="flex-item row-title">Last Name</div>
+            <div class="flex-item">
+              <input
+              type="text"
+              name="lastName"
+              placeholder="Enter last name"
+              required
+              class="box-style input-style"
+              />  
+            </div>
+          </li>
+          <li class="row-container">
+            <div class="flex-item row-title">Sex</div>
+            <div class="flex-item">
+              <input
+              type="radio"
+              name="sex"
+              required
+              class="radio"
+              value="Male"
+              />
+              <label for="Male">Male</label><br />
+              <input
+              type="radio"
+              name="sex"
+              required
+              class="radio"
+              value="Female"
+              />
+              <label for="Female">Female</label><br />
+              <input
+              type="radio"
+              name="sex"
+              required
+              class="radio"
+              value="Other"
+              />
+              <label for="Other">Other</label>
+            </div>
+          </li>
+          <li class="row-container">
+            <div class="flex-item row-title">DOB</div>
+            <div class="flex-item">
+              <input
+              type="date"
+              name="dob"
+              required
+              class="box-style input-style"
+              />
+            </div>
+          </li>
+          <li class="row-container">
+            <div class="flex-item row-title">Email Address</div>
+            <div class="flex-item">
+              <input
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              required
+              class="box-style input-style"
+              />
+            </div>
+          </li>
+          <li class="row-container">
+            <div class="flex-item row-title">Username</div>
+            <div class="flex-item">
+              <input
+              type="text"
+              name="username"
+              placeholder="Enter username"
+              required
+              class="box-style input-style"
+              />
+            </div>
+          </li>
+          <li class="row-container">
+            <div class="flex-item row-title">Password</div>
+            <div class="flex-item">
+              <input
+              type="password"
+              name="password"
+              placeholder="Password (min 8 characters)"
+              required
+              class="box-style input-style"
+              />
+            </div>
+          </li>
+          <li class="row-container">
+            <div class="flex-item row-title">Confirm Password</div>
+            <div class="flex-item">
+              <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Retype password"
+              required
+              class="box-style input-style"
+              />
+            </div>
+          </li>
+          <li class="row-container">
+            <div class="flex-item row-title">Bio</div>
+            <div class="flex-item">
+              <input
+              type="text"
+              name="bio"
+              placeholder="Brief bio of patient"
+              class="box-style input-style"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="flex-div">
+        <h4 class="sub-title">Safety Thresholds</h4>
+        <!--Insert value thresholds template as seen in clinPEdit.html-->
+      </div>
+      <input class="box-style btn-submit" type="submit" value="Submit"/>
+    </form>
+  </main>
+</div>
