@@ -50,7 +50,29 @@ main .logout button {
     font-weight: bold;
 }
 
+.box-style {
+    border: none;
+    box-shadow: 1px 1px 5px -3px inset;
+    height: 3vmax;
+    font-size: var(--text-body);
+    font-family: var(--font-family-body);
+    border-radius: 15px;
+}
+
 .input-style {
+    background-color: #eaeaea;
+    width: 15vmax;
+    color: var(--color-text);
+    padding: 0 1vmax;
+}
+
+.btn-confirm {
+    background-color: #446275;
+    width: 30vmax;
+    color: white;
+}
+
+/*.input-style {
   border: none;
   box-shadow: 1px 1px 5px -3px inset;
   background-color: #eaeaea;
@@ -61,9 +83,9 @@ main .logout button {
   border-radius: 15px;
   color: var(--color-text);
   padding: 0 1vmax;
-}
+}*/
 
-.btn-confirm {
+/*.btn-confirm {
     border: none;
     box-shadow: 1px 1px 5px -3px inset;
     background-color: #446275;
@@ -73,4 +95,4 @@ main .logout button {
     font-family: var(--font-family-body);
     border-radius: 15px;
     color: white;
-}
+}*/

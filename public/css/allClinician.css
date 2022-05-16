@@ -62,6 +62,11 @@ body {
   text-decoration: none;
 }
 
+.clin-navbar {
+  height: 83vh;
+  display: flex;
+}
+
 /* clinician footer style */
 .layout-footer {
   height: 7vh;
@@ -75,11 +80,6 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-}
-
-.clin-navbar {
-  height: 83vh;
-  display: flex;
 }
 
 .layout-footer a {
