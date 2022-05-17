@@ -1,3 +1,4 @@
+/* main style */
 main {
     width: 90vw;
     color: grey;
@@ -6,25 +7,100 @@ main {
   
 main .title {
     color: #446275;
-    height: 50px;
+    height: 5px;
     font-style: italic;
     padding-left: 3vw;
 }
 
+.sub-title {
+    color: #446275;
+}
+
+/* code for patient data and safety thresholds container */
 .data-thresholds {
     display: flex;
     justify-content: space-between;
 }
 
 .patient-data {
-    padding-left: 20vw;
+    padding-left: 15vw;
 }
 
 .safety-thresholds {
-    padding-right: 20vw;
+    padding-right: 15vw;
+}
+
+/* code for patient data */
+.patient-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data-list {
+    padding: 0;
+}
+
+/* code for each list item */
+.row-container {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+/* code for 'sex' and 'bio' items */
+.row-container-left {
+    display: flex;
+    align-items: left;
+    margin-bottom: 10px;
+}
+
+/* code for each div in list */
+.flex-item {
+    width: 15vw;
+}
+
+.row-title {
+    font-weight: bold;
+}
+
+/* style for input boxes and submit button */
+.box-style {
+    border: none;
+    box-shadow: 1px 1px 5px -3px inset;
+    height: 2.5vmax;
+    font-size: var(--text-body);
+    font-family: var(--font-family-body);
+    border-radius: 15px;
+}
+
+.input-style {
+    background-color: #eaeaea;
+    width: 15vmax;
+    color: var(--color-text);
+    padding: 0 1vmax;
+}
+
+.bio {
+    height: 4vmax;
 }
 
 .btn-submit {
     display: flex;
     justify-content: center;
+    margin-top: -6px;
+}
+
+.btn-style {
+    background-color: #446275;
+    width: 30vmax;
+    color: white;
+    cursor: pointer;
+}
+
+/* style for radio buttons */
+input[name="sex"] {
+    accent-color: #446275;
 }

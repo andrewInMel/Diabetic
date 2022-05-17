@@ -75,4 +75,5 @@ main .logout button {
     background-color: #446275;
     width: 30vmax;
     color: white;
+    cursor: pointer;
 }
