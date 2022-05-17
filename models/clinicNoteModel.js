@@ -1,10 +1,15 @@
+const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 const db = require("../config/databaseConfig");
 
 /* user schema */
 const clinicNoteSchema = new mongoose.Schema({
-  patient: { type: mongoose.Schema.ObjectId, ref: "Paitent" },
-  dateTime: String,
+  clinician: {
+    type: ObjectId,
+    require: [true],
+  },
+  patient: String,
+  date: String,
   note: String,
 });
 

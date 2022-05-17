@@ -4,15 +4,16 @@ const Patient = require("../models/patientModel.js");
 const Clinician = require("../models/clinicianModel.js");
 const Health = require("../models/healthModel.js");
 const Data = require("../models/dataModel.js");
+const Note = require("../models/clinicNoteModel.js");
 const genPassword = require("../encryption/passwordEncrypt").genPassword;
 const clinicianAuth = require("./authMiddleware.js").clinicianAuth;
 
-/* clinician login */
+/* get clinician login */
 router.get("/", clinicianAuth, (req, res) => {
   res.redirect("/clinician/dashboard");
 });
 
-/* clinician dashboard */
+/* get clinician dashboard */
 router.get("/dashboard", clinicianAuth, async (req, res) => {
   /* patients' records */
   const allPatients = await Patient.find({ clinician: req.user._id }).lean();
@@ -26,7 +27,7 @@ router.get("/dashboard", clinicianAuth, async (req, res) => {
   });
 });
 
-/* comment list */
+/* get comment list */
 router.get("/comments", clinicianAuth, async (req, res) => {
   /* get all comments of the clinician's patients */
   const data = await Data.find({ clinicianAuth: req.user._id })
@@ -54,7 +55,7 @@ router.get("/comments", clinicianAuth, async (req, res) => {
  * sprint 3 routes*
  ******************/
 
-/* register clinician */
+/* post register clinician */
 router.post("/register", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -63,7 +64,6 @@ router.post("/register", (req, res) => {
     .then(async (user) => {
       if (user) {
         res.status(500).json({ email: "User already exist" });
-        console.log("find existing user: " + user);
       } else {
         /* generate password hash */
         const { hash, salt } = genPassword(password);
@@ -85,7 +85,7 @@ router.post("/register", (req, res) => {
     });
 });
 
-/* register patient data receive */
+/* post register patient data */
 router.post("/patient-register", clinicianAuth, (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -93,7 +93,6 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
     .then(async (user) => {
       if (user) {
         res.status(500).json({ email: "User already exist" });
-        console.log("find existing user: " + user);
       } else {
         /* generate password hash */
         const { hash, salt } = genPassword(password);
@@ -112,7 +111,7 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
           dayscompleted: 0,
         });
         await newPatient.save();
-        res.send("Patient Account Created");
+        res.redirect("/clinician");
       }
     })
     .catch((err) => {
@@ -120,7 +119,7 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
     });
 });
 
-/* clinician setting */
+/* get clinician setting */
 router.get("/settings", clinicianAuth, (req, res) => {
   /* render the page */
   res.render("clinSettings", {
@@ -130,7 +129,7 @@ router.get("/settings", clinicianAuth, (req, res) => {
   });
 });
 
-/* clinician register patient */
+/* get clinician register patient */
 router.get("/patient-register", clinicianAuth, (req, res) => {
   /* render the page */
   res.render("clinRegisterPatient", {
@@ -139,6 +138,35 @@ router.get("/patient-register", clinicianAuth, (req, res) => {
     clinician: req.user,
   });
 });
+
+/* post clinician notes */
+router.post("/clin-notes", clinicianAuth, async (req, res) => {
+  const newNode = new Note({
+    clinician: req.user._id,
+    patient: req.body.name,
+    date: req.body.date,
+    note: req.body.note,
+  });
+  await newNode.save();
+  res.redirect("/clinician/notes-page");
+});
+
+/* get clinician notes page */
+router.get("/notes-page", clinicianAuth, async (req, res) => {
+  const notes = await Note.find({ clinician: req.user._id }).lean();
+  res.render("clinPNotes", {
+    layout: "clinician",
+    style: "clinPNotes.css",
+    notes: notes,
+    clinician: req.user,
+  });
+});
+
+/* update patient support message */
+router.post("/support-msg", clinicianAuth, (req, res) => {});
+
+/* patient detail page */
+router.post("/patients/:id", clinicianAuth, (req, res) => {});
 
 /* set required time-series */
 router.post("/dataset", clinicianAuth, async (req, res) => {
