@@ -1,89 +1,88 @@
 <div class="grid-container">
   <div class="engagement">
     <a href="/clinPEdit"><button class="btn-edit">Edit</button></a>
-    <h1 style="color: #446275;"><i>Patient Data</i></h1>
+    <h1 style="color: #446275"><i>Patient Data</i></h1>
     <h2>
-      <a style="color: #446275;">Today</a>
+      <a style="color: #446275">Today</a>
       <a
         href="/past.html"
-        style="text-decoration: none; padding-left: 15px; color: #ABB8C2"
+        style="text-decoration: none; padding-left: 15px; color: #abb8c2"
       >Past</a>
     </h2>
     <div class="data">
+      {{! personal detail }}
       <div class="sex-container">
         <h3 class="type-style">Sex</h3>
-        <!-- {{#if healthRd.Insulin}}
-          <h2 class="insulin-doses">{{healthRd.Insulin.figure}}</h2>
-        {{else}} -->
-          <h2 class="sex">N/A</h2>
+        <h2 class="sex">{{patient.gender}}</h2>
       </div>
       <div class="age-container">
         <h3 class="type-style">Age</h3>
-        <!-- {{#if healthRd.Insulin}}
-          <h2 class="insulin-doses">{{healthRd.Insulin.figure}}</h2>
-        {{else}} -->
-          <h2 class="age">N/A</h2>
+        <h2 class="age">{{age}}</h2>
       </div>
       <div class="dob-container">
         <h3 class="type-style">DOB</h3>
-        <!-- {{#if healthRd.Insulin}}
-          <h2 class="insulin-doses">{{healthRd.Insulin.figure}}</h2>
-        {{else}} -->
-          <h2 class="dob">N/A</h2>
+        <h2 class="dob">{{patient.dob}}</h2>
       </div>
+      {{! Insulin }}
       <div class="insulin-dose-container">
         <h3 class="type-style">Insulin (Doses)</h3>
-        <!-- {{#if healthRd.Insulin}}
+        {{#if healthRd.Insulin}}
           <h2 class="insulin-doses">{{healthRd.Insulin.figure}}</h2>
-        {{else}} -->
+        {{else}}
           <h2 class="insulin-doses">N/A</h2>
+        {{/if}}
       </div>
       <br />
+      {{! Weight }}
       <div class="weight-container">
         <h3 class="type-style">Weight (kg)</h3>
-        <!-- {{#if healthRd.Weight}}
+        {{#if healthRd.Weight}}
           <h2 class="weight">{{healthRd.Weight.figure}}</h2>
-        {{else}} -->
+        {{else}}
           <h2 class="weight">N/A</h2>
+        {{/if}}
       </div>
       <br />
+      {{! BGL }}
       <div class="blood-glucose-container">
         <h3 class="type-style">Blood Glucose Level (nmol/L)</h3>
-        <!-- {{#if healthRd.BGL}}
+        {{#if healthRd.BGL}}
           <h2 class="blood-glucose-level">{{healthRd.BGL.figure}}</h2>
-        {{else}} -->
+        {{else}}
           <h2 class="blood-glucose-level">N/A</h2>
+        {{/if}}
       </div>
       <br />
+      {{! Exercise }}
       <div class="exercise-container">
         <h3 class="type-style">Exercise (Steps)</h3>
-        <!-- {{#if healthRd.Exercise}}
+        {{#if healthRd.Exercise}}
           <h2 class="exercise">{{healthRd.Exercise.figure}}</h2>
-        {{else}} -->
+        {{else}}
           <h2 class="exercise">N/A</h2>
+        {{/if}}
       </div>
     </div>
+    {{! clinician notes }}
     <div class="Notes">
       <h2>Notes</h2>
       <a href="/noteHistory"><button class="btn-note-history">View Note History</button></a>
-      <br>
+      <br />
       <input
-      type="note"
-      name="note"
-      placeholder="Enter here"
-      class="input-style"
+        type="note"
+        name="note"
+        placeholder="Enter here"
+        class="input-style"
       />
+      {{! supporting message to patient }}
       <h2>Write Mary a message!</h2>
       <input
-      type="message"
-      name="message"
-      placeholder="Enter here"
-      class="input-style"
+        type="message"
+        name="message"
+        placeholder="Enter here"
+        class="input-style"
       />
     </div>
     <br />
   </div>
 </div>
-<footer class="layout-footer">
-  <div> © Diabetes@Home 2022 &nbsp;&nbsp;|&nbsp;&nbsp; P: 0123456789 &nbsp;&nbsp;|&nbsp;&nbsp; E: <a href="mailto:diabetes.home@gmail.com">diabetes.home@gmail.com</div>
-</footer>   

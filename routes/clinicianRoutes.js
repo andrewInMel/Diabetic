@@ -163,18 +163,85 @@ router.get("/notes-page", clinicianAuth, async (req, res) => {
 });
 
 /* update patient support message */
-router.post("/support-msg", clinicianAuth, (req, res) => {});
+router.post("/support-msg/:patientId", clinicianAuth, async (req, res) => {
+  const patientId = req.params.patientId;
+  const patient = await Patient.findById(patientId).exec();
+  patient.supportMsg = req.body.message;
+  const updatedPt = await patient.save();
+  if (updatedPt) {
+    res.redirect("/clinician/patients/patientId");
+  }
+});
 
 /* patient detail page */
-router.post("/patients/:id", clinicianAuth, (req, res) => {});
+router.get("/patients/:patientId", clinicianAuth, async (req, res) => {
+  /* current date */
+  const date = new Date().toLocaleDateString("en-AU", {
+    timeZone: "Australia/Melbourne",
+  });
+  /* patient and today's data */
+  const patient = await Patient.findById(req.params.patientId).lean();
+  const healthDoc = await Health.findOne({
+    patient: patient._id,
+    date: date,
+  })
+    .populate("BGL")
+    .populate("Insulin")
+    .populate("Weight")
+    .populate("Exercise")
+    .lean();
+  /* render the page */
+  res.render("clinPToday", {
+    layout: "clinician",
+    style: "clinPToday.css",
+    patient: patient,
+    healthRd: healthDoc,
+    clinician: req.user,
+    age: getAge(patient.dob),
+  });
+});
 
-/* set required time-series */
-router.post("/dataset", clinicianAuth, async (req, res) => {
-  const patient = await Patient.findById("624ed2cab705003aae0ad1c3").exec();
+/* patient past detail page */
+router.get("/patients/past/:patientId", clinicianAuth, async (req, res) => {
+  /* petient to work with */
+  const patient = await Patient.findById(req.params.patientId).lean();
+  /* historical health data */
+  const healthDocs = await Health.find({ patient: patient._id })
+    .populate("BGL")
+    .populate("Insulin")
+    .populate("Weight")
+    .populate("Exercise")
+    .lean();
+  /* render the past page */
+  // res.render("clinPPast", {
+  //   layout: "clinician",
+  //   style: "clinPPast.css",
+  //   patient: patient,
+  //   allRecords: healthDocs,
+  //   clinician: req.user,
+  // });
+  console.log(healthDocs);
+});
+
+/* get patient edit page */
+router.get("/patient/edit/:patientId", (req, res) => {
+  const patientId = req.params.patientId;
+  res.render("clinPEdit", {
+    layout: "clinician",
+    style: "clinPEdit.css",
+    patientId: patientId,
+    clinician: req.user,
+  });
+});
+
+/* post required time-series */
+router.post("/patient/edit/:patientId", clinicianAuth, async (req, res) => {
+  const patientId = req.params.patientId;
+  const patient = await Patient.findById(patientId).exec();
   patient.dataSet = req.body;
   patient.markModified("dataSet");
   await patient.save();
-  res.send("updated");
+  res.redirect(`/patients/:${patientId}`);
 });
 
 /********************
@@ -217,6 +284,19 @@ const getRecords = (allPatients) => {
       return { patient: onePatient, todayRd: record, comments: comments };
     })
   );
+};
+
+/* get date */
+const getAge = (dob) => {
+  const today = new Date();
+  const dateParts = dob.split("/");
+  const birthDate = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+  var age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
 };
 
 module.exports = router;

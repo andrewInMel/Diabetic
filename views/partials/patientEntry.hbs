@@ -1,4 +1,4 @@
-<div class="flex-item">{{patient.firstName}} {{patient.lastName}}</div>
+<div class="flex-item" id="{{patient._id}}" >{{patient.firstName}} {{patient.lastName}}</div>
 <div class="data box">
   <div class="flex-item">{{patient.gender}}</div>
   <div class="flex-item">{{patient.dob}}</div>    
@@ -33,3 +33,9 @@
     <div class="flex-item">-</div>
   {{/if}}
 </div>
+
+<script>
+  document.getElementById("{{patient._id}}").addEventListener("click", ()=>{
+    window.location.href="/clinician/patients/{{patient._id}}";
+  })
+</script>
