@@ -1,67 +1,65 @@
-<div class="settings-container">
-    <main>
-      <div class="headings">
-          <h3 class="title">Settings</h3>
-          <div class="logout">
-            <a href="/auth/logout">
-                <button>
-                    Log Out
-                </button>
-            </a>
-          </div>
-      </div>
-      <form
-        class="settings-form"
-        method="post"
-        name="update-password"
-      >
-        <ul>
-            <li class="row-container">
-                <div class="flex-item list-header">First Name</div>
-                <div class="flex-item">{{clinician.firstName}}</div>
-            </li>
-            <li class="row-container">
-                <div class="flex-item list-header">Last Name</div>
-                <div class="flex-item">{{clinician.lastName}}</div>
-            </li>
-            <li class="row-container">
-                <div class="flex-item list-header">Email Address</div>
-                <div class="flex-item">{{clinician.email}}</div>
-            </li>
-            <li class="row-container">
-                <div class="flex-item list-header">Clinician ID</div>
-                <div class="flex-item">{{clinician._id}}</div>
-            </li>
-            <li class="row-container">
-                <div class="flex-item list-header">New Password</div>
-                <div class="flex-item">
-                    <input
-                    type="password"
-                    name="password"
-                    placeholder="Password (min 8 char)"
-                    required
-                    class="box-style input-style"
-                    />
-                </div>
-            </li>
-            <li class="row-container">
-                <div class="flex-item list-header">Confirm Password</div>
-                <div class="flex-item">
-                    <input
-                    type="password"
-                    name="confirm-password"
-                    placeholder="Retype password"
-                    required
-                    class="box-style input-style"
-                    />
-                </div>
-            </li>
-            <li class="row-container">
-                <div class="flex-item box-style btn-confirm">
-                    <input class="box-style btn-confirm" type="submit" value="Confirm"/>
-                </div>
-            </li>
-        </ul>
-      </form>
-    </main>
-</div>
+<main>
+    <div class="headings">
+        <h3 class="title">Settings</h3>
+        <div class="logout">
+        <a href="/auth/logout">
+            <button>
+                Log Out
+            </button>
+        </a>
+        </div>
+    </div>
+    <form
+    class="settings-form"
+    method="post"
+    name="update-password"
+    >
+    <ul>
+        <li class="row-container">
+            <div class="flex-item list-header">First Name</div>
+            <div class="flex-item">{{clinician.firstName}}</div>
+        </li>
+        <li class="row-container">
+            <div class="flex-item list-header">Last Name</div>
+            <div class="flex-item">{{clinician.lastName}}</div>
+        </li>
+        <li class="row-container">
+            <div class="flex-item list-header">Email Address</div>
+            <div class="flex-item">{{clinician.email}}</div>
+        </li>
+        <li class="row-container">
+            <div class="flex-item list-header">Clinician ID</div>
+            <div class="flex-item">{{clinician._id}}</div>
+        </li>
+        <li class="row-container">
+            <div class="flex-item list-header">New Password</div>
+            <div class="flex-item">
+                <input
+                type="password"
+                name="password"
+                placeholder="Password (min 8 char)"
+                required
+                class="box-style input-style"
+                />
+            </div>
+        </li>
+        <li class="row-container">
+            <div class="flex-item list-header">Confirm Password</div>
+            <div class="flex-item">
+                <input
+                type="password"
+                name="confirm-password"
+                placeholder="Retype password"
+                required
+                class="box-style input-style"
+                />
+            </div>
+        </li>
+        <li class="row-container">
+            <div class="flex-item box-style btn-confirm">
+                <input class="box-style btn-confirm" type="submit" value="Confirm"/>
+            </div>
+        </li>
+    </ul>
+    </form>
+</main>
