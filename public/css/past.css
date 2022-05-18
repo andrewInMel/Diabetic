@@ -1,7 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-}
+
 
 :root{
     --text-btn: 50px;
@@ -14,7 +11,7 @@
     --color-text-label: #f5eccb;
 }
 
-body {
+.grid-container {
     display: grid;
     grid-row: 0.05fr 1fr;
     grid-template-columns: 0.25fr 1fr;
