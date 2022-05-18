@@ -88,8 +88,6 @@ p {
   justify-content: center;
 }
 
-/*************************/
-
 .progress-circle {
   font-size: 5vw;
   margin: 20px;
@@ -139,8 +137,8 @@ p {
 }
 .value-bar {
   /*This is an overlayed square, that is made round with the border radius,
-  then it is cut to display only the left half, then rotated clockwise
-  to escape the outer clipping path.*/
+    then it is cut to display only the left half, then rotated clockwise
+    to escape the outer clipping path.*/
   position: absolute; /*needed for clipping*/
   clip: rect(0, 2.5em, 5em, 0);
   width: 5em;

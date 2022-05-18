@@ -27,39 +27,18 @@
 </div>
     <div class="leaderboard-container">
         <h1 style="color: #446275;"><i>Leaderboard</i></h1>
-        {{#each patient}}
-            {{#eq patient.rank 1}}
-                <div class="first-rank">
-                    {{> singleRank}}
-                </div>
-            {{/eq}}
-            {{#eq patient.rank 2}}
-                <div class="second-rank">
-                    {{> singleRank}}
-                </div>
-            {{/eq}}
-            
-            {{#eq patient.rank 3}}
-                <div class="third-rank">
-                    {{> singleRank}}
-                </div>
-            {{/eq}}
-            
-            {{#eq patient.rank 4}}
-                <div class="fourth-rank">
-                    {{> singleRank}}
-                </div>
-            {{/eq}}
-            
-            {{#eq patient.rank 5}}
-                <div class="fifth-rank">
-                    {{> singleRank}}
-                </div>
-            {{/eq}}
-        {{/each}}
-        {{#gt your.rank 5}}
-            <div class="your-rank">
-                {{> singleRank}}
+        
+        <ol>
+            {{#each patient}}
+            {{> singleRank}}
+            {{/each}}
+        </ol>
+
+        {{#gt myRank 5}}
+            <div class="first-rank">
+                <p class="rank">{{myRnk}}</p>
+                <p class="username">{{this.username}}</p>
+                <p class="progress">{{this.engageRate}}%</p>
             </div>
         {{/gt}}
     </div>
