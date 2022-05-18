@@ -164,7 +164,6 @@ router.get("/pastHealth", patientAuth, async (req, res) => {
     .populate("Weight")
     .populate("Exercise")
     .lean();
-  console.log(allHealth);
   res.render("ptPast", {
     style: "past.css",
     headerText: "Your Data",
@@ -185,7 +184,7 @@ router.get("/engagement", patientAuth, async (req, res) => {
     return {
       id: onePatient._id,
       username: onePatient.username,
-      engageRate: onePatient.dayscompleted / daysSignedUp,
+      engageRate: Math.floor((onePatient.dayscompleted / daysSignedUp) * 100),
     };
   });
   /* sort the list */
@@ -197,9 +196,11 @@ router.get("/engagement", patientAuth, async (req, res) => {
     }
   });
   /* first five patients */
-  const firstFive = engageList.slice(1, 5);
+  const firstFive = engageList.slice(0, 5);
   /* this patient */
-  index = engageList.findIndex((x) => x.id === req.user._id);
+  index = engageList.findIndex(
+    (x) => x.id.toString() == req.user._id.toString()
+  );
 
   res.render("ptEngagement", {
     firstFive: firstFive,

@@ -1,13 +1,14 @@
+<div class="grid-container">
  <div class="engagement">
     <h1 style="color: #446275;"><i>Your Engagement</i></h1>
     <div class="award-container">
-        {{#gt progress 80}}
+        {{#gt myEngage.engageRate 80}}
             <img src="Group 108.png" style="height: 40px; width: 40px;">
         {{/gt}}
     </div>
     {{#gt progress 50}}
-        <div class="progress-circle over50 p{{progress}}">
-            <span>{{progress}}%</span>
+        <div class="progress-circle over50 p{{myEngage.engageRate}}">
+            <span>{{myEngage.engageRate}}%</span>
             <div class="left-half-clipper">
                 <div class="first50-bar"></div>
                 <div class="value-bar"></div>
@@ -15,8 +16,8 @@
         </div>
       {{! If progress not greater than 50 uses this code}}
     {{else}}
-        <div class="progress-circle p{{progress}}">
-            <span>{{progress}}%</span>
+        <div class="progress-circle p{{myEngage.engageRate}}">
+            <span>{{myEngage.engageRate}}%</span>
             <div class="left-half-clipper">
                 <div class="first50-bar"></div>
                 <div class="value-bar"></div>
@@ -62,3 +63,4 @@
             </div>
         {{/gt}}
     </div>
+</div>
