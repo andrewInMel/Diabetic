@@ -1,14 +1,27 @@
 <nav>
   <div>
+    {{! dashboard }}
     <a href="/patient/dashboard"><img
         src="/image/icon/patient-dashboard.png"
       /></a>
-    <a><img src="/image/icon/patient-calendar.png" /></a>
+
+    {{! engagement }}
+    <a href="/patient/engagement"><img
+        src="/image/icon/patient-calendar.png"
+      /></a>
+
+    {{! add health data }}
     <a href="/patient/addHealth"><img
         src="/image/icon/patient-new-data.png"
       /></a>
+
+    {{! waiting }}
     <a><img src="/image/icon/patient-progress.png" /></a>
+
+    {{! waiting }}
     <a><img src="/image/icon/patient-personal-profile.png" /></a>
+
+    {{! logout}}
     <a href="/auth/logout">
       <img src="/image/icon/logout.png" />
     </a>

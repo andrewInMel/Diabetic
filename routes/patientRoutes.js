@@ -156,13 +156,57 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
  * sprint 3 routes*
  ******************/
 
+/* get patient past data */
 router.get("/pastHealth", patientAuth, async (req, res) => {
-  const allHealth = await Health.find({ patient: req.user._id }).lean();
-
+  const allHealth = await Health.find({ patient: req.user._id })
+    .populate("BGL")
+    .populate("Insulin")
+    .populate("Weight")
+    .populate("Exercise")
+    .lean();
+  console.log(allHealth);
   res.render("ptPast", {
     style: "past.css",
     headerText: "Your Data",
     allHealth: allHealth,
+  });
+});
+
+/* get patient engagement page */
+router.get("/engagement", patientAuth, async (req, res) => {
+  /* all patients */
+  allPatient = await Patient.find().lean();
+  /* all patients' data array */
+  const engageList = allPatient.map((onePatient) => {
+    /* each patient's days of signed up*/
+    const daysSignedUp = Math.floor(
+      (new Date().getTime() - onePatient.startDate) / (1000 * 60 * 60 * 24)
+    );
+    return {
+      id: onePatient._id,
+      username: onePatient.username,
+      engageRate: onePatient.dayscompleted / daysSignedUp,
+    };
+  });
+  /* sort the list */
+  engageList.sort((a, b) => {
+    if (a.engageRate < b.engageRate) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+  /* first five patients */
+  const firstFive = engageList.slice(1, 5);
+  /* this patient */
+  index = engageList.findIndex((x) => x.id === req.user._id);
+
+  res.render("ptEngagement", {
+    firstFive: firstFive,
+    myRank: index + 1,
+    myEngage: engageList[index],
+    style: "engagement.css",
+    headerText: `Welcome Back ${req.user.firstName}`,
   });
 });
 

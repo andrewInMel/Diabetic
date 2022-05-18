@@ -29,6 +29,7 @@ const patientSchema = new mongoose.Schema({
   gender: String,
   hash: String,
   salt: String,
+  username: String,
 });
 
 const Patient = db.model("Patient", patientSchema);

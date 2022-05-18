@@ -2,7 +2,7 @@
 <div class="heading">
     <h1 style="color: #446275;"><i>Dashboard</i></h1>
     <h2>
-        <a herf="/patient/dashboard" style="padding-left: 15px; color: #ABB8C2;">Today</a>
+        <a href="/patient/dashboard" style="padding-left: 15px; color: #ABB8C2;">Today</a>
         <a style="color: #446275;">Past</a>
     </h2>
 </div>
@@ -31,7 +31,7 @@
         </div>
 
         <div class="data">
-            {{#each patientEntry}}
+            {{#each allHealth}}
                 {{> ptPastSingleData}}
             {{/each}}
         </div>
