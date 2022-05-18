@@ -1,0 +1,78 @@
+<head>
+    <link rel="stylesheet" href="ptprofile.css">
+</head>
+
+<main>
+    <h1 class="title">My Page</h1>
+      <ul>
+        <!-- label each column-->
+        <li class="row-container">
+            <div class="flex-item list-header">First Name</div>
+            <div class="flex-item">Adam</div> <!--Patient First Name-->
+        </li>
+
+        <li class="row-container">
+            <div class="flex-item list-header">Last Name</div>
+            <div class="flex-item">Smith</div> <!--Patient last Name-->
+        </li>
+
+        <li class="row-container">
+            <div class="flex-item list-header">Email</div>
+            <div class="flex-item">AdamSmith@gmail.com</div> <!--Patient email-->
+        </li>
+
+        <li class="row-container">
+             <div class="flex-item list-header">DOB</div>
+             <div class="flex-item">14/01/01</div> <!--Patient DOB-->
+        </li>
+
+        <li class="row-container">
+             <div class="flex-item list-header">Screen Name</div>
+             <div class="flex-item">Adamisgreat123</div> <!--Patient username-->
+        </li>
+     
+        <form>
+        <li class="row-container">
+            <div class="flex-item list-header">Bio</div>
+            <div class="flex-item"> <textarea name="bio" placeholder="Tell Us About Yourself!" class="box-style bio" wrap="soft"></textarea></div>
+        </li>
+
+
+    <!--change password-->
+
+    <li class="row-container">
+        <div class="flex-item row-title">New Password</div>
+        <div class="flex-item">
+        <input
+        type="password"
+        name="password"
+        placeholder="New Password (min 8 char)"
+        required
+        class="box-style input-style"
+        />
+        </div>
+    </li>
+
+    <li class="row-container">
+        <div class="flex-item row-title">Confirm New Password</div>
+        <div class="flex-item">
+      <input
+      type="password"
+      name="confirmPassword"
+      placeholder="Retype New Password"
+      required
+      class="box-style input-style"
+      />
+        </div>
+    </li>
+
+  <!-- JS for incorrect password needed!-->
+    <li class="row-container">
+        <div class="flex-item box-style btn-submit">
+        <input class="box-style btn-submit" type="submit" value="Submit" />
+         </div>
+    </li>
+
+    </form>
+</ul>
+</main>
