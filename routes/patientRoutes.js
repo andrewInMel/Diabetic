@@ -189,7 +189,7 @@ router.get("/engagement", patientAuth, async (req, res) => {
   });
   /* sort the list */
   engageList.sort((a, b) => {
-    if (a.engageRate < b.engageRate) {
+    if (a.engageRate > b.engageRate) {
       return -1;
     } else {
       return 1;

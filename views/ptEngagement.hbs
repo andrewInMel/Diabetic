@@ -6,7 +6,7 @@
             <img src="Group 108.png" style="height: 40px; width: 40px;">
         {{/gt}}
     </div>
-    {{#gt progress 50}}
+    {{#gt myEngage.engageRate 50}}
         <div class="progress-circle over50 p{{myEngage.engageRate}}">
             <span>{{myEngage.engageRate}}%</span>
             <div class="left-half-clipper">
@@ -29,17 +29,11 @@
         <h1 style="color: #446275;"><i>Leaderboard</i></h1>
         
         <ol>
-            {{#each patient}}
-            {{> singleRank}}
+            {{#each firstFive}}
+                {{> singleRank}}
             {{/each}}
         </ol>
 
-        {{#gt myRank 5}}
-            <div class="first-rank">
-                <p class="rank">{{myRnk}}</p>
-                <p class="username">{{this.username}}</p>
-                <p class="progress">{{this.engageRate}}%</p>
-            </div>
-        {{/gt}}
+        
     </div>
 </div>
