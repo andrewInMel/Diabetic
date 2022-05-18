@@ -108,3 +108,29 @@ h3 {
     border-width: 1px;
     align-items: center;
   }
+
+  .date-data {
+    border-color: none;
+    background-color: #D7E9F5;
+    color: #84AAC2;
+  }
+
+  .bgl-data{
+    border-color: #8289CF;
+    color: #8289cf;
+  }
+
+  .exercise-data{
+    border-color: #89cfd9;
+    color: #89cfd9;
+  }
+
+  .insulin-data{
+    border-color: #84aac2;
+    color: #84aac2;
+  }
+
+  .weight-data{
+    border-color: #89a5d9;
+    color: #89a5d9;
+  }

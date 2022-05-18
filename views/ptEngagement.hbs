@@ -1,0 +1,64 @@
+ <div class="engagement">
+    <h1 style="color: #446275;"><i>Your Engagement</i></h1>
+    <div class="award-container">
+        {{#gt progress 80}}
+            <img src="Group 108.png" style="height: 40px; width: 40px;">
+        {{/gt}}
+    </div>
+    {{#gt progress 50}}
+        <div class="progress-circle over50 p{{progress}}">
+            <span>{{progress}}%</span>
+            <div class="left-half-clipper">
+                <div class="first50-bar"></div>
+                <div class="value-bar"></div>
+            </div>
+        </div>
+      {{! If progress not greater than 50 uses this code}}
+    {{else}}
+        <div class="progress-circle p{{progress}}">
+            <span>{{progress}}%</span>
+            <div class="left-half-clipper">
+                <div class="first50-bar"></div>
+                <div class="value-bar"></div>
+            </div>
+        </div>
+    {{/gt}}
+</div>
+    <div class="leaderboard-container">
+        <h1 style="color: #446275;"><i>Leaderboard</i></h1>
+        {{#each patient}}
+            {{#eq patient.rank 1}}
+                <div class="first-rank">
+                    {{> singleRank}}
+                </div>
+            {{/eq}}
+            {{#eq patient.rank 2}}
+                <div class="second-rank">
+                    {{> singleRank}}
+                </div>
+            {{/eq}}
+            
+            {{#eq patient.rank 3}}
+                <div class="third-rank">
+                    {{> singleRank}}
+                </div>
+            {{/eq}}
+            
+            {{#eq patient.rank 4}}
+                <div class="fourth-rank">
+                    {{> singleRank}}
+                </div>
+            {{/eq}}
+            
+            {{#eq patient.rank 5}}
+                <div class="fifth-rank">
+                    {{> singleRank}}
+                </div>
+            {{/eq}}
+        {{/each}}
+        {{#gt your.rank 5}}
+            <div class="your-rank">
+                {{> singleRank}}
+            </div>
+        {{/gt}}
+    </div>

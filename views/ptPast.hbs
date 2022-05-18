@@ -1,0 +1,37 @@
+<div class="heading">
+    <h1 style="color: #446275;"><i>Dashboard</i></h1>
+    <h2>
+        <a style="padding-left: 15px; color: #ABB8C2;">Today</a>
+        <a style="color: #446275;">Past</a>
+    </h2>
+</div>
+
+        <div class="data-type-container">
+            <div class="insulin-dose-container">
+                <h3 class="type-style">Insulin doses</h3>
+                <h3 class="unit-style">doses</h3>
+            </div>
+
+            <div class="weight-container">
+                <h3 class="type-style">Weight</h3>
+                <h3 class="unit-style">kg</h3>
+            </div>
+
+              <div class="blood-glucose-container">
+                <h3 class="type-style">BGL</h3>
+                <h3 class="unit-style">nmol/L</h3>
+              </div>
+
+              <div class="exercise-container">
+                <h3 class="type-style">Exercise</h3>
+                <h3 class="unit-style">steps</h3>
+              </div>
+            </div>
+        </div>
+
+        <div class="data">
+            {{#each patientEntry}}
+                {{> ptPastSingleData}}
+            {{/each}}
+        </div>
+        
