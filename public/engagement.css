@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+    padding-left: 5vw;
+    display: grid;
+    width: 85vw;
+    padding-left: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10vw;
+    grid-template-areas: "engagement leaderboard";
+}
+
+p {
+    font-family:"PT sans";
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.engagement {
+    grid-area: engagement;
+}
+
+.leaderboard-container {
+    grid-area: leaderboard;
+}
+
+.first-rank, .second-rank, .third-rank, .fourth-rank, .fifth-rank, .your-rank {
+    display: flex;
+    flex-direction: row;
+    width: 40vw;
+    height: 10vh;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 1vh;
+}
+
+.first-rank {
+    background-color: #89D99E;
+}
+
+.second-rank {
+    background-color: #89D9D9;
+}
+
+.third-rank {
+    background-color: #89BCD9;
+}
+
+.fourth-rank, .fifth-rank {
+    background-color: #89A5D9;
+}
+
+.your-rank {
+    background-color: #8782CF;
+}
+
+.rank {
+    color: #FFFFFF;
+}
+
+.username {
+    color: #F5ECCB;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.award-container {
+    display: flex;
+    background-color: #F5ECCB;
+    border-radius: 13px;
+    width: 62px;
+    height: 62px;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-container {
+    display: flex;
+    justify-content: center;
+}

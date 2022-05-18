@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --text-btn: 50px;
+    --text-heading: 50px;
+    --text-subheading: 40px;
+    --text-body: 30px;
+    --font-family-heading: "PT Sans";
+    --color-text: #446275;
+    --color-background: #d7e9f5;
+    --color-text-label: #f5eccb;
+}
+
+body {
+    display: grid;
+    grid-row: 0.05fr 1fr;
+    grid-template-columns: 0.25fr 1fr;
+    grid-gap: 3vw;
+    grid-template-areas:
+    "heading heading" 
+    "data-type data";
+}
+
+.data-type-container {
+    padding-top: 16vh;
+    grid-area: data-type;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    grid-area: heading;
+    margin-left: 10px;
+}
+
+.data{
+    display: flex;
+    flex-direction: row;
+}
+
+.individual-data{
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    color: var(--color-text-label);
+    font-family: var(--font-family-heading);
+  }
+  
+  .type-style {
+    padding-left: 1vmax;
+    font-family: var(--font-family-heading);
+  }
+  
+  .unit-style {
+    text-align: right;
+    padding-right: 1vmax;
+    font-family: var(--font-family-heading);
+  }
+  
+  /*data container customization*/
+  .insulin-dose-container {
+    background-color: #84aac2;
+  }
+  
+  .weight-container {
+    background-color: #89a5d9;
+  }
+  
+  .blood-glucose-container {
+    background-color: #8289cf;
+  }
+  
+  .exercise-container {
+    background-color: #89cfd9;
+  }
+  
+  .blood-glucose-container,
+  .insulin-dose-container,
+  .exercise-container,
+  .weight-container {
+    margin-bottom: 1vh;
+    display: flex;
+    flex-direction: column;
+    height: 15vh;
+    border-radius: 14px;
+    justify-content: space-around;
+  }
+
+  .date-data,
+  .bgl-data,
+  .insulin-data,
+  .exercise-data,
+  .weight-data {
+    margin-bottom: 1vh;
+    display: flex;
+    flex-direction: column;
+    height: 15vh;
+    width: 18vw;
+    border-radius: 14px;
+    justify-content: space-around;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    align-items: center;
+  }
