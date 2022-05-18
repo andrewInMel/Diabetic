@@ -156,6 +156,16 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
  * sprint 3 routes*
  ******************/
 
+router.get("/pastHealth", patientAuth, async (req, res) => {
+  const allHealth = await Health.find({ patient: req.user._id }).lean();
+
+  res.render("ptPast", {
+    style: "past.css",
+    headerText: "Your Data",
+    allHealth: allHealth,
+  });
+});
+
 /********************
  * helper functions *
  ********************/

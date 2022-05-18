@@ -119,6 +119,8 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
     });
 });
 
+router.post("/post-settings", clinicianAuth, (req, res) => {});
+
 /* get clinician setting */
 router.get("/settings", clinicianAuth, (req, res) => {
   /* render the page */
