@@ -66,23 +66,31 @@
     {{! clinician notes }}
     <div class="Notes">
       <h2>Notes</h2>
+      <!-- Must be able to input Note -->
       <a href="/noteHistory"><button class="btn-note-history">View Note History</button></a>
-      <br />
+      <br>
       <input
-        type="note"
-        name="note"
-        placeholder="Enter here"
-        class="input-style"
+      type="note"
+      name="note"
+      placeholder="Enter here"
+      class="input-style"
       />
-      {{! supporting message to patient }}
+      <button class="btn-submit">Submit</button></a>
+    </div>
+    <div class = "Message">
       <h2>Write Mary a message!</h2>
+      <!-- Must be able to input Message -->
       <input
-        type="message"
-        name="message"
-        placeholder="Enter here"
-        class="input-style"
+      type="message"
+      name="message"
+      placeholder="Enter here"
+      class="input-style"
       />
+      <button class="btn-submit">Submit</button></a>
     </div>
     <br />
   </div>
 </div>
+<footer class="layout-footer">
+  <div> © Diabetes@Home 2022 &nbsp;&nbsp;|&nbsp;&nbsp; P: 0123456789 &nbsp;&nbsp;|&nbsp;&nbsp; E: <a href="mailto:diabetes.home@gmail.com">diabetes.home@gmail.com</div>
+</footer>   
