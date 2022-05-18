@@ -8,7 +8,10 @@ const clinicNoteSchema = new mongoose.Schema({
     type: ObjectId,
     require: [true],
   },
-  patient: String,
+  patient: {
+    type: ObjectId,
+    require: [true],
+  },
   date: String,
   note: String,
 });

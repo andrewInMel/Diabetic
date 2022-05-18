@@ -1,15 +1,10 @@
 <div class="grid-container">
-  {{#each allRecords}}
-    <div>
-      aaa
-    </div>
-  {{/each}}
   <div class="engagement">
     <a href="/clinPEdit"><button class="btn-edit">Edit</button></a>
     <h1 style="color: #446275"><i>Patient Data</i></h1>
     <h2>
       <a
-        href="/today.html"
+        href="/clinician/patients/past/{{patient._id}}"
         style="text-decoration: none; padding-left: 15px; color: #abb8c2"
         >Today</a
       >

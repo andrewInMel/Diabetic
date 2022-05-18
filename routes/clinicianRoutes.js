@@ -140,10 +140,10 @@ router.get("/patient-register", clinicianAuth, (req, res) => {
 });
 
 /* post clinician notes */
-router.post("/clin-notes", clinicianAuth, async (req, res) => {
+router.post("/clin-notes/:patientId", clinicianAuth, async (req, res) => {
   const newNode = new Note({
     clinician: req.user._id,
-    patient: req.body.name,
+    patient: req.params.patientId,
     date: req.body.date,
     note: req.body.note,
   });
@@ -212,15 +212,18 @@ router.get("/patients/past/:patientId", clinicianAuth, async (req, res) => {
     .populate("Weight")
     .populate("Exercise")
     .lean();
+  /* rearrange the data in prefered form */
+  // const allRecords = healthDocs.map((oneDoc) => {
+  //   return { patient: onePatient, todayRd: oneDoc, comments: [] };
+  // });
   /* render the past page */
   // res.render("clinPPast", {
   //   layout: "clinician",
   //   style: "clinPPast.css",
   //   patient: patient,
-  //   allRecords: healthDocs,
+  //   allRecords: allRecords,
   //   clinician: req.user,
   // });
-  console.log(healthDocs);
 });
 
 /* get patient edit page */
