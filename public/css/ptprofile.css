@@ -1,0 +1,71 @@
+/* main style */
+main {
+    width: 90vw;
+    color: #446275;
+    font-family: "PT sans";
+}
+
+main .headings {
+    color: #446275;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+main .title {
+    font-style: italic;
+    padding-left: 3vw;
+}
+
+/* code for each list item */
+.row-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+/* code for each div in list */
+.flex-item {
+    width: 15vw;
+}
+
+.list-header {
+    font-weight: bold;
+}
+
+/* style for input boxes and submit button */
+.box-style {
+    border: none;
+    box-shadow: 1px 1px 5px -3px inset;
+    height: 3vmax;
+    font-size: var(--text-body);
+    font-family: var(--font-family-body);
+    border-radius: 15px;
+}
+
+.bio {
+    height: 4vmax;
+    background-color: #eaeaea;
+    width: 15vmax;
+    color: var(--color-text);
+    padding: 0 1vmax;
+}
+
+/* style just for input boxes */
+.input-style {
+    background-color: #eaeaea;
+    width: 15vmax;
+    color: var(--color-text);
+    padding: 0 1vmax;
+}
+
+/* style just for submit button */
+.btn-submit {
+    background-color: #446275;
+    width: 30vmax;
+    color: white;
+    cursor: pointer;
+}
