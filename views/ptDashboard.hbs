@@ -18,9 +18,8 @@
           <div class="value-bar"></div>
         </div>
       </div>
-    {{/gt}}
       {{! If progress not greater than 50 uses this code}}
-    {{#lte progress 50}}
+    {{else}}
       <div class="progress-circle p{{progress}}">
         <span>{{progress}}%</span>
         <div class="left-half-clipper">
@@ -28,7 +27,7 @@
           <div class="value-bar"></div>
         </div>
       </div>
-    {{/lte}}
+    {{/gt}}
   </div>
 
   {{! Data containers code}}

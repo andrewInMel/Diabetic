@@ -44,11 +44,9 @@ hbs.handlebars.registerHelper("checkComment", (comments) => {
   return comments.length !== 0;
 });
 hbs.handlebars.registerHelper("gt", function (a, b) {
-  return a > b ;
+	var next =  arguments[arguments.length-1];
+	return (a > b) ? next.fn(this) : next.inverse(this);
 });
-hbs.handlebars.registerHelper("lte", function (a, b) {
-  return a <= b;
-})
 hbs.handlebars.registerHelper("eq", function(a, b){
 	return a === b ;
 });
