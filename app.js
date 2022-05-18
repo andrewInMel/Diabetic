@@ -46,7 +46,7 @@ hbs.handlebars.registerHelper("checkComment", (comments) => {
 hbs.handlebars.registerHelper("gt", function (a, b) {
   return a > b ;
 });
-hbs.handlesbars.registerHelper('eq', function(a, b){
+hbs.handlebars.registerHelper("eq", function(a, b){
 	return a === b ;
 });
 hbs.handlebars.registerHelper("getTime", (timestamp) => {
