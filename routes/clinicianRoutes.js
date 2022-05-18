@@ -89,6 +89,8 @@ router.post("/register", (req, res) => {
 router.post("/patient-register", clinicianAuth, (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
+  const dobParts = req.body.dob.split("-");
+  const dob = `${dobParts[2]}/${dobParts[1]}/${dobParts[0]}`;
   Patient.findOne({ email: email })
     .then(async (user) => {
       if (user) {
@@ -102,13 +104,15 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
           lastName: req.body.lastName,
           clinician: req.user._id,
           gender: req.body.sex,
-          dob: req.body.dob,
+          dob: dob,
           type: "patient",
           email: email,
           hash: hash,
           salt: salt,
           startDate: new Date().getTime(),
           dayscompleted: 0,
+          usernmae: req.body.usernmae,
+          dataSet: {},
         });
         await newPatient.save();
         res.redirect("/clinician");
@@ -118,8 +122,18 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
       res.send(err);
     });
 });
-
-router.post("/post-settings", clinicianAuth, (req, res) => {});
+/* clinician reset password */
+router.post("/post-settings", clinicianAuth, async (req, res) => {
+  const clinician = await Clinician.findById(req.user._id);
+  /* generate password hash */
+  const { hash, salt } = genPassword(req.body.password);
+  /* update password */
+  clinician.salt = salt;
+  clinician.hash = hash;
+  await clinician.save();
+  /* redirect to setting page */
+  res.redirect("/clinician/settings");
+});
 
 /* get clinician setting */
 router.get("/settings", clinicianAuth, (req, res) => {
