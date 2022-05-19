@@ -31,6 +31,12 @@ main .title {
   width: 70vw;
 }
 
+.table-data {
+  overflow-y: scroll;
+  height: 59vh;
+  padding: 1vh;
+}
+
 /* Make column headers bold */
 .list-header {
   font-weight: bold;
