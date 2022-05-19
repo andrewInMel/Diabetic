@@ -29,11 +29,16 @@
         <h1 style="color: #446275;"><i>Leaderboard</i></h1>
         <ul style="list-style-type: none;">
             {{#each firstFive}}
-                    <li>{{> singleRank myEngage=../myEngage}}</li>
+                    <li>{{> singleRank myEngage=../myEngage myRank=../myRank}}</li>
             {{/each}}
             
         </ul>
-
-        
+        {{#gt myRank 5}}
+            <div class="first-rank">
+                <p class="rank">{{myRank}}</p>
+                <p class="username">Me</p>
+                <p class="progress">{{myEngage.engageRate}}%</p>
+            </div>
+        {{/gt}}
     </div>
 </div>

@@ -1,7 +1,7 @@
 
 <div class="first-rank">
     {{#eq myEngage.username this.username}}
-        <p class="rank">{{inc @index}}</p>
+        <p class="rank">{{myRank}}</p>
         <p class="username">Me</p>
         <p class="progress">{{myEngage.engageRate}}%</p>
     {{else}}
