@@ -4,6 +4,7 @@ const patientAuth = require("./authMiddleware.js").patientAuth;
 const Health = require("../models/healthModel.js");
 const Data = require("../models/dataModel.js");
 const Patient = require("../models/patientModel.js");
+const genPassword = require("../encryption/passwordEncrypt").genPassword;
 
 /* patient login */
 router.get("/", patientAuth, (req, res) => {
@@ -208,6 +209,29 @@ router.get("/engagement", patientAuth, async (req, res) => {
     myEngage: engageList[index],
     style: "engagement.css",
     headerText: `Welcome Back ${req.user.firstName}`,
+  });
+});
+
+/* post patient change password */
+router.post("/password", patientAuth, async (req, res) => {
+  /* retrieve patient document */
+  const patient = await Patient.findById(req.user._id);
+  /* generate password hash */
+  const { hash, salt } = genPassword(req.body.password);
+  /* update paitent's password */
+  patient.hash = hash;
+  patient.salt = salt;
+  await patient.save();
+  /* redirect to profile page */
+  res.redirect("/patient/profile");
+});
+
+/* get patient profile page */
+router.get("/profile", patientAuth, async (req, res) => {
+  res.render("ptProfile", {
+    headerText: `My Page`,
+    style: "ptProfile.css",
+    patient: req.user,
   });
 });
 
