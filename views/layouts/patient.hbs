@@ -14,7 +14,13 @@
       </div>
       <div class="message">
         <div class="popup" onclick="myFunction()"><img src="/image/icon/patient-msg-logo-new.png"/>
-          <span class="popuptext" id="myPopup">{{supportMsg}}</span>
+          <span class="popuptext" id="myPopup">
+            {{#if supportMsg}}
+              {{supportMsg}}
+            {{else}}
+              No message from you clinician
+            {{/if}}
+            </span>
         </div>
       </div>
     </header>  

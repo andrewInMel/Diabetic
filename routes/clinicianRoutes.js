@@ -111,7 +111,7 @@ router.post("/patient-register", clinicianAuth, (req, res) => {
           salt: salt,
           startDate: new Date().getTime(),
           dayscompleted: 0,
-          usernmae: req.body.usernmae,
+          username: req.body.username,
           dataSet: {},
         });
         await newPatient.save();
@@ -170,12 +170,13 @@ router.post("/clin-notes/:patientId", clinicianAuth, async (req, res) => {
     note: req.body.note,
   });
   await newNode.save();
-  res.redirect("/clinician/notes-page");
+  res.redirect(`/clinician/patients/${req.params.patientId}`);
 });
 
 /* get clinician notes page */
 router.get("/notes-page", clinicianAuth, async (req, res) => {
   const notes = await Note.find({ clinician: req.user._id }).lean();
+  console.log(`notes:`, notes);
   res.render("clinPNotes", {
     layout: "clinician",
     style: "clinPNotes.css",
@@ -213,6 +214,8 @@ router.get("/patients/:patientId", clinicianAuth, async (req, res) => {
     .populate("Exercise")
     .lean();
   /* render the page */
+  console.log(`healthDoc: `, healthDoc);
+  console.log("----------------------");
   res.render("clinPToday", {
     layout: "clinician",
     style: "clinPToday.css",
@@ -236,25 +239,17 @@ router.get("/patients/past/:patientId", clinicianAuth, async (req, res) => {
     .lean();
   /* rearrange the data in prefered form */
   const allRecords = healthDocs.map((oneDoc) => {
-    return { patient: onePatient, todayRd: oneDoc, comments: [] };
+    return { patient: patient, todayRd: oneDoc, comments: [] };
   });
+  console.log(`allRecords: `, allRecords);
+  console.log("**********************");
+  console.log(`patient: `, patient);
   /* render the past page */
   res.render("clinPPast", {
     layout: "clinician",
     style: "clinPPast.css",
     patient: patient,
     allRecords: allRecords,
-    clinician: req.user,
-  });
-});
-
-/* get patient edit page */
-router.get("/patient/edit/:patientId", (req, res) => {
-  const patientId = req.params.patientId;
-  res.render("clinPEdit", {
-    layout: "clinician",
-    style: "clinPEdit.css",
-    patientId: patientId,
     clinician: req.user,
   });
 });
