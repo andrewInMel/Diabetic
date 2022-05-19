@@ -39,6 +39,7 @@ router.get("/dashboard", patientAuth, async (req, res) => {
     style: "ptDashboard.css",
     progress: currentProg,
     required: Object.keys(patient.dataSet),
+    supportMsg: req.user.supportMsg,
   });
 });
 
@@ -74,6 +75,7 @@ router.get("/addHealth", patientAuth, async (req, res) => {
     healthRd: todayRecord,
     required: Object.keys(patient.dataSet),
     style: "ptAddData.css",
+    supportMsg: req.user.supportMsg,
   });
 });
 
@@ -169,6 +171,7 @@ router.get("/pastHealth", patientAuth, async (req, res) => {
     style: "past.css",
     headerText: "Your Data",
     allHealth: allHealth,
+    supportMsg: req.user.supportMsg,
   });
 });
 
@@ -209,6 +212,7 @@ router.get("/engagement", patientAuth, async (req, res) => {
     myEngage: engageList[index],
     style: "engagement.css",
     headerText: `Welcome Back ${req.user.firstName}`,
+    supportMsg: req.user.supportMsg,
   });
 });
 
@@ -232,6 +236,7 @@ router.get("/profile", patientAuth, async (req, res) => {
     headerText: `My Page`,
     style: "ptProfile.css",
     patient: req.user,
+    supportMsg: req.user.supportMsg,
   });
 });
 
