@@ -3,7 +3,7 @@
     <h1 style="color: #446275;"><i>Your Engagement</i></h1>
     <div class="award-container">
         {{#gt myEngage.engageRate 80}}
-            <img src="Group 108.png" style="height: 40px; width: 40px;">
+            <img src="/image/icon/Award.png" style="height: 40px; width: 40px;">
         {{/gt}}
     </div>
     {{#gt myEngage.engageRate 50}}
@@ -27,13 +27,18 @@
 </div>
     <div class="leaderboard-container">
         <h1 style="color: #446275;"><i>Leaderboard</i></h1>
-        
-        <ol>
+        <ul style="list-style-type: none;">
             {{#each firstFive}}
-                {{> singleRank}}
+                    <li>{{> singleRank myEngage=../myEngage myRank=../myRank}}</li>
             {{/each}}
-        </ol>
-
-        
+            
+        </ul>
+        {{#gt myRank 5}}
+            <div class="first-rank">
+                <p class="rank">{{myRank}}</p>
+                <p class="username">Me</p>
+                <p class="progress">{{myEngage.engageRate}}%</p>
+            </div>
+        {{/gt}}
     </div>
 </div>

@@ -1,93 +1,122 @@
 <div class="grid-container">
   <div class="engagement">
-    <div class="data">
-      <h1 style="color: #446275"><i>Patient Data</i></h1>
-      <h2>
-        <a style="color: #446275">Today</a>
-        <a
-          href="/clinician/patients/past/{{patient._id}}"
-          style="text-decoration: none; padding-left: 15px; color: #abb8c2"
-        >Past</a>
-      </h2>
-      {{! personal detail }}
-      <div class="sex-container">
-        <h3 class="type-style">Sex</h3>
-        <h2 class="sex">{{patient.gender}}</h2>
+    <div class="twoboxes">
+      <div class="data">
+        <h1 style="padding-left: 15px; padding-top: 10px; color: #446275; font-size: 28px;"><i>{{patient.firstName}} {{patient.lastName}}</i></h1>
+        <h1 style="padding-left: 15px; padding-top: 10px; color: #446275; font-size: 24px;"><i>Patient Data</i></h1>
+        <h2>
+          <a style="padding-left: 15px; color: #446275; font-size: 18px; text-decoration: underline;">Today</a>
+          <a
+            href="/clinician/patients/past/{{patient._id}}"
+            style="text-decoration: none; padding-left: 15px; color: #abb8c2; font-size: 18px;"
+          >Past</a>
+        </h2>
+        <div class = "twocolumns">
+          <div class = "SEXDOBAGE">
+            {{! personal detail }}
+            <div class="sex-container">
+              <h3 class="type-style">Sex</h3>
+              <h2 class="sex">{{patient.gender}}</h2>
+            </div>
+            <div class="age-container">
+              <h3 class="type-style">Age</h3>
+              <h2 class="age">{{age}}</h2>
+            </div>
+            <div class="dob-container">
+              <h3 class="type-style">DOB</h3>
+              <h2 class="dob">{{patient.dob}}</h2>
+            </div>
+          </div>
+          <div class="measurements">
+            {{! Insulin }}
+            <div class="insulin-dose-container">
+              <h3 class="type-style">Insulin (Doses)</h3>
+              {{#if healthRd.Insulin}}
+                <h2 class="insulin-doses unit-style">{{healthRd.Insulin.figure}}</h2>
+              {{else}}
+                <h2 class="insulin-doses unit-style">N/A</h2>
+              {{/if}}
+            </div>
+            <br />
+            {{! Weight }}
+            <div class="weight-container">
+              <h3 class="type-style">Weight (kg)</h3>
+              {{#if healthRd.Weight}}
+                <h2 class="weight">{{healthRd.Weight.figure}}</h2>
+              {{else}}
+                <h2 class="weight">N/A</h2>
+              {{/if}}
+            </div>
+            <br />
+            {{! BGL }}
+            <div class="blood-glucose-container">
+              <h3 class="type-style">Blood Glucose Level (nmol/L)</h3>
+              {{#if healthRd.BGL}}
+                <h2 class="blood-glucose-level">{{healthRd.BGL.figure}}</h2>
+              {{else}}
+                <h2 class="blood-glucose-level">N/A</h2>
+              {{/if}}
+            </div>
+            <br />
+            {{! Exercise }}
+            <div class="exercise-container">
+              <h3 class="type-style">Exercise (Steps)</h3>
+              {{#if healthRd.Exercise}}
+                <h2 class="exercise">{{healthRd.Exercise.figure}}</h2>
+              {{else}}
+                <h2 class="exercise">N/A</h2>
+              {{/if}}
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="age-container">
-        <h3 class="type-style">Age</h3>
-        <h2 class="age">{{age}}</h2>
-      </div>
-      <div class="dob-container">
-        <h3 class="type-style">DOB</h3>
-        <h2 class="dob">{{patient.dob}}</h2>
-      </div>
-      {{! Insulin }}
-      <div class="insulin-dose-container">
-        <h3 class="type-style">Insulin (Doses)</h3>
-        {{#if healthRd.Insulin}}
-          <h2 class="insulin-doses">{{healthRd.Insulin.figure}}</h2>
-        {{else}}
-          <h2 class="insulin-doses">N/A</h2>
-        {{/if}}
-      </div>
-      <br />
-      {{! Weight }}
-      <div class="weight-container">
-        <h3 class="type-style">Weight (kg)</h3>
-        {{#if healthRd.Weight}}
-          <h2 class="weight">{{healthRd.Weight.figure}}</h2>
-        {{else}}
-          <h2 class="weight">N/A</h2>
-        {{/if}}
-      </div>
-      <br />
-      {{! BGL }}
-      <div class="blood-glucose-container">
-        <h3 class="type-style">Blood Glucose Level (nmol/L)</h3>
-        {{#if healthRd.BGL}}
-          <h2 class="blood-glucose-level">{{healthRd.BGL.figure}}</h2>
-        {{else}}
-          <h2 class="blood-glucose-level">N/A</h2>
-        {{/if}}
-      </div>
-      <br />
-      {{! Exercise }}
-      <div class="exercise-container">
-        <h3 class="type-style">Exercise (Steps)</h3>
-        {{#if healthRd.Exercise}}
-          <h2 class="exercise">{{healthRd.Exercise.figure}}</h2>
-        {{else}}
-          <h2 class="exercise">N/A</h2>
-        {{/if}}
+      <div class="minmax">
+        <h4>Min : Max</h4>
+        <div class="insulin-dose-container">
+          <h3 class="type-style">Insulin (doses)</h3>
+        </div>
+            <br />
+        <div class="weight-container">
+          <h3 class="type-style">Weight (kg)</h3>
+        </div>
+        <br />
+        <div class="blood-glucose-container">
+          <h3 class="type-style">Blood Glucose Level (nmol/L)</h3>
+        </div>
+        <br />
+        <div class="exercise-container">
+          <h3 class="type-style">Exercise (Steps)</h3>   
+        </div>
+        <h4>Make Req.</h4>
       </div>
     </div>
     {{! clinician notes }}
-    <div class="Notes">
-      <h2>Notes</h2>
-      <!-- Must be able to input Note -->
-      <a href="/noteHistory"><button class="btn-note-history">View Note History</button></a>
-      <br>
-      <input
-      type="note"
-      name="note"
-      placeholder="Enter here"
-      class="input-style"
-      />
-      <button class="btn-submit">Submit</button></a>
+    <div class="bottomcontainer">
+      <div class="Notes">
+        <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px; float: left;">Notes</h2>
+        <!-- Must be able to input Note -->
+        <a href="/noteHistory"><button class="btn-note-history">View Note History</button></a>
+        <br>
+        <input
+        type="note"
+        name="note"
+        placeholder="Enter here"
+        class="input-style"
+        />
+        <button class="btn-submit">Submit</button></a>
+      </div>
+      <div class = "Message">
+        <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px;">Write Mary a message!</h2>
+        <!-- Must be able to input Message -->
+        <input
+        type="message"
+        name="message"
+        placeholder="Enter here"
+        class="input-style"
+        />
+        <button class="btn-submit">Submit</button></a>
+      </div>
     </div>
-    <div class = "Message">
-      <h2>Write Mary a message!</h2>
-      <!-- Must be able to input Message -->
-      <input
-      type="message"
-      name="message"
-      placeholder="Enter here"
-      class="input-style"
-      />
-      <button class="btn-submit">Submit</button></a>
-    </div>
-    <br />
   </div>
 </div>
 <footer class="layout-footer">

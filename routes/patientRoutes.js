@@ -188,7 +188,7 @@ router.get("/engagement", patientAuth, async (req, res) => {
     return {
       id: onePatient._id,
       username: onePatient.username,
-      engageRate: Math.floor((onePatient.dayscompleted / daysSignedUp) * 100),
+      engageRate: Math.floor((onePatient.dayscompleted / (daysSignedUp+1)) * 100),
     };
   });
   /* sort the list */

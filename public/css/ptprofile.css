@@ -1,6 +1,13 @@
+. {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
 /* main style */
-main {
-    width: 90vw;
+.profile-main {
+    display: flex;
+    justify-content: center;
+    width: 93vw;
     color: #446275;
     font-family: "PT sans";
 }

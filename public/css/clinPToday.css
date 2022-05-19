@@ -11,7 +11,7 @@
   --font-family-heading: "PT Sans";
   --color-text: #446275;
   --color-background: #d7e9f5;
-  --color-text-label: #f5eccb;
+
 }
 
 /*Sets up grid*/
@@ -24,24 +24,24 @@
   grid-template-areas: "engagement data";
 }
 
+.twoboxes {
+  display: flex;
+  width: 87vw;
+}
+
 .data {
   border: 2px solid grey;
   border-radius: 15px;
-  width: 180vh;
+  flex: 50%;
 }
 
-.engagement {
-  grid-area: engagement;
+.minmax {
+  border: 2px solid grey;
+  border-radius: 15px;
+  flex: 40%;
+  margin-left: 10px;
 }
 
-.required {
-  grid-area: data;
-}
-
-/*font css*/
-.requirement-container {
-  font-family: "PT Sans";
-}
 
 h1 {
   font-family: "PT sans";
@@ -52,25 +52,46 @@ h3 {
   font-family: var(--font-family-heading);
 }
 
-.type-style {
-  padding-left: 1vmax;
-  font-family: var(--font-family-heading);
+.twocolumns {
+  display: flex;
+  padding-bottom: 20px;
 }
 
+.SEXDOBAGE {
+  float: left;
+  flex: 50%;
+  padding-left: 20px;
+}
+
+.measurements {
+  float: right;
+  flex: 50%;
+}
+
+.type-style {
+  font-family: var(--font-family-heading);
+  font-size: 12px;
+  flex: 50%;
+}
+
+
 .unit-style {
-  text-align: right;
-  padding-right: 1vmax;
+  float: right;
+
   font-family: var(--font-family-heading);
 }
 
 .blood-glucose-container,
+.sex-container,
+.age-container,
+.dob-container,
 .insulin-dose-container,
 .exercise-container,
 .weight-container {
   display: flex;
-  flex-direction: column;
-  height: 10vh;
-  justify-content: space-around;
+  flex-direction: row;
+  height: 40px;
+  align-items:center;
 }
 
 h2 {
@@ -83,19 +104,83 @@ h2 {
 }
 
 .insulin-doses,
+.age,
+.dob,
+.sex,
 .weight,
 .blood-glucose-level,
 .exercise {
+  font-size: 14px;
   padding-left: 20px;
-}
-
-.required {
-  padding-top: 5vh;
+  flex: 50%;
 }
 
 h3 {
   font-size: 2.5vh;
 }
+
+.btn-note-history {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: none;
+  font-family: var(--font-family-heading);
+}
+
+.bottomcontainer {
+  display: flex;
+  width: 87vw;
+  margin-top: 10px;
+}
+
+.Notes {
+  border: 2px solid grey;
+  border-radius: 15px;
+  flex: 40%;
+}
+
+.Message {
+  border: 2px solid grey;
+  border-radius: 15px;
+  flex: 40%;
+  margin-left: 10px;
+}
+
+
+.input-style {
+  border: 2px solid grey;
+  border-radius: 15px;
+  height: 150px;
+  margin: 25px;
+  width: 90%;
+  content: top;
+  outline: none;
+  padding: 10px 10px;
+  resize: none;
+}
+
+input[type="message"]::placeholder, input[type="message"]::placeholder,  input[type="note"]::placeholder {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-family-heading);
+}
+
+
+
+
+
+.btn-submit {
+  fill: blue;
+  border: none;
+  height: 25px;
+  width: 100%;
+  font-size: 20px;
+  font-family: var(--font-family-heading);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
 
 /*Changes to the css when the screen size width is less than 500px*/
 @media screen and (max-width: 500px) {

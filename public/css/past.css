@@ -22,7 +22,7 @@
 }
 
 .data-type-container {
-    padding-top: 16vh;
+    padding-top: 14vh;
     grid-area: data-type;
     display: flex;
     flex-direction: column;
@@ -33,9 +33,15 @@
     margin-left: 10px;
 }
 
+h2 {
+  font-family: var(--font-family-heading);
+}
+
 .data{
+    grid-area: data;
     display: flex;
     flex-direction: row;
+    overflow-x: scroll;
 }
 
 .individual-data{
@@ -83,7 +89,7 @@ h3 {
     margin-bottom: 1vh;
     display: flex;
     flex-direction: column;
-    height: 15vh;
+    height: 12vh;
     border-radius: 14px;
     justify-content: space-around;
   }
@@ -96,7 +102,7 @@ h3 {
     margin-bottom: 1vh;
     display: flex;
     flex-direction: column;
-    height: 15vh;
+    height: 12vh;
     width: 18vw;
     border-radius: 14px;
     justify-content: space-around;
@@ -131,3 +137,49 @@ h3 {
     border-color: #89a5d9;
     color: #89a5d9;
   }
+
+  
+@media screen and (max-width: 500px) {
+  .grid-container{
+    padding-top: 2vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .data-type-container{
+    flex-direction: row;
+    padding-top: 0;
+  }
+
+  .data{
+    flex-direction: column;
+    overflow-y: scroll;
+    padding-left: 1vw;
+  }
+
+  .individual-data{
+    flex-direction: row;
+  }
+
+  .type-style{
+    overflow-wrap: break-word;
+    font-size: 4vw;
+  }
+
+  
+  .blood-glucose-container,
+  .insulin-dose-container,
+  .exercise-container,
+  .weight-container {
+    width: 18vw;
+  }
+
+  .insulin-dose-container {
+    margin-left: 22vw;
+  }
+
+  .date-data{
+    word-break: normal;
+    width: 20vw;
+  }
+}

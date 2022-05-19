@@ -8,6 +8,7 @@
   display: grid;
   width: 85vw;
   padding-left: auto;
+  padding-top: 3vh;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10vw;
   grid-template-areas: "engagement leaderboard";
@@ -27,12 +28,7 @@ p {
   grid-area: leaderboard;
 }
 
-.first-rank,
-.second-rank,
-.third-rank,
-.fourth-rank,
-.fifth-rank,
-.your-rank {
+.first-rank{
   display: flex;
   flex-direction: row;
   width: 40vw;
@@ -46,22 +42,6 @@ p {
   background-color: #89d99e;
 }
 
-.second-rank {
-  background-color: #89d9d9;
-}
-
-.third-rank {
-  background-color: #89bcd9;
-}
-
-.fourth-rank,
-.fifth-rank {
-  background-color: #89a5d9;
-}
-
-.your-rank {
-  background-color: #8782cf;
-}
 
 .rank {
   color: #ffffff;
@@ -87,6 +67,8 @@ p {
   display: flex;
   justify-content: center;
 }
+
+
 
 .progress-circle {
   font-size: 5vw;
@@ -465,4 +447,21 @@ p {
 }
 .progress-circle.p100 .value-bar {
   transform: rotate(360deg);
+}
+
+@media screen and (max-width: 500px) {
+  .grid-container{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    overflow-y: scroll;
+  }
+
+  .first-rank{
+    width: 80vw;
+  }
+
+  .progress-circle {
+    font-size: 14vw;
+  }
 }
