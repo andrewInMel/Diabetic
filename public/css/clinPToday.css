@@ -119,6 +119,14 @@ h3 {
   font-size: 2.5vh;
 }
 
+.btn-note-history {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: none;
+  font-family: var(--font-family-heading);
+}
+
 .bottomcontainer {
   display: flex;
   width: 87vw;
@@ -138,6 +146,30 @@ h3 {
   margin-left: 10px;
 }
 
+
+.input-style {
+  border: 2px solid grey;
+  border-radius: 15px;
+  height: 150px;
+  margin: 25px;
+  width: 90%;
+  content: top;
+  outline: none;
+  padding: 10px 10px;
+  resize: none;
+}
+
+input[type="message"]::placeholder, input[type="message"]::placeholder,  input[type="note"]::placeholder {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-family-heading);
+}
+
+
+
+
+
 .btn-submit {
   fill: blue;
   border: none;
@@ -148,6 +180,7 @@ h3 {
   border-radius: 15px;
   cursor: pointer;
 }
+
 
 /*Changes to the css when the screen size width is less than 500px*/
 @media screen and (max-width: 500px) {

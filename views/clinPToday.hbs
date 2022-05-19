@@ -2,7 +2,7 @@
   <div class="engagement">
     <div class="twoboxes">
       <div class="data">
-        <h1 style="padding-left: 15px; padding-top: 10px; color: #446275; font-size: 28px;"><i>{{patient}}</i></h1>
+        <h1 style="padding-left: 15px; padding-top: 10px; color: #446275; font-size: 28px;"><i>{{patient.firstName}} {{patient.lastName}}</i></h1>
         <h1 style="padding-left: 15px; padding-top: 10px; color: #446275; font-size: 24px;"><i>Patient Data</i></h1>
         <h2>
           <a style="padding-left: 15px; color: #446275; font-size: 18px; text-decoration: underline;">Today</a>
@@ -93,7 +93,7 @@
     {{! clinician notes }}
     <div class="bottomcontainer">
       <div class="Notes">
-        <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px;">Notes</h2>
+        <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px; float: left;">Notes</h2>
         <!-- Must be able to input Note -->
         <a href="/noteHistory"><button class="btn-note-history">View Note History</button></a>
         <br>
