@@ -50,6 +50,10 @@ hbs.handlebars.registerHelper("gt", function (a, b) {
 hbs.handlebars.registerHelper("eq", function (a, b, options) {
   return (a == b) ? options.fn(this) : options.inverse(this);
 });
+hbs.handlebars.registerHelper("inc", function(value)
+{
+    return value + 1;
+});
 hbs.handlebars.registerHelper("getTime", (timestamp) => {
   return timestamp.slice(11);
 });
