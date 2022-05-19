@@ -14,11 +14,13 @@
         <div class="flex-item list-header">Comments</div>
       </div>
     </li>
+    <div class="table-data">
     {{#each patients}}
       <li class="row-container">
           {{! output data for each patient}}
           {{> patientEntry}}
       </li>
     {{/each}}
+    </div>
   </ul>
 </main>
