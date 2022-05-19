@@ -74,18 +74,27 @@
         <h4>Min : Max</h4>
         <div class="insulin-dose-container">
           <h3 class="type-style">Insulin (doses)</h3>
+          
+          <h2>{{patient.dataSet.Insulin.min}}</h2>
+          <h2>{{patient.dataSet.Insulin.max}}</h2>
         </div>
             <br />
         <div class="weight-container">
           <h3 class="type-style">Weight (kg)</h3>
+          <h2 class="weight-minmax">{{healthRd.Weight.min}}</h2>
+          <h2 class="weight-minmax">{{healthRd.Weight.max}}</h2>
         </div>
         <br />
         <div class="blood-glucose-container">
           <h3 class="type-style">Blood Glucose Level (nmol/L)</h3>
+          <h2 class="blood-glucose-minmax">{{healthRd.BGL.min}}</h2>
+          <h2 class="blood-glucose-minmax">{{healthRd.BGL.max}}</h2>
         </div>
         <br />
         <div class="exercise-container">
-          <h3 class="type-style">Exercise (Steps)</h3>   
+          <h3 class="type-style">Exercise (Steps)</h3>
+          <h2 class="exercise-minmax">{{healthRd.exercise.min}}</h2>
+          <h2 class="exercise-minmax">{{healthRd.exercise.max}}</h2>   
         </div>
         <h4>Make Req.</h4>
       </div>
@@ -97,23 +106,23 @@
         <!-- Must be able to input Note -->
         <a href="/noteHistory"><button class="btn-note-history">View Note History</button></a>
         <br>
-        <input
+        <textarea
         type="note"
         name="note"
         placeholder="Enter here"
         class="input-style"
-        />
+        /></textarea>
         <button class="btn-submit">Submit</button></a>
       </div>
       <div class = "Message">
         <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px;">Write Mary a message!</h2>
         <!-- Must be able to input Message -->
-        <input
+        <textarea
         type="message"
         name="message"
         placeholder="Enter here"
         class="input-style"
-        />
+        /></textarea>
         <button class="btn-submit">Submit</button></a>
       </div>
     </div>

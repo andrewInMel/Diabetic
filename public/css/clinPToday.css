@@ -43,6 +43,8 @@
 }
 
 
+
+
 h1 {
   font-family: "PT sans";
 }
@@ -125,6 +127,11 @@ h3 {
   margin-right: 10px;
   border: none;
   font-family: var(--font-family-heading);
+  color: #446275;
+  background-color: white;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .bottomcontainer {
@@ -150,28 +157,23 @@ h3 {
 .input-style {
   border: 2px solid grey;
   border-radius: 15px;
-  height: 150px;
-  margin: 25px;
-  width: 90%;
+  height: 90px;
+  margin: 8px;
+  width: 97%;
   content: top;
   outline: none;
-  padding: 10px 10px;
   resize: none;
 }
 
-input[type="message"]::placeholder, input[type="message"]::placeholder,  input[type="note"]::placeholder {
+textarea[type="message"]::placeholder, textarea[type="note"]::placeholder {
   position: absolute;
   top: 10px;
   left: 10px;
   font-family: var(--font-family-heading);
 }
 
-
-
-
-
 .btn-submit {
-  fill: blue;
+  background-color: #446275;
   border: none;
   height: 25px;
   width: 100%;
