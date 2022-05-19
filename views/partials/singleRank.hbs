@@ -1,4 +1,10 @@
+
 <div class="first-rank">
-    <p class="username">{{this.username}}</p>
-    <p class="progress">{{this.engageRate}}%</p>
+    {{#eq myEngage.username this.username}}
+        <p class="username">Me</p>
+        <p class="progress">{{myEngage.engageRate}}%</p>
+    {{else}}
+        <p class="username">{{this.username}}</p>
+        <p class="progress">{{this.engageRate}}%</p>
+    {{/eq}}
 </div>
