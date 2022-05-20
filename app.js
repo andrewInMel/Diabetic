@@ -69,9 +69,9 @@ app.use(
     }),
     cookie: {
       maxAge: 43200000,
-      secure: true,
-      httpOnly: true,
-      sameSite: "strict",
+      // secure: true,
+      // httpOnly: true,
+      // sameSite: "strict",
     },
   })
 );
