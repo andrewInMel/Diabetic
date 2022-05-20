@@ -82,7 +82,7 @@
         <div class="insulin-dose-container-mm">
           <h3 class="type-style">Insulin (doses)</h3>
           <label class="checkboxcont">
-            <input type="checkbox">
+            <input type="checkbox", checked="yes">
             <span class="checkmark"></span>
           </label>
           <input class="datamin"
@@ -94,7 +94,7 @@
         <div class="weight-container-mm">
           <h3 class="type-style">Weight (kg)</h3>
           <label class="checkboxcont">
-            <input type="checkbox">
+            <input type="checkbox", checked="yes">
             <span class="checkmark"></span>
           </label>
           <input class="datamin"
@@ -106,7 +106,7 @@
         <div class="blood-glucose-container-mm">
           <h3 class="type-style">Blood Glucose Level (nmol/L)</h3>
           <label class="checkboxcont">
-            <input type="checkbox">
+            <input type="checkbox", checked=yes">
             <span class="checkmark"></span>
           </label>
           <input class="datamin"
@@ -118,11 +118,11 @@
         <div class="exercise-container-mm">
           <h3 class="type-style">Exercise (Steps)</h3>
           <label class="checkboxcont">
-            <input type="checkbox">
+            <input type="checkbox", checked="yes">
             <span class="checkmark"></span>
           </label>
           <input class="datamin"
-          value={{patient.dataset.Exercise.min}}></input>
+          value={{patient.dataSet.Exercise.min}}></input>
           <input class="datamax"
           value={{patient.dataSet.Exercise.max}}></input>
         </div>

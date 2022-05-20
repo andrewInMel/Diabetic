@@ -22,9 +22,13 @@
   grid-gap: 10vh;
   grid-template-areas: "engagement data";
   overflow-y: scroll;
-  height: 105vh;
+  height: 107vh;
   width: 90vw;
   overflow-x:hidden;
+}
+
+.red {
+  color: red;
 }
 
 .twoboxes {
@@ -46,6 +50,7 @@
   flex: 40%;
   margin-left: 10px;
   padding: 20px;
+  font-family: "PT SANS";
 }
 
 .text {
@@ -132,6 +137,11 @@
   background-color: none;
   border: 2px solid black;
   border-radius: 5px;
+  font-family: "PT SANS";
+}
+
+.required {
+  padding-right: 0.7vw;
 }
 
 .mintext {
@@ -154,6 +164,7 @@
   border: 2px solid black;
   border-radius: 5px;
   align-items: right;
+  font-family: "PT SANS";
 }
 
 .blood-glucose-container-mm,
