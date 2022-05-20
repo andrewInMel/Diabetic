@@ -22,7 +22,7 @@
   grid-gap: 10vh;
   grid-template-areas: "engagement data";
   overflow-y: scroll;
-  height: 100vh;
+  height: 105vh;
   width: 90vw;
   overflow-x:hidden;
 }
@@ -298,6 +298,7 @@ h3 {
   border-radius: 15px;
   height: 90px;
   margin: 8px;
+  margin-bottom: 0px;
   width: 97%;
   content: top;
   outline: none;
@@ -313,7 +314,8 @@ textarea[type="note"]::placeholder {
 }
 
 .btn-save {
-  position: absolute;
+  margin-top: 20px;
+  position: relative;
   background-color: white;
   border: solid 1px black;
   border-radius: 5px;
@@ -323,6 +325,7 @@ textarea[type="note"]::placeholder {
   font-family: var(--font-family-heading);
   border-radius: 8px;
   cursor: pointer;
+  z-index: 0;
 }
 
 .btn-save:hover {
@@ -339,6 +342,8 @@ textarea[type="note"]::placeholder {
   font-family: var(--font-family-heading);
   border-radius: 8px;
   cursor: pointer;
+  float: right;
+  margin: 10px;
 }
 
 /*Changes to the css when the screen size width is less than 500px*/
