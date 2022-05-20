@@ -42,10 +42,62 @@
   border-radius: 15px;
   flex: 40%;
   margin-left: 10px;
+  padding: 20px;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 15px;
+  padding-top: 20px;
+}
+
+.required {
+  padding-left: 13.5vw;
 }
 
 .checkbox {
   float: left;
+}
+
+.datamin {
+  font-size: 14px;
+  padding-left: 60px;
+  flex: 20%;
+}
+
+.datamax {
+  font-size: 14px;
+  flex: 20%;
+}
+
+.blood-glucose-container-mm,
+.insulin-dose-container-mm,
+.exercise-container-mm,
+.weight-container-mm {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  align-items:center;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+.insulin-dose-container-mm {
+  background-color: #84aac2;
+}
+
+.weight-container-mm {
+  background-color: #89a5d9;
+}
+
+.blood-glucose-container-mm {
+  background-color: #8289cf;
+}
+
+.exercise-container-mm {
+  background-color: #89cfd9;
 }
 
 

@@ -71,46 +71,51 @@
         </div>
       </div>
       <div class="minmax">
-        <h4>Min : Max</h4>
-        <h4>Required</h4>
-        <div class="insulin-dose-container">
+        <div class="text">
+          <h4 class="required">Req.</h4>
+          <h4 class="mintext">Min</h4>
+          <h4 class=":">:</h4>
+          <h4 class="maxtext">Max</h4>
+        </div>
+        <div class="insulin-dose-container-mm">
           <h3 class="type-style">Insulin (doses)</h3>
           <label class="checkbox">
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
-          <h2 class="datamin">{{patient.dataSet.Insulin.min}}</h2>
-          <h2 class="datamax">{{patient.dataSet.Insulin.max}}</h2>
         </div>
             <br />
-        <div class="weight-container">
+        <div class="weight-container-mm">
           <h3 class="type-style">Weight (kg)</h3>
           <label class="checkbox">
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
-          <h2 class="datamin">{{patient.dataSet.Weight.min}}</h2>
-          <h2 class="datamax">{{patient.dataSet.Weight.max}}</h2>
+          <input class="datamin">{{patient.dataSet.Weight.min}}</input>
+          <input class="datamax">{{patient.dataSet.Weight.max}}</input>
         </div>
         <br />
-        <div class="blood-glucose-container">
+        <div class="blood-glucose-container-mm">
           <h3 class="type-style">Blood Glucose Level (nmol/L)</h3>
           <label class="checkbox">
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
-          <h2 class="datamin">{{patient.dataSet.BGL.min}}</h2>
-          <h2 class="datamax">{{patient.dataSet.BGL.max}}</h2>
+          <input class="datamin"
+          placeholder={{patient.dataSet.BGL.min}}></input>
+          <input class="datamin"
+          placeholder={{patient.dataSet.BGL.max}}></input>
         </div>
         <br />
-        <div class="exercise-container">
+        <div class="exercise-container-mm">
           <h3 class="type-style">Exercise (Steps)</h3>
           <label class="checkbox">
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
-          <h2 class="datamin">{{patient.dataSet.Exercise.min}}</h2>
-          <h2 class="datamax">{{patient.dataSet.Exercise.max}}</h2>   
+          <input class="datamin"
+          placeholder={{patient.dataSet.Exercise.min}}></input>
+          <input class="datamax">{{patient.dataSet.Exercise.max}}</input>   
         </div>
       </div>
     </div>
