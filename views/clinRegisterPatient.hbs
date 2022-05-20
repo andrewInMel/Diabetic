@@ -99,7 +99,9 @@
               <input
               type="password"
               name="password"
+              id="password"
               placeholder="Password (min 8 char)"
+              onchange="check_password();"
               required
               class="box-style input-style"
               />
@@ -110,11 +112,14 @@
             <div class="flex-item">
               <input
               type="password"
-              name="confirmPassword"
+              name="confirm-password"
+              id="confirm-password"
               placeholder="Retype password"
+              onchange="check_password();"
               required
               class="box-style input-style"
               />
+              <span id="feedback"></span>
             </div>
           </li>
           <li class="row-container-left">
@@ -126,7 +131,7 @@
         </ul>
       </div>
       <div class="btn-submit">
-        <input class="box-style btn-style" type="submit" value="Submit"/>
+        <input class="box-style btn-style" type="submit" name="submit" id="submit" value="Submit" disabled/>
       </div>
     </div>
   </form>

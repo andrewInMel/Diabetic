@@ -38,7 +38,9 @@
           <input
             type="password"
             name="password"
+            id="password"
             placeholder="Password (min 8 char)"
+            onchange="check_password();"
             required
             class="box-style input-style"
           />
@@ -50,15 +52,18 @@
           <input
             type="password"
             name="confirm-password"
+            id="confirm-password"
             placeholder="Retype password"
+            onchange="check_password();"
             required
             class="box-style input-style"
           />
+          <span id="feedback"></span>
         </div>
       </li>
       <li class="row-container">
         <div class="flex-item box-style btn-confirm">
-          <input class="box-style btn-confirm" type="submit" value="Confirm" />
+          <input class="box-style btn-confirm" type="submit" name="submit" id="submit" value="Confirm" disabled/>
         </div>
       </li>
     </ul>
