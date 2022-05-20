@@ -39,7 +39,6 @@ main .logout button {
     height: 60px;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
     justify-content: center;
 }
 
