@@ -66,3 +66,7 @@ main .title {
     display: none !important;
   }
 }
+
+.hand {
+  cursor: pointer;
+}

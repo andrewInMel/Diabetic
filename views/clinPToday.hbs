@@ -177,10 +177,16 @@
   const dataArray = ["Insulin", "BGL", "Weight", "Exercise"]
   for (const oneType of dataArray){
     const typeCheckbox = document.getElementById(oneType);
+    const min = document.getElementById(`${oneType}-min`);
+    const max = document.getElementById(`${oneType}-max`);
+    if (min.value !== "" && max.value !== ""){
+      typeCheckbox.checked = true;
+      min.removeAttribute("disabled");
+      max.removeAttribute("disabled");
+    }
     typeCheckbox.addEventListener("change", 
       ()=>{
-            const min = document.getElementById(`${oneType}-min`);
-            const max = document.getElementById(`${oneType}-max`);
+            
             if(typeCheckbox.checked){ 
               min.removeAttribute("disabled");
               max.removeAttribute("disabled");

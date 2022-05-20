@@ -262,7 +262,7 @@ router.post("/patients/edit/:patientId", clinicianAuth, async (req, res) => {
   patient.dataSet = req.body;
   patient.markModified("dataSet");
   await patient.save();
-  res.redirect(`/clinician/patients/:${patientId}`);
+  res.redirect(`/clinician/patients/${patientId}`);
 });
 
 /********************
