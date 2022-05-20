@@ -36,13 +36,17 @@
 }
 
 .minmax {
+  display: flex;
   border: 2px solid grey;
+  flex-direction: column;
   border-radius: 15px;
   flex: 40%;
   margin-left: 10px;
 }
 
-
+.checkbox {
+  float: left;
+}
 
 
 h1 {
