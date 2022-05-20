@@ -30,7 +30,7 @@ router.get("/dashboard", clinicianAuth, async (req, res) => {
 /* get comment list */
 router.get("/comments", clinicianAuth, async (req, res) => {
   /* get all comments of the clinician's patients */
-  const data = await Data.find({ clinicianAuth: req.user._id })
+  const data = await Data.find({ clinician: req.user._id })
     .sort({ _id: -1 })
     .lean();
   /* keep data that has comment */
