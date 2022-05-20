@@ -12,7 +12,7 @@ main .title {
 }
 
 .row-container {
-  height: 60px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,6 +37,10 @@ main .title {
   justify-content: center;
   align-items: center;
   flex: 50vw;
+}
+
+.scroll {
+  overflow-y: scroll;
 }
 
 .list-header {

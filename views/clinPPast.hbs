@@ -1,19 +1,19 @@
 <main>
   <div class="title">Health Record History</div>
   <ul>
-    <li class="row-container">
-      {{! label each column}}
-      <div class="flex-item list-header">Name</div>
-      <div class="data">
-        <div class="flex-item sex list-header">Sex</div>
-        <div class="flex-item dob list-header">DOB</div>
-        <div class="flex-item list-header">BGL (nmol/L)</div>
-        <div class="flex-item list-header">Weight (kg)</div>
-        <div class="flex-item list-header">Insulin (doses)</div>
-        <div class="flex-item list-header">Exercise (steps)</div>
-        <div class="flex-item myComment list-header">Comments</div>
-      </div>
-    </li>
+      <li class="row-container">
+        {{! label each column}}
+        <div class="flex-item list-header">Name</div>
+        <div class="data">
+          <div class="flex-item sex list-header">Sex</div>
+          <div class="flex-item dob list-header">DOB</div>
+          <div class="flex-item list-header">BGL (nmol/L)</div>
+          <div class="flex-item list-header">Weight (kg)</div>
+          <div class="flex-item list-header">Insulin (doses)</div>
+          <div class="flex-item list-header">Exercise (steps)</div>
+          <div class="flex-item myComment list-header">Comments</div>
+        </div>
+      </li>
     <div class="table-data">
     {{#each allRecords}}
       <li class="row-container">
