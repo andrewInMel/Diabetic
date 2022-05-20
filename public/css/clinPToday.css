@@ -312,14 +312,32 @@ textarea[type="note"]::placeholder {
   font-family: var(--font-family-heading);
 }
 
-.btn-submit {
-  background-color: #446275;
-  border: none;
+.btn-save {
+  position: absolute;
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 5px;
   height: 25px;
-  width: 100%;
-  font-size: 20px;
+  width: 80px;
+  font-size: 16px;
   font-family: var(--font-family-heading);
-  border-radius: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background-color: #84aac2;
+}
+
+.btn-submit {
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 5px;
+  height: 25px;
+  width: 80px;
+  font-size: 13px;
+  font-family: var(--font-family-heading);
+  border-radius: 8px;
   cursor: pointer;
 }
 

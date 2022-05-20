@@ -184,7 +184,7 @@ router.get("/notes-page/:patientId", clinicianAuth, async (req, res) => {
   const patient = await Patient.findById(req.params.patientId).lean();
   res.render("clinPNotes", {
     layout: "clinician",
-    style: "clinNotes.css",
+    style: "clinPNotes.css",
     notes: notes,
     clinician: req.user,
     patient: patient,
