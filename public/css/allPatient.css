@@ -180,3 +180,23 @@ header {
     opacity: 1;
   }
 }
+
+/* clinician footer style */
+.layout-footer {
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  background-color: #d7e9f5;
+  align-items: center;
+  color: #446275;
+  font-family: "PT sans";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.layout-footer a {
+  color: #446275;
+  text-decoration: none;
+}

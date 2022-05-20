@@ -24,7 +24,7 @@
   overflow-y: scroll;
   height: 105vh;
   width: 90vw;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 .twoboxes {
@@ -97,7 +97,7 @@
 
 /* When the checkbox is checked, add a blue background */
 .checkboxcont input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -129,7 +129,7 @@
   margin-right: 2vw;
   width: 50px;
   border: none;
-  background-color: none;
+  background-color: white;
   border: 2px solid black;
   border-radius: 5px;
 }
@@ -148,7 +148,7 @@
   font-size: 14px;
   width: 50px;
   border: none;
-  background-color:white;
+  background-color: white;
   margin-left: 2vw;
   margin-right: 2vw;
   border: 2px solid black;
@@ -163,7 +163,7 @@
   display: flex;
   flex-direction: row;
   height: 50px;
-  align-items:center;
+  align-items: center;
   border-radius: 20px;
   padding-left: 20px;
 }
@@ -183,7 +183,6 @@
 .exercise-container-mm {
   background-color: #89cfd9;
 }
-
 
 h1 {
   font-family: "PT sans";

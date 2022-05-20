@@ -256,13 +256,13 @@ router.get("/patients/past/:patientId", clinicianAuth, async (req, res) => {
 });
 
 /* post required time-series */
-router.post("/patient/edit/:patientId", clinicianAuth, async (req, res) => {
+router.post("/patients/edit/:patientId", clinicianAuth, async (req, res) => {
   const patientId = req.params.patientId;
   const patient = await Patient.findById(patientId).exec();
   patient.dataSet = req.body;
   patient.markModified("dataSet");
   await patient.save();
-  res.redirect(`/patients/:${patientId}`);
+  res.redirect(`/clinician/patients/:${patientId}`);
 });
 
 /********************

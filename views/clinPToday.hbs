@@ -73,60 +73,66 @@
       </div>
       {{!-- safty threshold --}}
       <div class="minmax">
-        <div class="text">
-          <h4 class="required">Req.</h4>
-          <h4 class="mintext">Min</h4>
-          <h4 class=":">:</h4>
-          <h4 class="maxtext">Max</h4>
-        </div>
-        <div class="insulin-dose-container-mm">
-          <h3 class="type-style">Insulin (doses)</h3>
-          <label class="checkboxcont">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <input class="datamin"
-          value={{patient.dataSet.Insulin.min}}></input>
-          <input class="datamax"
-          value={{patient.dataSet.Insulin.max}}></input>
-        </div>
-            <br />
-        <div class="weight-container-mm">
-          <h3 class="type-style">Weight (kg)</h3>
-          <label class="checkboxcont">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <input class="datamin"
-          value={{patient.dataSet.Weight.min}}></input>
-          <input class="datamax"
-          value={{patient.dataSet.Weight.max}}></input>
-        </div>
-        <br />
-        <div class="blood-glucose-container-mm">
-          <h3 class="type-style">Blood Glucose Level (nmol/L)</h3>
-          <label class="checkboxcont">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <input class="datamin"
-          value={{patient.dataSet.BGL.min}}></input>
-          <input class="datamax"
-          value={{patient.dataSet.BGL.max}}></input>
-        </div>
-        <br />
-        <div class="exercise-container-mm">
-          <h3 class="type-style">Exercise (Steps)</h3>
-          <label class="checkboxcont">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <input class="datamin"
-          value={{patient.dataset.Exercise.min}}></input>
-          <input class="datamax"
-          value={{patient.dataSet.Exercise.max}}></input>
-        </div>
-        <button class="btn-save">Save</button></a>
+        <form method="post" action="/clinician/patients/edit/{{patient._id}}">
+          <div class="text">
+            <h4 class="required">Req.</h4>
+            <h4 class="mintext">Min</h4>
+            <h4 class=":">:</h4>
+            <h4 class="maxtext">Max</h4>
+          </div>
+          {{! insulin }}
+          <div class="insulin-dose-container-mm">
+            <h3 class="type-style">Insulin (doses)</h3>
+            <label class="checkboxcont">
+              <input type="checkbox" id ="Insulin">
+              <span class="checkmark"></span>
+            </label>
+            <input class="datamin" type="number" id="Insulin-min" name="Insulin[min]" disabled
+            value={{patient.dataSet.Insulin.min}}></input>
+            <input class="datamax" type="number" id="Insulin-max" name="Insulin[max]" disabled
+            value={{patient.dataSet.Insulin.max}}></input>
+          </div>
+              <br />
+          {{! weight }}
+          <div class="weight-container-mm">
+            <h3 class="type-style">Weight (kg)</h3>
+            <label class="checkboxcont">
+              <input type="checkbox" id ="Weight">
+              <span class="checkmark"></span>
+            </label>
+            <input class="datamin" type="number" id="Weight-min" name="Weight[min]" disabled
+            value={{patient.dataSet.Weight.min}}></input>
+            <input class="datamax" type="number" id="Weight-max" name="Weight[max]" disabled
+            value={{patient.dataSet.Weight.max}}></input>
+          </div>
+          <br />
+           {{! bgl }}
+          <div class="blood-glucose-container-mm">
+            <h3 class="type-style">Blood Glucose Level (nmol/L)</h3>
+            <label class="checkboxcont">
+              <input type="checkbox" id ="BGL">
+              <span class="checkmark"></span>
+            </label>
+            <input class="datamin" type="number" id="BGL-min" name="BGL[min]" disabled
+            value={{patient.dataSet.BGL.min}}></input>
+            <input class="datamax" type="number" id="BGL-max" name="BGL[max]" disabled
+            value={{patient.dataSet.BGL.max}}></input>
+          </div>
+          <br />
+           {{! exercise }}
+          <div class="exercise-container-mm">
+            <h3 class="type-style">Exercise (Steps)</h3>
+            <label class="checkboxcont">
+              <input type="checkbox" id ="Exercise">
+              <span class="checkmark"></span>
+            </label>
+            <input class="datamin" type="number" id="Exercise-min" name="Exercise[min]" disabled
+            value={{patient.dataset.Exercise.min}}></input>
+            <input class="datamax" type="number" id="Exercise-max" name="Exercise[max]" disabled
+            value={{patient.dataSet.Exercise.max}}></input>
+          </div>
+          <button class="btn-save">Save</button></a>
+        </form>
       </div>
     </div>
     {{! clinician notes }}
@@ -149,7 +155,7 @@
       {{! supporting message }}
       <div class = "Message">
         <form method="post" action="/clinician/support-msg/{{patient._id}}">
-          <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px;">Write Mary a message!</h2>
+          <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px;">Write {{patient.firstName}} a message!</h2>
           <!-- Must be able to input Message -->
           <textarea
             type="message"
@@ -166,3 +172,25 @@
 <footer class="layout-footer">
   <div> © Diabetes@Home  &nbsp;&nbsp;|&nbsp;&nbsp; P: 0123456789 &nbsp;&nbsp;|&nbsp;&nbsp; E: <a href="mailto:diabetes.home@gmail.com">diabetes.home@gmail.com</div>
 </footer>   
+
+<script>
+  const dataArray = ["Insulin", "BGL", "Weight", "Exercise"]
+  for (const oneType of dataArray){
+    const typeCheckbox = document.getElementById(oneType);
+    typeCheckbox.addEventListener("change", 
+      ()=>{
+            const min = document.getElementById(`${oneType}-min`);
+            const max = document.getElementById(`${oneType}-max`);
+            if(typeCheckbox.checked){ 
+              min.removeAttribute("disabled");
+              max.removeAttribute("disabled");
+            }else{
+              min.setAttribute("disabled", "");
+              max.setAttribute("disabled", "");
+              min.value = "";
+              max.value = "";
+            }
+          }
+        )
+  }
+</script>

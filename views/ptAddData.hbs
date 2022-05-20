@@ -7,10 +7,18 @@
   </div>
   {{! add data }}
   <div class="data-section">
-    {{> singleData data=healthRd.Insulin type="Insulin" unit="doses"}} 
-    {{> singleData data=healthRd.Weight type="Weight" unit="kg"}}
-    {{> singleData data=healthRd.BGL type="BGL" unit=" nmol/L"}}
-    {{> singleData data=healthRd.Exercise type="Exercise" unit="steps"}}
+    {{#if (in "Insulin" required)}}
+      {{> singleData data=healthRd.Insulin type="Insulin" unit="doses"}} 
+    {{/if}}
+    {{#if (in "Weight" required)}}
+      {{> singleData data=healthRd.Weight type="Weight" unit="kg"}}
+    {{/if}}
+    {{#if (in "BGL" required)}}
+      {{> singleData data=healthRd.BGL type="BGL" unit=" nmol/L"}}
+    {{/if}}
+    {{#if (in "Exercise" required)}}
+      {{> singleData data=healthRd.Exercise type="Exercise" unit="steps"}}
+    {{/if}}
   </div>
 </div>
 <footer class="layout-footer">
