@@ -12,22 +12,14 @@ main .title {
     padding-left: 3vw;
 }
 
+/* code for scrolling in case of small screen */
+.form-container {
+    overflow-y: scroll;
+    height: 70vh;
+}
+
 .sub-title {
     color: #446275;
-}
-
-/* code for patient data and safety thresholds container */
-.data-thresholds {
-    display: flex;
-    justify-content: space-between;
-}
-
-.patient-data {
-    padding-left: 15vw;
-}
-
-.safety-thresholds {
-    padding-right: 15vw;
 }
 
 /* code for patient data */
