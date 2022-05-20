@@ -11,7 +11,6 @@
   --font-family-heading: "PT Sans";
   --color-text: #446275;
   --color-background: #d7e9f5;
-
 }
 
 /*Sets up grid*/
@@ -115,8 +114,6 @@ h3 {
   padding-bottom: 20px;
 }
 
-
-
 .SEXDOBAGE {
   float: left;
   flex: 50%;
@@ -134,7 +131,6 @@ h3 {
   flex: 50%;
 }
 
-
 .unit-style {
   float: right;
 
@@ -151,7 +147,7 @@ h3 {
   display: flex;
   flex-direction: row;
   height: 40px;
-  align-items:center;
+  align-items: center;
 }
 
 h2 {
@@ -211,8 +207,8 @@ h3 {
   margin-left: 10px;
 }
 
-
 .input-style {
+  padding: 10px;
   border: 2px solid grey;
   border-radius: 15px;
   height: 90px;
@@ -223,7 +219,8 @@ h3 {
   resize: none;
 }
 
-textarea[type="message"]::placeholder, textarea[type="note"]::placeholder {
+textarea[type="message"]::placeholder,
+textarea[type="note"]::placeholder {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -240,7 +237,6 @@ textarea[type="message"]::placeholder, textarea[type="note"]::placeholder {
   border-radius: 15px;
   cursor: pointer;
 }
-
 
 /*Changes to the css when the screen size width is less than 500px*/
 @media screen and (max-width: 500px) {

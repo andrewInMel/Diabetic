@@ -1,16 +1,26 @@
 <main>
-  <h3 class="title">Note History</h3>
+  <div class="header-container">
+    <div class="title note-title">Note History</div>
+    <div class="title p-name">
+      {{patient.firstName}}
+      {{patient.lastName}}
+      </div>
+  </div>
   <ul>
     <li class="row-container">
-      <div class="flex-item list-header hide-date">Date</div>
-      <div class="flex-item-comment list-header">Note</div>
+      <div class="flex-item-date list-header">Date</div>
+      <div class="list-header">Note</div>
     </li>
-    {{#each notes}}
-      <li class="row-container">
-        <div class="flex-item box hide-date">{{date}}</div>
-        <div class="flex-item box hide-date">{{patient}}</div>
-        <div class="flex-item-comment comment-box">{{note}}</div>
-      </li>
-    {{/each}}
+  </ul>
+    <div class="window-container">
+      <ul>
+        {{#each notes}}
+          <li class="row-container">
+            <div class="flex-item-date">{{date}}</div>
+            <div>{{note}}</div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
   </ul>
 </main>

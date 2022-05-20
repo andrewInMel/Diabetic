@@ -1,7 +1,7 @@
-<div class="flex-item" id="{{patient._id}}" >{{patient.firstName}} {{patient.lastName}}</div>
-<div class="data box">
-  <div class="flex-item">{{patient.gender}}</div>
-  <div class="flex-item">{{patient.dob}}</div>    
+<div class="flex-item hand" id="{{patient._id}}" >{{patient.firstName}} {{patient.lastName}}</div>
+<div class="data box new-box">
+  <div class="flex-item sex">{{patient.gender}}</div>
+  <div class="flex-item dob">{{patient.dob}}</div>    
   {{! BGL data}}
   {{> clinSingleData 
       data = todayRd.BGL.figure 
@@ -28,9 +28,9 @@
   }}
   {{! comments}}
   {{#if (checkComment comments)}}
-    <div class="flex-item comment">New</div>
+    <div class="flex-item comment myComment">New</div>
   {{else}}
-    <div class="flex-item">-</div>
+    <div class="flex-item myComment">-</div>
   {{/if}}
 </div>
 

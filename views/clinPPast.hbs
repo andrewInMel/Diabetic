@@ -1,32 +1,26 @@
-<div class="grid-container">
-  <div class="engagement">
-    <h1 style="color: #446275;"><i>Patient Data</i></h1>
-    <h2>
-      <a
-        href="/clinician/patients/{{patient._id}}"
-        style="text-decoration: none; padding-left: 15px; color: #ABB8C2"
-      >Today</a>
-      <a style="color: #446275;">Past</a>
-    </h2>
-    <ul>
+<main>
+  <div class="title">Health Record History</div>
+  <ul>
+    <li class="row-container">
+      {{! label each column}}
+      <div class="flex-item list-header">Name</div>
+      <div class="data">
+        <div class="flex-item sex list-header">Sex</div>
+        <div class="flex-item dob list-header">DOB</div>
+        <div class="flex-item list-header">BGL (nmol/L)</div>
+        <div class="flex-item list-header">Weight (kg)</div>
+        <div class="flex-item list-header">Insulin (doses)</div>
+        <div class="flex-item list-header">Exercise (steps)</div>
+        <div class="flex-item myComment list-header">Comments</div>
+      </div>
+    </li>
+    <div class="table-data">
+    {{#each allRecords}}
       <li class="row-container">
-        {{! label each column}}
-        <div class="flex-item list-header">Date</div>
-        <div class="data">
-          <div class="flex-item list-header">BGL (nmol/L)</div>
-          <div class="flex-item list-header">Weight (kg)</div>
-          <div class="flex-item list-header">Insulin (doses)</div>
-          <div class="flex-item list-header">Exercise (steps)</div>
-        </div>
+          {{! output data for each patient}}
+          {{> patientEntry}}
       </li>
-      {{#each patients}}
-        <li class="row-container">
-            {{! output data for each patient}}
-            {{> patientEntry}}
-        </li>
-      {{/each}}
-    </ul>
-</div>
-<footer class="layout-footer">
-  <div> © Diabetes@Home 2022 &nbsp;&nbsp;|&nbsp;&nbsp; P: 0123456789 &nbsp;&nbsp;|&nbsp;&nbsp; E: <a href="mailto:diabetes.home@gmail.com">diabetes.home@gmail.com</div>
-</footer>  
+    {{/each}}
+    </div>
+  </ul>
+</main>

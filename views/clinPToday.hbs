@@ -1,6 +1,7 @@
 <div class="grid-container">
   <div class="engagement">
     <div class="twoboxes">
+      {{!-- patient detail --}}
       <div class="data">
         <h1 style="padding-left: 15px; padding-top: 10px; color: #446275; font-size: 28px;"><i>{{patient.firstName}} {{patient.lastName}}</i></h1>
         <h1 style="padding-left: 15px; padding-top: 10px; color: #446275; font-size: 24px;"><i>Patient Data</i></h1>
@@ -70,6 +71,7 @@
           </div>
         </div>
       </div>
+      {{!-- safty threshold --}}
       <div class="minmax">
         <div class="text">
           <h4 class="required">Req.</h4>
@@ -124,26 +126,31 @@
       <div class="Notes">
         <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px; float: left;">Notes</h2>
         <!-- Must be able to input Note -->
-        <a href="/clinician/notes-page"><button class="btn-note-history">View Note History</button></a>
+        <a href="/clinician/notes-page/{{patient._id}}"><button class="btn-note-history">View Note History</button></a>
         <br>
-        <textarea
-        type="note"
-        name="note"
-        placeholder="Enter here"
-        class="input-style"
-        /></textarea>
-        <button class="btn-submit">Submit</button></a>
+        <form method="post" action="/clinician/clin-notes/{{patient._id}}">
+          <textarea
+          type="note"
+          name="note"
+          placeholder="Enter here"
+          class="input-style"
+          ></textarea>
+          <button class="btn-submit">Submit</button></a>
+        </form>
       </div>
+      {{! supporting message }}
       <div class = "Message">
-        <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px;">Write Mary a message!</h2>
-        <!-- Must be able to input Message -->
-        <textarea
-        type="message"
-        name="message"
-        placeholder="Enter here"
-        class="input-style"
-        /></textarea>
-        <button class="btn-submit">Submit</button></a>
+        <form method="post" action="/clinician/support-msg/{{patient._id}}">
+          <h2 style="padding-left: 10px; padding-top: 10px; color: #446275; font-size: 19px;">Write Mary a message!</h2>
+          <!-- Must be able to input Message -->
+          <textarea
+            type="message"
+            name="message"
+            placeholder="Enter here"
+            class="input-style"
+          ></textarea>
+          <button class="btn-submit">Submit</button></a>
+        </form>
       </div>
     </div>
   </div>
