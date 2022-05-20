@@ -174,14 +174,20 @@ router.post("/clin-notes/:patientId", clinicianAuth, async (req, res) => {
 });
 
 /* get clinician notes page */
-router.get("/notes-page", clinicianAuth, async (req, res) => {
-  const notes = await Note.find({ clinician: req.user._id }).lean();
-  console.log(`notes:`, notes);
+router.get("/notes-page/:patientId", clinicianAuth, async (req, res) => {
+  /* all notes about a patient */
+  const notes = await Note.find({
+    clinician: req.user._id,
+    patient: req.params.patientId,
+  }).lean();
+  /* patient detail */
+  const patient = await Patient.findById(req.params.patientId).lean();
   res.render("clinPNotes", {
     layout: "clinician",
-    style: "clinPNotes.css",
+    style: "clinNotes.css",
     notes: notes,
     clinician: req.user,
+    patient: patient,
   });
 });
 
@@ -192,11 +198,11 @@ router.post("/support-msg/:patientId", clinicianAuth, async (req, res) => {
   patient.supportMsg = req.body.message;
   const updatedPt = await patient.save();
   if (updatedPt) {
-    res.redirect("/clinician/patients/patientId");
+    res.redirect(`/clinician/patients/${patientId}`);
   }
 });
 
-/* patient detail page */
+/* patient today's detail page */
 router.get("/patients/:patientId", clinicianAuth, async (req, res) => {
   /* current date */
   const date = new Date().toLocaleDateString("en-AU", {
@@ -214,8 +220,6 @@ router.get("/patients/:patientId", clinicianAuth, async (req, res) => {
     .populate("Exercise")
     .lean();
   /* render the page */
-  console.log(`healthDoc: `, healthDoc);
-  console.log("----------------------");
   res.render("clinPToday", {
     layout: "clinician",
     style: "clinPToday.css",
@@ -241,9 +245,6 @@ router.get("/patients/past/:patientId", clinicianAuth, async (req, res) => {
   const allRecords = healthDocs.map((oneDoc) => {
     return { patient: patient, todayRd: oneDoc, comments: [] };
   });
-  console.log(`allRecords: `, allRecords);
-  console.log("**********************");
-  console.log(`patient: `, patient);
   /* render the past page */
   res.render("clinPPast", {
     layout: "clinician",

@@ -5,6 +5,10 @@ main {
   font-family: "PT sans";
 }
 
+.hand {
+  cursor: pointer;
+}
+
 main .title {
   height: 50px;
   font-style: italic;
