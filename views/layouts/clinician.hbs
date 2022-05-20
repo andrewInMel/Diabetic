@@ -1,12 +1,13 @@
 {{! The code for the function 'check_password()' is very similar to the solutions presented on this page
 https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page,
-with modifications to variable names and output messages. }}
+with modifications to variable names and output messages. The ability to check password length has also been
+added }}
 <html lang="en">
   <head>
     <!-- Start of copied code (with some modifications). This function ensures that 'password' and
     'confirm-password' have the same value. If they do, the user is given an affirmative message
     and the submit button is enabled. Otherwise, the user is informed the passwords don't match
-    and the submit button is disabled.-->
+    and the submit button is disabled. Similar functionaility applies to password length. -->
     <script>
     function check_password() {
       if (document.getElementById("password").value == document.getElementById("confirm-password").value) {
@@ -14,9 +15,15 @@ with modifications to variable names and output messages. }}
         document.getElementById("feedback").innerHTML = "Passwords match :)";
         document.getElementById("feedback").style.color = "green";
       } else {
-        document.getElementById("submit").disabled = true;
         document.getElementById("feedback").innerHTML = "Passwords do not match";
         document.getElementById("feedback").style.color = "red";
+        document.getElementById("submit").disabled = true;
+      }
+
+      if (document.getElementById("password").value.length < 8) {
+        document.getElementById("feedback").innerHTML = "Passwords should be at least 8 characters long";
+        document.getElementById("feedback").style.color = "red";
+        document.getElementById("submit").disabled = true;
       }
     }
     </script>
