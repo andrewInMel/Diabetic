@@ -51,6 +51,7 @@ a {
   width: 18vmax;
   height: 2.5vmax;
   color: white;
+  cursor: pointer;
 }
 
 .space {
