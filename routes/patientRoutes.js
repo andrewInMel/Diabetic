@@ -76,6 +76,7 @@ router.get("/addHealth", patientAuth, async (req, res) => {
     required: Object.keys(patient.dataSet),
     style: "ptAddData.css",
     supportMsg: req.user.supportMsg,
+    message: req.query.validation,
   });
 });
 
@@ -87,71 +88,76 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
   const figure = req.body[dataType];
   const comment = req.body[`${dataType}Comment`];
   const unit = getUnit(dataType);
-  /* current date */
-  const today = new Date();
-  const date = today.toLocaleDateString("en-AU", {
-    timeZone: "Australia/Melbourne",
-  });
-  const time = today.toLocaleTimeString("en-AU", {
-    timeZone: "Australia/Melbourne",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  /* find the document */
-  const healthDoc = await Health.findOne({
-    patient: patient._id,
-    date: date,
-  }).exec();
-  /* create new health record */
-  if (!healthDoc) {
-    /* create data entry */
-    const newDataEntry = new Data({
-      figure: figure,
-      unit: unit,
-      timestamp: `${date} ${time}`,
-      clinician: patient.clinician,
-      patient: {
-        id: patient._id,
-        fullName: `${patient.firstName} ${patient.lastName}`,
-      },
-      about: dataType,
-      comment: comment,
+  /* data validation */
+  if (dataValidation(figure, dataType)) {
+    /* current date */
+    const today = new Date();
+    const date = today.toLocaleDateString("en-AU", {
+      timeZone: "Australia/Melbourne",
     });
-    const savedDataEntry = await newDataEntry.save();
-    /* create health record */
-    const newDoc = new Health({
-      date: date,
+    const time = today.toLocaleTimeString("en-AU", {
+      timeZone: "Australia/Melbourne",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    /* find the document */
+    const healthDoc = await Health.findOne({
       patient: patient._id,
-      [dataType]: savedDataEntry._id,
-    });
-    const complete = await newDoc.save();
-    /* if data stored, increment number of days of engagement */
-    if (complete) {
-      const patientDoc = await Patient.findById(patient._id);
-      patientDoc.dayscompleted = patientDoc.dayscompleted + 1;
-      await patientDoc.save();
+      date: date,
+    }).exec();
+    /* create new health record */
+    if (!healthDoc) {
+      /* create data entry */
+      const newDataEntry = new Data({
+        figure: figure,
+        unit: unit,
+        timestamp: `${date} ${time}`,
+        clinician: patient.clinician,
+        patient: {
+          id: patient._id,
+          fullName: `${patient.firstName} ${patient.lastName}`,
+        },
+        about: dataType,
+        comment: comment,
+      });
+      const savedDataEntry = await newDataEntry.save();
+      /* create health record */
+      const newDoc = new Health({
+        date: date,
+        patient: patient._id,
+        [dataType]: savedDataEntry._id,
+      });
+      const complete = await newDoc.save();
+      /* if data stored, increment number of days of engagement */
+      if (complete) {
+        const patientDoc = await Patient.findById(patient._id);
+        patientDoc.dayscompleted = patientDoc.dayscompleted + 1;
+        await patientDoc.save();
+        res.redirect("/patient/addHealth");
+      }
+      /* update health record*/
+    } else {
+      /* create data entry */
+      const newDataEntry = new Data({
+        figure: figure,
+        unit: unit,
+        timestamp: `${date} ${time}`,
+        clinician: patient.clinician,
+        patient: {
+          id: patient._id,
+          fullName: `${patient.firstName} ${patient.lastName}`,
+        },
+        about: dataType,
+        comment: comment,
+      });
+      const savedDataEntry = await newDataEntry.save();
+      /* update health record */
+      healthDoc[dataType] = savedDataEntry._id;
+      await healthDoc.save();
       res.redirect("/patient/addHealth");
     }
-    /* update health record*/
   } else {
-    /* create data entry */
-    const newDataEntry = new Data({
-      figure: figure,
-      unit: unit,
-      timestamp: `${date} ${time}`,
-      clinician: patient.clinician,
-      patient: {
-        id: patient._id,
-        fullName: `${patient.firstName} ${patient.lastName}`,
-      },
-      about: dataType,
-      comment: comment,
-    });
-    const savedDataEntry = await newDataEntry.save();
-    /* update health record */
-    healthDoc[dataType] = savedDataEntry._id;
-    await healthDoc.save();
-    res.redirect("/patient/addHealth");
+    res.redirect(`/patient/addHealth/?validation=failed`);
   }
 });
 
@@ -188,7 +194,9 @@ router.get("/engagement", patientAuth, async (req, res) => {
     return {
       id: onePatient._id,
       username: onePatient.username,
-      engageRate: Math.floor((onePatient.dayscompleted / (daysSignedUp+1)) * 100),
+      engageRate: Math.floor(
+        (onePatient.dayscompleted / (daysSignedUp + 1)) * 100
+      ),
     };
   });
   /* sort the list */
@@ -285,4 +293,21 @@ const getUnit = (type) => {
   }
 };
 
+/* validate if the data is reasonable */
+const dataValidation = (data, type) => {
+  switch (type) {
+    case "Insulin":
+      return data >= 0 && data < 200;
+      break;
+    case "Weight":
+      return data >= 0 && data < 300;
+      break;
+    case "BGL":
+      return data >= 0 && data < 100;
+      break;
+    case "Exercise":
+      return data >= 0 && data < 100000;
+      break;
+  }
+};
 module.exports = router;
