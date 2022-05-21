@@ -1,7 +1,8 @@
 <div class="flex-item hand" id="{{patient._id}}" >{{patient.firstName}} {{patient.lastName}}</div>
 <div class="data box new-box">
   <div class="flex-item sex">{{patient.gender}}</div>
-  <div class="flex-item dob">{{patient.dob}}</div>    
+  <div class="flex-item dob">{{patient.dob}}</div>   
+  <div class="flex-item date">{{todayRd.date}}</div> 
   {{! BGL data}}
   {{> clinSingleData 
       data = todayRd.BGL.figure 
