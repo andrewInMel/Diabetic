@@ -242,7 +242,7 @@ router.post("/password", patientAuth, async (req, res) => {
 router.get("/profile", patientAuth, async (req, res) => {
   res.render("ptProfile", {
     headerText: `My Page`,
-    style: "ptProfile.css",
+    style: "ptprofile.css",
     patient: req.user,
     supportMsg: req.user.supportMsg,
   });
