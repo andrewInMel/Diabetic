@@ -6,7 +6,7 @@
 
 /* body section container  */
 main {
-  height: 90vh;
+  height: 83vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -118,7 +118,7 @@ header {
 
   nav {
     height: 100%;
-    width: 6vw;
+    width: 5vw;
   }
 
   nav div {

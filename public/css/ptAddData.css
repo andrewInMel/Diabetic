@@ -46,40 +46,34 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .block-container {
   display: flex;
-  align-items: bottom;
+  align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
 /* data block section */
 .data-container {
-  width: 60%;
+  width: 32%;
   height: 12.5vh;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin-right: 5%;
+  justify-content: space-evenly;
 }
 
 /* left upper data section*/
 .upper-section {
   display: flex;
+  height: 30%;
   justify-content: space-around;
 }
 
 .star-style {
-  font-size: 30px;
+  font-size: 10vmin;
   color: red;
 }
 
-.desktop-star-style {
-  display: none;
-}
-
 .type-style {
-  padding-top: 4px;
-  font-size: 14px;
+  font-size: 6vmin;
   font-weight: bold;
   color: #f5eccb;
 }
@@ -87,11 +81,12 @@ input[type="number"]::-webkit-inner-spin-button {
 /* left middle data section*/
 .data-style {
   align-self: center;
-  width: 80px;
+  width: 100%;
+  height: 40%;
   border: none;
   text-align: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 7vmin;
   font-style: italic;
   outline: none;
 }
@@ -118,9 +113,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* time block section */
 .time-container {
-  height: 10vh;
-  width: 40vw;
-  padding-left: 3vw;
+  height: 12.5vh;
+  width: 26%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -129,21 +123,11 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .time-style {
   border-radius: 15px;
-  width: 100px;
-  height: 40px;
-  font-size: 20px;
+  width: 100%;
+  height: 45%;
+  font-size: 5vw;
   text-align: center;
   background-color: white;
-  margin-left: 0px;
-  margin-right: 6px;
-}
-
-.time-position {
-  float: bottom;
-}
-
-.time-style-disabled {
-  display: none;
 }
 
 .Insulin-border {
@@ -192,8 +176,9 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* comments block section */
 .comment-style {
-  width: 100%;
+  width: 32%;
   height: 12.5vh;
+  font-size: 20px;
   border-radius: 15px;
   background-color: white;
   text-align: start;
@@ -202,80 +187,57 @@ input[type="number"]::-webkit-inner-spin-button {
   resize: none;
 }
 
-@media screen and (max-width: 900px) {
-  .content-style {
-    padding: 5vh 5vw 0 3vw;
-  }
-}
-
 /* Desktop style*/
 @media screen and (min-width: 800px) {
   .content-style {
-    display: center;
-    padding-left: 15vw;
-    padding-right: 10vw;
+    width: 95vw;
+  }
+
+  .input-style {
+    height: 3.5vh;
   }
   .link-style {
-    width: 40%;
+    width: 100%;
+    height: 3.5vh;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
   }
   .require-style {
     color: red;
-    font-size: 20px;
+    font-size: 2vmin;
+  }
+  .data-section {
+    width: 60%;
   }
   /* data block section */
-  .data-container {
-    width: 60%;
-    flex-direction: row;
-    justify-content: flex-start;
-  }
   .upper-section {
-    width: 35%;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
-  .star-style {
-    display: none;
-  }
-  .desktop-star-style {
-    width: 1px;
-    display: flex;
-    justify-content: flex-end;
-    font-size: 3em;
-    color: red;
-  }
-
   .type-style {
-    padding-top: 0;
-    padding-left: 2vw;
-    font-size: 1.7em;
-    align-self: center;
+    font-size: 3vmin;
+    padding-left: 1vmax;
   }
   .data-style {
-    margin-left: 30px;
-    width: 100px;
-    font-size: 20px;
+    font-size: 3.5vmin;
   }
   .unit-style {
-    display: flex;
-    justify-content: flex-end;
-    width: 20%;
-    padding: 0;
-    font-size: 2.5vmin;
+    font-size: 2vmin;
   }
-
+  .star-style {
+    padding-right: 1vmax;
+    font-size: 3vmin;
+  }
+  /* comment section */
   .comment-style {
-    width: 40vw;
-    margin: 0;
+    padding: 1.5vmin 1.5vmin;
   }
 
   /* time block section*/
   .time-container {
-    width: 40px;
+    width: 18%;
   }
   .time-style {
-    font-size: 13px;
-    margin-left: 80px;
+    font-size: 3vmin;
   }
 }

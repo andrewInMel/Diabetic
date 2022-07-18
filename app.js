@@ -57,7 +57,7 @@ hbs.handlebars.registerHelper("getTime", (timestamp) => {
   return timestamp.slice(11);
 });
 /* for protocol use in heroku */
-app.enable("trust proxy");
+// app.enable("trust proxy");
 /* session configuration */
 app.use(
   session({
@@ -70,9 +70,9 @@ app.use(
     }),
     cookie: {
       maxAge: 43200000,
-      secure: true,
-      httpOnly: true,
-      sameSite: "strict",
+      // secure: true,
+      // httpOnly: true,
+      // sameSite: "strict",
     },
   })
 );

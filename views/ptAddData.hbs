@@ -1,33 +1,19 @@
 {{! main content}}
 <div class="content-style">
-  <h3 class="input-style">Add Inputs</h3>
+  <h3 class="input-style">Health Data</h3>
   <div class="link-style">
-    <h3>Today <a href="/past.html">Past</a></h3>
+    <h3>Today <a href="/patient/pastHealth">Past</a></h3>
     <p class="require-style"> * Required</p>
   </div>
   {{! add data }}
   <div class="data-section">
-    {{#if (in "Insulin" required)}}
-      {{> singleData data=healthRd.Insulin type="Insulin" unit="doses"}} 
-    {{/if}}
-    {{#if (in "Weight" required)}}
-      {{> singleData data=healthRd.Weight type="Weight" unit="kg"}}
-    {{/if}}
-    {{#if (in "BGL" required)}}
-      {{> singleData data=healthRd.BGL type="BGL" unit=" nmol/L"}}
-    {{/if}}
-    {{#if (in "Exercise" required)}}
-      {{> singleData data=healthRd.Exercise type="Exercise" unit="steps"}}
-    {{/if}}
+    {{> singleData data=healthRd.Insulin type="Insulin" unit="doses"}} 
+    {{> singleData data=healthRd.Weight type="Weight" unit="kg"}}
+    {{> singleData data=healthRd.BGL type="BGL" unit=" nmol/L"}}
+    {{> singleData data=healthRd.Exercise type="Exercise" unit="steps"}}
   </div>
 </div>
-<footer class="layout-footer">
-  <div class="left">
-    <div><a href="/aboutDia">About Diabetes</a></div>
-    <div>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="/aboutWebPage">About Diabetes@Home</a></div>
-  </div>
-  <div class="right">© Diabetes@Home 2022 &nbsp;&nbsp;|&nbsp;&nbsp; P: 0123456789 &nbsp;&nbsp;|&nbsp;&nbsp; E: <a href="mailto:diabetes.home@gmail.com">diabetes.home@gmail.com</div>
-</footer>
+
 
 <script>
   if("{{message}}" === "failed"){

@@ -12,7 +12,7 @@ router.get("/", patientAuth, (req, res) => {
 });
 
 /* get patient dashboard */
-router.get("/dashboard", patientAuth, async (req, res) => {
+router.get("/temp", patientAuth, async (req, res) => {
   /* authenticated patient */
   const patient = req.user;
   /* current date */
@@ -44,7 +44,7 @@ router.get("/dashboard", patientAuth, async (req, res) => {
 });
 
 /* addHealth page */
-router.get("/addHealth", patientAuth, async (req, res) => {
+router.get("/dashboard", patientAuth, async (req, res) => {
   /* authenticated patient */
   const patient = req.user;
   /* current date time & header text*/
@@ -154,10 +154,10 @@ router.post("/addHealth/:type", patientAuth, async (req, res) => {
       /* update health record */
       healthDoc[dataType] = savedDataEntry._id;
       await healthDoc.save();
-      res.redirect("/patient/addHealth");
+      res.redirect("/patient/dashboard");
     }
   } else {
-    res.redirect(`/patient/addHealth/?validation=failed`);
+    res.redirect(`/patient/dashboard/?validation=failed`);
   }
 });
 
